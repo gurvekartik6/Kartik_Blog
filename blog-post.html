@@ -213,19 +213,39 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.9rem;
     }
+
+    /* ── Improved Back Button Styles ── */
     .back-button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 32px;
+      gap: 10px;
+      margin-bottom: 40px;
+      padding: 12px 24px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 50px;
       color: var(--accent-purple);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
       cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .back-button i {
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
     }
     .back-button:hover {
-      text-decoration: underline;
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: white;
+      transform: translateX(-5px);
     }
+    .back-button:hover i {
+      transform: translateX(-3px);
+    }
+
     .hide-section {
       display: none !important;
     }
@@ -290,23 +310,13 @@
 <section id="filters-section" style="padding:36px 0;border-bottom:1px solid var(--border-color);background:var(--bg-secondary);">
   <div class="container">
     <div class="d-flex align-items-start justify-content-between flex-wrap gap-4">
-      <!-- Search -->
       <div class="search-wrap" style="flex:1;min-width:260px;">
-        <input
-          type="search"
-          id="search-input"
-          class="search-input"
-          placeholder="Search articles…"
-          aria-label="Search posts"
-          autocomplete="off"
-        />
+        <input type="search" id="search-input" class="search-input" placeholder="Search articles…" autocomplete="off" />
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
       </div>
-
-      <!-- Sort -->
       <div class="d-flex align-items-center gap-2">
         <label for="sort-select" style="font-size:0.82rem;color:var(--text-muted);white-space:nowrap;">Sort by</label>
-        <select id="sort-select" class="sort-select" aria-label="Sort posts">
+        <select id="sort-select" class="sort-select">
           <option value="newest">Newest first</option>
           <option value="oldest">Oldest first</option>
           <option value="readtime-asc">Shortest read</option>
@@ -314,11 +324,8 @@
         </select>
       </div>
     </div>
-
-    <!-- Tag pills -->
-    <div class="tag-filter" id="tag-filter" role="group" aria-label="Filter by tag">
+    <div class="tag-filter" id="tag-filter">
       <button class="tag-pill all-pill active" data-tag="all">All Posts</button>
-      <!-- dynamically filled -->
     </div>
   </div>
 </section>
@@ -328,9 +335,7 @@
   <div class="container">
     <div id="listing-view">
       <div class="results-info" id="results-info"></div>
-      <div class="blog-grid" id="blog-grid">
-        <!-- dynamically filled -->
-      </div>
+      <div class="blog-grid" id="blog-grid"></div>
       <div id="no-results" class="no-results" style="display:none;">
         <div class="nr-emoji">🔍</div>
         <h3>No articles found</h3>
@@ -344,30 +349,6 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<!-- <section class="newsletter-section">
-  <div class="container">
-    <div class="newsletter-card animate-on-scroll">
-      <div class="row align-items-center">
-        <div class="col-lg-7">
-          <div class="section-tag">Newsletter</div>
-          <h2 class="newsletter-title">Never Miss a Post 📬</h2>
-          <p class="newsletter-subtitle">New articles every week — Android dev, MERN tips, ML experiments, hackathon recaps. No spam, ever.</p>
-          <form class="newsletter-form" novalidate>
-            <input type="email" class="newsletter-input" placeholder="your@email.com" required />
-            <button type="submit" class="btn-primary-custom">
-              <i class="fa-solid fa-paper-plane"></i> Subscribe
-            </button>
-          </form>
-        </div>
-        <div class="col-lg-5 d-none d-lg-flex justify-content-center">
-          <div style="font-size:7rem;opacity:0.7;user-select:none;">✉️</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
@@ -375,21 +356,20 @@
       <p class="footer-copy">© 2026 <span>Kartik Yadav Gurve</span>. All rights reserved.</p>
       <div class="footer-social">
         <a href="https://github.com/gurvekartik6" class="social-link"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-        <!-- <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a> -->
+        <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="js/posts-data.js"></script>
+<script src="js/post-data.js"></script>
 <script src="js/theme-toggle.js"></script>
 <script src="js/newsletter.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/main.js"></script>
+
 <script>
 /* ── Blog listing page logic ─────────────────────────────── */
 
@@ -397,7 +377,6 @@ let activeTag = 'all';
 let activeSort = 'newest';
 let searchQuery = '';
 
-// ── Render tag pills ──────────────────────────────────────
 function renderTagPills() {
   const container = document.getElementById('tag-filter');
   const tags = getAllTags();
@@ -411,7 +390,6 @@ function renderTagPills() {
   });
 }
 
-// ── Select tag ───────────────────────────────────────────
 function selectTag(tag) {
   activeTag = tag;
   document.querySelectorAll('.tag-pill').forEach(p => {
@@ -420,7 +398,6 @@ function selectTag(tag) {
   renderPosts();
 }
 
-// ── Clear filters ────────────────────────────────────────
 window.clearFilters = function() {
   activeTag = 'all';
   searchQuery = '';
@@ -433,7 +410,6 @@ window.clearFilters = function() {
   renderPosts();
 }
 
-// ── Sort posts ───────────────────────────────────────────
 function sortPosts(posts) {
   switch (activeSort) {
     case 'oldest':
@@ -442,14 +418,13 @@ function sortPosts(posts) {
       return [...posts].sort((a, b) => a.readTime - b.readTime);
     case 'readtime-desc':
       return [...posts].sort((a, b) => b.readTime - a.readTime);
-    default: // newest
+    default:
       return [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
   }
 }
 
-// ── Build card HTML ──────────────────────────────────────
 function buildCard(post, index) {
-  const isWide = (index === 0); // first card is wide (featured)
+  const isWide = (index === 0);
   const card = document.createElement('div');
   card.className = `blog-card${isWide ? ' wide' : ''}`;
   card.setAttribute('role', 'article');
@@ -486,12 +461,10 @@ function buildCard(post, index) {
     </div>
   `;
 
-  // CHANGED: Navigate to blog-post.html with slug parameter
   const go = () => { window.location.href = `blog-post.html?slug=${post.slug}`; };
   card.addEventListener('click', go);
   card.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
 
-  // 3D tilt
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
     const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
@@ -503,21 +476,16 @@ function buildCard(post, index) {
   return card;
 }
 
-// ── Render posts ─────────────────────────────────────────
 function renderPosts() {
   const grid = document.getElementById('blog-grid');
   const noResults = document.getElementById('no-results');
   const info = document.getElementById('results-info');
 
-  // Filter
   let posts = getAllPosts();
   if (activeTag !== 'all') posts = posts.filter(p => p.tags.includes(activeTag));
-  if (searchQuery) posts = searchPosts(searchQuery).filter(p =>
-    activeTag === 'all' || p.tags.includes(activeTag)
-  );
+  if (searchQuery) posts = searchPosts(searchQuery).filter(p => activeTag === 'all' || p.tags.includes(activeTag));
   posts = sortPosts(posts);
 
-  // Clear
   grid.innerHTML = '';
 
   if (!posts.length) {
@@ -527,14 +495,11 @@ function renderPosts() {
   }
 
   noResults.style.display = 'none';
-  const label = activeTag !== 'all'
-    ? `in <span>${activeTag}</span>`
-    : searchQuery ? `matching "<span>${searchQuery}</span>"` : '';
+  const label = activeTag !== 'all' ? `in <span>${activeTag}</span>` : searchQuery ? `matching "<span>${searchQuery}</span>"` : '';
   info.innerHTML = `Showing <span>${posts.length}</span> article${posts.length !== 1 ? 's' : ''} ${label}`;
 
   posts.forEach((post, i) => {
     const card = buildCard(post, i);
-    // Stagger animation
     card.style.opacity = '0';
     card.style.transform = 'translateY(24px)';
     grid.appendChild(card);
@@ -546,7 +511,6 @@ function renderPosts() {
   });
 }
 
-// ── Show Single Post ──────────────────────────────────────
 function showSinglePost(slug) {
   const post = getPostBySlug(slug);
   
@@ -594,11 +558,9 @@ function showSinglePost(slug) {
   document.getElementById('hero-section').classList.add('hide-section');
   document.getElementById('filters-section').classList.add('hide-section');
   
-  // Scroll to top
   window.scrollTo(0, 0);
 }
 
-// ── Show Listing ──────────────────────────────────────────
 function showListing() {
   document.getElementById('single-post-view').style.display = 'none';
   document.getElementById('listing-view').style.display = 'block';
@@ -606,32 +568,28 @@ function showListing() {
   document.getElementById('filters-section').classList.remove('hide-section');
   document.title = 'Blog — Kartik Yadav Gurve';
   
-  // Update URL without reload
   const url = new URL(window.location);
   url.searchParams.delete('slug');
   window.history.pushState({}, '', url);
+  
+  renderPosts();
 }
 
-// ── Init ─────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  // Check if we are viewing a single post
   const params = new URLSearchParams(window.location.search);
   const slugParam = params.get('slug');
   
   if (slugParam) {
     showSinglePost(slugParam);
   } else {
-    // Show listing view
     showListing();
     
-    // Post count in hero
     const countEl = document.getElementById('post-count-hero');
     if (countEl) countEl.textContent = `${POSTS_DB.length} articles`;
     
     renderTagPills();
     renderPosts();
     
-    // Search (debounced)
     let searchTimer;
     document.getElementById('search-input').addEventListener('input', (e) => {
       clearTimeout(searchTimer);
@@ -641,16 +599,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 250);
     });
     
-    // Sort
     document.getElementById('sort-select').addEventListener('change', (e) => {
       activeSort = e.target.value;
       renderPosts();
     });
     
-    // Tag pill — All button
     document.querySelector('.all-pill').addEventListener('click', () => selectTag('all'));
     
-    // Check URL for tag param
     const tagParam = params.get('tag');
     if (tagParam) {
       setTimeout(() => selectTag(tagParam), 50);
