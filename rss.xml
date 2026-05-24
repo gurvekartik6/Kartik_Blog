@@ -2,7 +2,7 @@
 <rss version="2.0">
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
-  <link>https://kartik-blog.com/</link>
+  <link>https://kartik-blog.vercel.app/</link>
   <description>Android, MERN, ML experiments, and hackathon journeys</description>
   <language>en</language>
   <lastBuildDate>Mon, 24 May 2025 12:00:00 GMT</lastBuildDate>
