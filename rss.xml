@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Kartik Yadav Gurve | Developer Blog</title>
+  <link>https://ksrtik-blog.com/</link>
+  <description>Android, MERN, ML experiments, and hackathon journeys</description>
+  <language>en</language>
+  <lastBuildDate>Mon, 24 May 2025 12:00:00 GMT</lastBuildDate>
+
+  <!-- COPY THIS BLOCK FOR EACH NEW BLOG POST -->
+
+  <item>
+    <title>My Love and Passion About Coding Since 2018 When I Made RPG Maker Games</title>
+    <link>https://yourwebsite.com/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</link>
+    <description>My love and passion about coding since 2018 when I made RPG maker games</description>
+    <pubDate>Wed, 21 May 2025 10:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>The Idea About the Blogging Website</title>
+    <link>https://yourwebsite.com/blog-post.html?slug=the-idea-about-the-blogging-website</link>
+    <description>The idea about the blogging website and why I built it this way</description>
+    <pubDate>Thu, 22 May 2025 10:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>How I Work as an Instructor at Sai Ambrosia After 10th</title>
+    <link>https://yourwebsite.com/blog-post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
+    <description>After 10th how I work as instructor at Sai Ambrosia Education</description>
+    <pubDate>Fri, 23 May 2025 10:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>The Tech Skills I Have Learned</title>
+    <link>https://yourwebsite.com/blog-post.html?slug=tech-skills-i-have-learned</link>
+    <description>The tech skills I have learned over the years</description>
+    <pubDate>Sat, 24 May 2025 10:00:00 GMT</pubDate>
+  </item>
+
+  <!-- END COPY BLOCK -->
+
+</channel>
+</rss>
