@@ -22,75 +22,147 @@
  */
 
 const POSTS_DB = [
-
   // ── POST 1 (May 21, 2025) ──────────────────────────────────
   {
-    slug:       "my-love-and-passion-about-coding-since-2018",
-    title:      "My Love and Passion About Coding Since 2018 When I Made RPG Maker Games",
-    excerpt:    "My love and passion about coding since 2018 when I made RPG maker games",
-    emoji:      "",
-    tags:       ["Personal", "Coding", "Passion"],
-    author:     "Kartik Yadav Gurve",
-    date:       "May 21, 2025",
-    readTime:   5,
-    featured:   true,
+    slug: "my-love-and-passion-about-coding-since-2018",
+    title:
+      "My Love and Passion About Coding Since 2018 When I Made RPG Maker Games",
+    excerpt:
+      "My love and passion about coding since 2018 when I made RPG maker games",
+    emoji: "",
+    tags: ["Personal", "Coding", "Passion"],
+    author: "Kartik Yadav Gurve",
+    date: "May 21, 2025",
+    readTime: 5,
+    featured: true,
     content: `
 <h2 id="intro">My Love and Passion About Coding Since 2019</h2>
 <p>I made RPG maker games in 2019 and that started my coding journey.</p>
-    `
+    `,
   },
 
   // ── POST 2 (May 22, 2025) ──────────────────────────────────
   {
-    slug:       "the-idea-about-the-blogging-website",
-    title:      "The Idea About the Blogging Website",
-    excerpt:    "The idea about the blogging website and why I built it this way",
-    emoji:      "",
-    tags:       ["Blogging", "Web Development"],
-    author:     "Kartik Yadav Gurve",
-    date:       "May 22, 2025",
-    readTime:   4,
-    featured:   true,
+    slug: "the-idea-about-the-blogging-website",
+    title: "The Idea About the Blogging Website",
+    excerpt: "The idea about the blogging website and why I built it this way",
+    emoji: "",
+    tags: ["Blogging", "Web Development"],
+    author: "Kartik Yadav Gurve",
+    date: "May 22, 2025",
+    readTime: 4,
+    featured: true,
     content: `
 <h2 id="intro">The Idea About the Blogging Website</h2>
 <p>The idea about the blogging website came from wanting to share my journey.</p>
-    `
+    `,
   },
 
   // ── POST 3 (May 23, 2025) ──────────────────────────────────
   {
-    slug:       "how-i-work-as-instructor-at-sai-ambrosia",
-    title:      "How I Work as an Instructor at Sai Ambrosia After 10th",
-    excerpt:    "After 10th how I work as instructor at Sai Ambrosia Education",
-    emoji:      "",
-    tags:       ["Teaching", "Power BI"],
-    author:     "Kartik Yadav Gurve",
-    date:       "May 23, 2025",
-    readTime:   4,
-    featured:   true,
+    slug: "how-i-work-as-instructor-at-sai-ambrosia",
+    title: "How I Work as an Instructor at Sai Ambrosia After 10th",
+    excerpt: "After 10th how I work as instructor at Sai Ambrosia Education",
+    emoji: "",
+    tags: ["Teaching", "Power BI"],
+    author: "Kartik Yadav Gurve",
+    date: "May 23, 2025",
+    readTime: 4,
+    featured: true,
     content: `
 <h2 id="intro">How I Work as an Instructor at Sai Ambrosia After 10th</h2>
 <p>After 10th I started teaching Power BI at Sai Ambrosia Education.</p>
-    `
+    `,
   },
 
   // ── POST 4 (May 24, 2025) ──────────────────────────────────
   {
-    slug:       "tech-skills-i-have-learned",
-    title:      "The Tech Skills I Have Learned",
-    excerpt:    "The tech skills I have learned over the years",
-    emoji:      "",
-    tags:       ["Skills", "Learning"],
-    author:     "Kartik Yadav Gurve",
-    date:       "May 24, 2025",
-    readTime:   4,
-    featured:   true,
+    slug: "tech-skills-i-have-learned",
+    title: "The Tech Skills I Have Learned",
+    excerpt: "The tech skills I have learned over the years",
+    emoji: "",
+    tags: ["Skills", "Learning"],
+    author: "Kartik Yadav Gurve",
+    date: "May 24, 2025",
+    readTime: 4,
+    featured: true,
     content: `
 <h2 id="intro">The Tech Skills I Have Learned</h2>
 <p>The tech skills I have learned include Android, Kotlin, Firebase, ML, Power BI, Docker and more.</p>
-    `
+    `,
   },
+  {
+    slug: "connect-java-to-postgresql",
+    title: "How to Connect Java Application to PostgreSQL",
+    excerpt: "Step-by-step guide to connect Java with PostgreSQL database",
+    emoji: "",
+    tags: ["Java", "PostgreSQL", "Database", "JDBC"],
+    author: "Kartik Yadav Gurve",
+    date: "May 25, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<h2 id="intro">How to Connect Java Application to PostgreSQL</h2>
+<p>Connect Java with PostgreSQL using JDBC driver.</p>
 
+<h3>1. Download JDBC Driver</h3>
+<p>Download <code>postgresql-42.7.3.jar</code> from <a href="https://jdbc.postgresql.org/download/">jdbc.postgresql.org</a></p>
+
+<h3>2. Project Structure</h3>
+<pre><code>MyApp/
+├── lib/
+│   └── postgresql-42.7.3.jar
+└── Main.java</code></pre>
+
+<h3>3. Java Code</h3>
+<pre><code>import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String url = "jdbc:postgresql://localhost:5432/mydb";
+        String user = "postgres";
+        String password = "yourpass";
+
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected!");
+
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+
+            while (rs.next()) {
+                System.out.println(rs.getString("name"));
+            }
+
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+
+<h3>4. Compile & Run</h3>
+<p><strong>Windows:</strong></p>
+<pre><code>javac -cp "lib/postgresql-42.7.3.jar;." Main.java
+java -cp "lib/postgresql-42.7.3.jar;." Main</code></pre>
+<p><strong>Mac/Linux:</strong></p>
+<pre><code>javac -cp "lib/postgresql-42.7.3.jar:." Main.java
+java -cp "lib/postgresql-42.7.3.jar:." Main</code></pre>
+
+<h3>5. Insert Data</h3>
+<pre><code>PreparedStatement pstmt = conn.prepareStatement("INSERT INTO users (name) VALUES (?)");
+pstmt.setString(1, "John");
+pstmt.executeUpdate();</code></pre>
+
+<h3>6. Common Issues</h3>
+<ul>
+  <li>PostgreSQL not running → start with <code>sudo systemctl start postgresql</code></li>
+  <li>Wrong password → check pg_hba.conf</li>
+  <li>Port 5432 blocked → change in postgresql.conf</li>
+</ul>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
@@ -106,14 +178,14 @@ function getAllPosts() {
  * Get a single post by slug.
  */
 function getPostBySlug(slug) {
-  return POSTS_DB.find(p => p.slug === slug) || null;
+  return POSTS_DB.find((p) => p.slug === slug) || null;
 }
 
 /**
  * Get posts filtered by tag.
  */
 function getPostsByTag(tag) {
-  return POSTS_DB.filter(p => p.tags.includes(tag));
+  return POSTS_DB.filter((p) => p.tags.includes(tag));
 }
 
 /**
@@ -122,9 +194,9 @@ function getPostsByTag(tag) {
 function getRelatedPosts(slug, limit = 3) {
   const post = getPostBySlug(slug);
   if (!post) return [];
-  return POSTS_DB
-    .filter(p => p.slug !== slug && p.tags.some(t => post.tags.includes(t)))
-    .slice(0, limit);
+  return POSTS_DB.filter(
+    (p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t)),
+  ).slice(0, limit);
 }
 
 /**
@@ -132,7 +204,7 @@ function getRelatedPosts(slug, limit = 3) {
  */
 function getAllTags() {
   const tagSet = new Set();
-  POSTS_DB.forEach(p => p.tags.forEach(t => tagSet.add(t)));
+  POSTS_DB.forEach((p) => p.tags.forEach((t) => tagSet.add(t)));
   return [...tagSet].sort();
 }
 
@@ -142,10 +214,11 @@ function getAllTags() {
 function searchPosts(query) {
   const q = query.toLowerCase().trim();
   if (!q) return getAllPosts();
-  return POSTS_DB.filter(p =>
-    p.title.toLowerCase().includes(q) ||
-    p.excerpt.toLowerCase().includes(q) ||
-    p.tags.some(t => t.toLowerCase().includes(q))
+  return POSTS_DB.filter(
+    (p) =>
+      p.title.toLowerCase().includes(q) ||
+      p.excerpt.toLowerCase().includes(q) ||
+      p.tags.some((t) => t.toLowerCase().includes(q)),
   );
 }
 
