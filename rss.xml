@@ -54,17 +54,13 @@
   </item>
 
   <!-- POST 6: May 26, 2026 (Tuesday - TODAY) -->
-  <!-- TODO: Add your new post for today (May 26, 2026) here -->
-  <!-- Copy the template below, fill it in, and paste it above this line -->
-  <!--
   <item>
-    <title>Your Post Title Here</title>
-    <link>https://kartik-blog.vercel.app/post.html?slug=your-post-slug-here</link>
-    <description>Your excerpt description here</description>
+    <title>Hibernate ORM: What It Is and Why You Need It</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</link>
+    <description>Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.</description>
     <pubDate>Tue, 26 May 2026 20:00:00 GMT</pubDate>
-    <guid>https://kartik-blog.vercel.app/post.html?slug=your-post-slug-here</guid>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</guid>
   </item>
-  -->
 
 </channel>
 </rss>

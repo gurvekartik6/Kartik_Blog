@@ -167,8 +167,48 @@ pstmt.executeUpdate();</code></pre>
   },
 
   // ── POST 6 (May 26, 2026 - TODAY) ──────────────────────────
-  // TODO: Add your new post for today (May 26, 2026) here
-  // Copy the template below, fill it in, and paste it above this comment
+  {
+    slug: "hibernate-orm-simple-guide",
+    title: "Hibernate ORM: What It Is and Why You Need It",
+    excerpt: "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
+    emoji: "💤",
+    tags: ["Java", "Hibernate", "Database"],
+    author: "Kartik Yadav Gurve",
+    date: "May 26, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<h2 id="what-is-hibernate">What is Hibernate?</h2>
+<p>Hibernate is a framework that lets you work with databases using Java objects instead of writing SQL queries. It automatically converts your Java code into database commands.</p>
+
+<h2 id="why-use">Why Use Hibernate?</h2>
+<ul>
+  <li><strong>No SQL needed</strong> — Just work with Java objects</li>
+  <li><strong>Switch databases easily</strong> — Same code works for PostgreSQL, MySQL, Oracle</li>
+  <li><strong>Automatic table creation</strong> — Hibernate creates tables from your Java classes</li>
+  <li><strong>Built-in caching</strong> — Faster performance</li>
+</ul>
+
+<h2 id="how-it-works">How It Works (Simple Example)</h2>
+<p>Instead of writing <code>INSERT INTO users VALUES (...)</code>, you just do:</p>
+<pre><code>User user = new User();
+user.setName("Kartik");
+session.save(user);  // Hibernate handles the SQL</code></pre>
+
+<h2 id="configuration">Getting Configuration</h2>
+<p>You need just 3 things to configure Hibernate:</p>
+<ol>
+  <li><strong>Database URL</strong> — where your database lives</li>
+  <li><strong>Username & Password</strong> — to access it</li>
+  <li><strong>Dialect</strong> — tells Hibernate which database you're using (PostgreSQL, MySQL, etc.)</li>
+</ol>
+<p>Put these in <code>hibernate.cfg.xml</code> or <code>application.properties</code> file, and you're ready to go!</p>
+
+<h2 id="summary">Summary</h2>
+<p>Hibernate = Less SQL, more Java. Perfect for saving time and keeping your code clean.</p>
+    `,
+  }
+  // ── POST 6 (May 26, 2026 - TODAY) ──────────────────────────
   
 ];
 
