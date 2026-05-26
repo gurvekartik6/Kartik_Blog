@@ -171,7 +171,7 @@ pstmt.executeUpdate();</code></pre>
     slug: "hibernate-orm-simple-guide",
     title: "Hibernate ORM: What It Is and Why You Need It",
     excerpt: "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
-    emoji: "💤",
+    emoji: "",
     tags: ["Java", "Hibernate", "Database"],
     author: "Kartik Yadav Gurve",
     date: "May 26, 2026",
