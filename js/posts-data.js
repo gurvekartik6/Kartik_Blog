@@ -22,7 +22,7 @@
  */
 
 const POSTS_DB = [
-  // ── POST 1 (May 21, 2025) ──────────────────────────────────
+  // ── POST 1 (May 21, 2026) ──────────────────────────────────
   {
     slug: "my-love-and-passion-about-coding-since-2018",
     title:
@@ -32,16 +32,16 @@ const POSTS_DB = [
     emoji: "",
     tags: ["Personal", "Coding", "Passion"],
     author: "Kartik Yadav Gurve",
-    date: "May 21, 2025",
+    date: "May 21, 2026",
     readTime: 5,
     featured: true,
     content: `
-<h2 id="intro">My Love and Passion About Coding Since 2019</h2>
-<p>I made RPG maker games in 2019 and that started my coding journey.</p>
+<h2 id="intro">My Love and Passion About Coding Since 2018</h2>
+<p>I made RPG maker games in 2018 and that started my coding journey.</p>
     `,
   },
 
-  // ── POST 2 (May 22, 2025) ──────────────────────────────────
+  // ── POST 2 (May 22, 2026) ──────────────────────────────────
   {
     slug: "the-idea-about-the-blogging-website",
     title: "The Idea About the Blogging Website",
@@ -49,7 +49,7 @@ const POSTS_DB = [
     emoji: "",
     tags: ["Blogging", "Web Development"],
     author: "Kartik Yadav Gurve",
-    date: "May 22, 2025",
+    date: "May 22, 2026",
     readTime: 4,
     featured: true,
     content: `
@@ -58,7 +58,7 @@ const POSTS_DB = [
     `,
   },
 
-  // ── POST 3 (May 23, 2025) ──────────────────────────────────
+  // ── POST 3 (May 23, 2026) ──────────────────────────────────
   {
     slug: "how-i-work-as-instructor-at-sai-ambrosia",
     title: "How I Work as an Instructor at Sai Ambrosia After 10th",
@@ -66,7 +66,7 @@ const POSTS_DB = [
     emoji: "",
     tags: ["Teaching", "Power BI"],
     author: "Kartik Yadav Gurve",
-    date: "May 23, 2025",
+    date: "May 23, 2026",
     readTime: 4,
     featured: true,
     content: `
@@ -75,7 +75,7 @@ const POSTS_DB = [
     `,
   },
 
-  // ── POST 4 (May 24, 2025) ──────────────────────────────────
+  // ── POST 4 (May 24, 2026) ──────────────────────────────────
   {
     slug: "tech-skills-i-have-learned",
     title: "The Tech Skills I Have Learned",
@@ -83,7 +83,7 @@ const POSTS_DB = [
     emoji: "",
     tags: ["Skills", "Learning"],
     author: "Kartik Yadav Gurve",
-    date: "May 24, 2025",
+    date: "May 24, 2026",
     readTime: 4,
     featured: true,
     content: `
@@ -91,6 +91,8 @@ const POSTS_DB = [
 <p>The tech skills I have learned include Android, Kotlin, Firebase, ML, Power BI, Docker and more.</p>
     `,
   },
+
+  // ── POST 5 (May 25, 2026 - YESTERDAY) ───────────────────────
   {
     slug: "connect-java-to-postgresql",
     title: "How to Connect Java Application to PostgreSQL",
@@ -142,7 +144,7 @@ public class Main {
     }
 }</code></pre>
 
-<h3>4. Compile & Run</h3>
+<h3>4. Compile &amp; Run</h3>
 <p><strong>Windows:</strong></p>
 <pre><code>javac -cp "lib/postgresql-42.7.3.jar;." Main.java
 java -cp "lib/postgresql-42.7.3.jar;." Main</code></pre>
@@ -163,6 +165,11 @@ pstmt.executeUpdate();</code></pre>
 </ul>
     `,
   },
+
+  // ── POST 6 (May 26, 2026 - TODAY) ──────────────────────────
+  // TODO: Add your new post for today (May 26, 2026) here
+  // Copy the template below, fill it in, and paste it above this comment
+  
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
@@ -232,7 +239,7 @@ function searchPosts(query) {
     emoji:      "🚀",
     tags:       ["Tag1", "Tag2"],
     author:     "Kartik Yadav Gurve",
-    date:       "Jun 1, 2025",
+    date:       "May 27, 2026",
     readTime:   5,
     featured:   false,
     content: `
