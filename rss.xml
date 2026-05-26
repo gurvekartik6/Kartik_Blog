@@ -1,43 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
   <description>Android, MERN, ML experiments, and hackathon journeys</description>
   <language>en</language>
-  <lastBuildDate>Mon, 24 May 2025 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 26 May 2026 21:00:00 GMT</lastBuildDate>
+  <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
-  <!-- COPY THIS BLOCK FOR EACH NEW BLOG POST -->
-
+  <!-- POST 1: May 21, 2026 (Thursday) -->
   <item>
     <title>My Love and Passion About Coding Since 2018 When I Made RPG Maker Games</title>
-    <link>https://yourwebsite.com/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</link>
+    <link>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</link>
     <description>My love and passion about coding since 2018 when I made RPG maker games</description>
-    <pubDate>Wed, 21 May 2025 10:00:00 GMT</pubDate>
+    <pubDate>Thu, 21 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</guid>
   </item>
 
+  <!-- POST 2: May 22, 2026 (Friday) -->
   <item>
     <title>The Idea About the Blogging Website</title>
-    <link>https://yourwebsite.com/blog-post.html?slug=the-idea-about-the-blogging-website</link>
+    <link>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</link>
     <description>The idea about the blogging website and why I built it this way</description>
-    <pubDate>Thu, 22 May 2025 10:00:00 GMT</pubDate>
+    <pubDate>Fri, 22 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</guid>
   </item>
 
+  <!-- POST 3: May 23, 2026 (Saturday) -->
   <item>
     <title>How I Work as an Instructor at Sai Ambrosia After 10th</title>
-    <link>https://yourwebsite.com/blog-post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
+    <link>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
     <description>After 10th how I work as instructor at Sai Ambrosia Education</description>
-    <pubDate>Fri, 23 May 2025 10:00:00 GMT</pubDate>
+    <pubDate>Sat, 23 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</guid>
   </item>
 
+  <!-- POST 4: May 24, 2026 (Sunday) -->
   <item>
     <title>The Tech Skills I Have Learned</title>
-    <link>https://yourwebsite.com/blog-post.html?slug=tech-skills-i-have-learned</link>
+    <link>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</link>
     <description>The tech skills I have learned over the years</description>
-    <pubDate>Sat, 24 May 2025 10:00:00 GMT</pubDate>
+    <pubDate>Sun, 24 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</guid>
   </item>
 
-  <!-- END COPY BLOCK -->
+  <!-- POST 5: May 25, 2026 (Monday - YESTERDAY) -->
+  <item>
+    <title>How to Connect Java Application to PostgreSQL</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</link>
+    <description>Step-by-step guide to connect Java with PostgreSQL database</description>
+    <pubDate>Mon, 25 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</guid>
+  </item>
+
+  <!-- POST 6: May 26, 2026 (Tuesday - TODAY) -->
+  <!-- TODO: Add your new post for today (May 26, 2026) here -->
+  <!-- Copy the template below, fill it in, and paste it above this line -->
+  <!--
+  <item>
+    <title>Your Post Title Here</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=your-post-slug-here</link>
+    <description>Your excerpt description here</description>
+    <pubDate>Tue, 26 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=your-post-slug-here</guid>
+  </item>
+  -->
 
 </channel>
 </rss>
