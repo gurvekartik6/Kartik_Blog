@@ -5,7 +5,7 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Android, MERN, ML experiments, and hackathon journeys</description>
   <language>en</language>
-  <lastBuildDate>Tue, 26 May 2026 21:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 27 May 2026 21:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- POST 1: May 21, 2026 (Thursday) -->
@@ -44,7 +44,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</guid>
   </item>
 
-  <!-- POST 5: May 25, 2026 (Monday - YESTERDAY) -->
+  <!-- POST 5: May 25, 2026 (Monday) -->
   <item>
     <title>How to Connect Java Application to PostgreSQL</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</link>
@@ -53,13 +53,22 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</guid>
   </item>
 
-  <!-- POST 6: May 26, 2026 (Tuesday - TODAY) -->
+  <!-- POST 6: May 26, 2026 (Tuesday) -->
   <item>
     <title>Hibernate ORM: What It Is and Why You Need It</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</link>
     <description>Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.</description>
     <pubDate>Tue, 26 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</guid>
+  </item>
+
+  <!-- POST 7: May 27, 2026 (Wednesday - TODAY) -->
+  <item>
+    <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
+    <description>A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.</description>
+    <pubDate>Wed, 27 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</guid>
   </item>
 
 </channel>

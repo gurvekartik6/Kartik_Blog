@@ -170,7 +170,8 @@ pstmt.executeUpdate();</code></pre>
   {
     slug: "hibernate-orm-simple-guide",
     title: "Hibernate ORM: What It Is and Why You Need It",
-    excerpt: "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
+    excerpt:
+      "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
     emoji: "",
     tags: ["Java", "Hibernate", "Database"],
     author: "Kartik Yadav Gurve",
@@ -207,9 +208,64 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <h2 id="summary">Summary</h2>
 <p>Hibernate = Less SQL, more Java. Perfect for saving time and keeping your code clean.</p>
     `,
-  }
-  // ── POST 6 (May 26, 2026 - TODAY) ──────────────────────────
-  
+  },
+  // ── POST 7 (May 26, 2026 - TODAY) ──────────────────────────
+  // ── POST 7 (May 27, 2026 - TOMORROW) ──────────────────────────
+  {
+    slug: "hibernate-orm-mapping-relationships-annotations",
+    title: "Hibernate ORM: Mapping Relationships & Annotations (Theory)",
+    excerpt:
+      "A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.",
+    emoji: "🔗",
+    tags: ["Java", "Hibernate", "Database", "Theory"],
+    author: "Kartik Yadav Gurve",
+    date: "May 27, 2026",
+    readTime: 5,
+    featured: true,
+    content: `
+<h2 id="intro">Understanding Hibernate Relationships</h2>
+<p>When you work with databases, tables are connected. In Hibernate, we use simple annotations to tell Java how these connections work, without writing complex SQL foreign keys.</p>
+
+<h2 id="one-to-one">1. @OneToOne</h2>
+<p><strong>Theory:</strong> One record in Table A is linked to exactly one record in Table B.</p>
+<p><strong>Real-world example:</strong> One <strong>User</strong> has exactly one <strong>Profile</strong> (like a passport or Aadhaar card).</p>
+<p><strong>Annotation used:</strong> <code>@OneToOne</code> on the Java object representing the related entity.</p>
+
+<h2 id="one-to-many">2. @OneToMany</h2>
+<p><strong>Theory:</strong> One record in Table A can be linked to multiple records in Table B.</p>
+<p><strong>Real-world example:</strong> One <strong>Category</strong> (like "Java") can have many <strong>Blog Posts</strong>.</p>
+<p><strong>Annotation used:</strong> <code>@OneToMany</code>. This is usually placed on a <strong>List or Set</strong> inside the parent class.</p>
+
+<h2 id="many-to-one">3. @ManyToOne</h2>
+<p><strong>Theory:</strong> This is the reverse side of <code>@OneToMany</code>. Many records in Table B belong to one record in Table A.</p>
+<p><strong>Real-world example:</strong> Many <strong>Blog Posts</strong> belong to one <strong>Category</strong>.</p>
+<p><strong>Annotation used:</strong> <code>@ManyToOne</code>. This is usually placed on the child object inside the many-side class.</p>
+
+<h2 id="many-to-many">4. @ManyToMany</h2>
+<p><strong>Theory:</strong> Many records in Table A can be linked to many records in Table B, and vice versa.</p>
+<p><strong>Real-world example:</strong> A <strong>Student</strong> can enroll in many <strong>Courses</strong>, and a <strong>Course</strong> can have many <strong>Students</strong>.</p>
+<p><strong>Annotation used:</strong> <code>@ManyToMany</code>. Hibernate automatically creates a third "join table" in the database to handle this connection.</p>
+
+<h2 id="mapped-by">The 'mappedBy' Attribute</h2>
+<p><strong>Theory:</strong> In a relationship, one side is the "owner" and the other is the "mirror". <code>mappedBy</code> tells Hibernate: <em>"Look at the other class's field to find the link."</em></p>
+<p><strong>Simple Rule:</strong> Use <code>mappedBy</code> on the <code>@OneToMany</code> side (the inverse side) to avoid creating an extra table.</p>
+
+<h2 id="fetch-types">Fetch Types: Lazy vs Eager</h2>
+<p><strong>Lazy (FetchType.LAZY):</strong> Hibernate only loads the related data when you actually <strong>ask for it</strong> in your code. Good for performance.</p>
+<p><strong>Eager (FetchType.EAGER):</strong> Hibernate loads the related data <strong>immediately</strong> with the main object. Easy but can be slow.</p>
+
+<h2 id="summary">Quick Summary</h2>
+<ul>
+  <li><strong>@OneToOne</strong> → One-to-one (User ↔ Profile)</li>
+  <li><strong>@OneToMany</strong> → One parent to many children (Category → Posts)</li>
+  <li><strong>@ManyToOne</strong> → Many children to one parent (Posts → Category)</li>
+  <li><strong>@ManyToMany</strong> → Many-to-many (Students ↔ Courses)</li>
+  <li><strong>mappedBy</strong> → Avoids duplicate columns</li>
+  <li><strong>LAZY/EAGER</strong> → Controls when data is loaded</li>
+</ul>
+<p>No code, just concepts! Hibernate maps your Java thinking directly to database tables.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
