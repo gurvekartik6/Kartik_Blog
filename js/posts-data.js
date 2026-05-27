@@ -216,7 +216,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
     title: "Hibernate ORM: Mapping Relationships & Annotations (Theory)",
     excerpt:
       "A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.",
-    emoji: "🔗",
+    emoji: "",
     tags: ["Java", "Hibernate", "Database", "Theory"],
     author: "Kartik Yadav Gurve",
     date: "May 27, 2026",
