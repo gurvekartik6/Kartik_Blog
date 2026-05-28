@@ -5,7 +5,7 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Android, MERN, ML experiments, and hackathon journeys</description>
   <language>en</language>
-  <lastBuildDate>Wed, 27 May 2026 21:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 28 May 2026 21:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- POST 1: May 21, 2026 (Thursday) -->
@@ -62,13 +62,22 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</guid>
   </item>
 
-  <!-- POST 7: May 27, 2026 (Wednesday - TODAY) -->
+  <!-- POST 7: May 27, 2026 (Wednesday) -->
   <item>
     <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
     <description>A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.</description>
     <pubDate>Wed, 27 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</guid>
+  </item>
+
+  <!-- POST 8: May 28, 2026 (Thursday - TODAY) -->
+  <item>
+    <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
+    <description>A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.</description>
+    <pubDate>Thu, 28 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</guid>
   </item>
 
 </channel>
