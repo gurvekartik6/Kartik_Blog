@@ -5,7 +5,7 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Android, MERN, ML experiments, and hackathon journeys</description>
   <language>en</language>
-  <lastBuildDate>Thu, 28 May 2026 21:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 29 May 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
   <!-- POST 1: May 21, 2026 (Thursday) -->
@@ -71,13 +71,22 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</guid>
   </item>
 
-  <!-- POST 8: May 28, 2026 (Thursday - TODAY) -->
+  <!-- POST 8: May 28, 2026 (Thursday) -->
   <item>
     <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
     <description>A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.</description>
     <pubDate>Thu, 28 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</guid>
+  </item>
+
+  <!-- POST 9: May 29, 2026 (Friday - TODAY) -->
+  <item>
+    <title>I Finished Can't Hurt Me by David Goggins. My Brain Feels Heavier.</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</link>
+    <description>David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed. Here's what happened after finishing his book.</description>
+    <pubDate>Fri, 29 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</guid>
   </item>
 
 </channel>

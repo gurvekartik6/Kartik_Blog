@@ -266,18 +266,18 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
     `,
   },
   // ── POST 8 (May 28, 2026 - TODAY) ──────────────────────────
-{
-  slug: "hibernate-orm-crud-methods-merge-persist-remove",
-  title: "Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)",
-  excerpt:
-    "A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.",
-  emoji: "",
-  tags: ["Java", "Hibernate", "Database", "Theory", "CRUD"],
-  author: "Kartik Yadav Gurve",
-  date: "May 28, 2026",
-  readTime: 4,
-  featured: true,
-  content: `
+  {
+    slug: "hibernate-orm-crud-methods-merge-persist-remove",
+    title: "Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)",
+    excerpt:
+      "A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.",
+    emoji: "",
+    tags: ["Java", "Hibernate", "Database", "Theory", "CRUD"],
+    author: "Kartik Yadav Gurve",
+    date: "May 28, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
 <h2 id="intro">Your App’s Conversation with the Database</h2>
 <p>Imagine Hibernate is a smart assistant. You don't write SQL. You just tell Hibernate: <em>"Save this"</em>, <em>"Find that"</em>, <em>"Update this"</em>, or <em>"Delete that"</em>. Hibernate uses 4 main methods to talk to your database.</p>
 
@@ -324,7 +324,59 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 </ul>
 <p>That's the magic of Hibernate. Your Java objects talk. Hibernate translates to SQL behind the scenes.</p>
   `,
-}
+  },
+  // ── POST 9 (May 29, 2026 - TODAY) ──────────────────────────
+  {
+    slug: "cant-hurt-me-book-takeaways-david-goggins",
+    title: "I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way).",
+    excerpt:
+      "David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed. Here's what changed after finishing his book.",
+    emoji: "",
+    tags: ["Books", "Mindset", "Motivation", "Self-Improvement", "Lessons"],
+    author: "Kartik Yadav Gurve",
+    date: "May 29, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<h2 id="intro">No Summary. Just Feelings.</h2>
+<p>I just closed <em>Can't Hurt Me</em> by David Goggins. This is not a book summary. You can Google that. This is what happened inside my head while reading it — and after.</p>
+
+<h2 id="cookie-jar">1. The Cookie Jar isn't dumb. It's savage.</h2>
+<p>Goggins talks about a "Cookie Jar" — a mental collection of your past hard moments. When life gets hard, you reach in and say: <em>"I survived worse."</em> I tried it during a tough moment this week. It worked. Annoyingly well.</p>
+
+<h2 id="accountability-mirror">2. The Accountability Mirror lied to me first.</h2>
+<p>I wrote down my real problems. Not the cute versions. The ugly ones. The mirror didn't clap. It stared back. That was the point.</p>
+
+<h2 id="calloused-mind">3. A calloused mind > a comfortable one.</h2>
+<p>Goggins says: <strong>"You stop growing when you stop being uncomfortable."</strong> I used to avoid hard conversations, hard runs, hard truths. Now? I lean in. It still sucks. But I do it anyway.</p>
+
+<h2 id="governing-logs">4. The "Governing Log" concept is underrated.</h2>
+<p>In Navy SEAL training, you carry a log as a team. The slowest person sets the pace. Goggins says: <em>"Be the log that makes others work harder."</em> I stopped lowering my standards to fit in.</p>
+
+<h2 id="soul-punch">The soul punch I didn't see coming</h2>
+<p>There's a moment in the book where Goggins says: <em>"Most of us are living at 40% of our capability."</em></p>
+<p>That broke me a little. Not because it's harsh. Because it's true. I've been coasting. Accepting "good enough." Giving myself excuses wrapped in fancy words like "self-care" and "burnout prevention."</p>
+<p>Goggins doesn't deny burnout. He just says: <em>"So what? Keep going."</em></p>
+
+<h2 id="hard-truth">The hard truth I didn't expect</h2>
+<p>This book is not inspiring in a cozy way. It's like drinking black coffee at 4 AM in a cold room. It doesn't feel good. But it wakes you the f* up.</p>
+<p>Goggins won't be your friend. He'll call you average. And if you have ego like me — that hurts. But that hurt is the starting line.</p>
+
+<h2 id="one-thing">One thing I'll never forget</h2>
+<p>Goggins was overweight, scared, and broken. He didn't wake up one day feeling ready. He just started. One bad run. One painful cold shower. One uncomfortable conversation at a time.</p>
+<p>He didn't become <em>"the hardest man alive"</em> overnight. He became it by doing what nobody was watching. At 3 AM. On Sundays. When it was raining. When he was tired.</p>
+<p>That's the part they don't put on posters.</p>
+
+<h2 id="verdict">Final verdict</h2>
+<p>Would I recommend <em>Can't Hurt Me</em>?<br/>
+✅ Yes — but only if you're ready to stop lying to yourself.<br/>
+❌ No — if you want a gentle, cozy self-help book. This is not that.</p>
+
+<h2 id="next">What's next for me?</h2>
+<p>I'm not posting a "10 lessons" thread. I'm just going to live one uncomfortable thing every day. That's the real review.</p>
+<p>Stay hard. (Yeah, I said it.)</p>
+  `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
