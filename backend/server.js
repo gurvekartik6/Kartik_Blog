@@ -3,7 +3,7 @@
  * Kartik Yadav Gurve Personal Blog
  *
  * Stack: Node.js · Express · MongoDB (Mongoose) · CORS
- * Free Tier: MongoDB Atlas M0 (512 MB) + Railway/Render hosting
+ * Free Tier: MongoDB Atlas M0 (512 MB) + Vercel/Railway/Render hosting
  *
  * Start: node server.js
  * Dev:   nodemon server.js
@@ -34,11 +34,9 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 // ─── MongoDB Connection ──────────────────────────────────────
+// Removed deprecated options (useNewUrlParser and useUnifiedTopology)
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser:    true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log('✅  MongoDB connected'))
   .catch(err => { console.error('❌  MongoDB error:', err); process.exit(1); });
 
@@ -59,7 +57,8 @@ const postSchema = new mongoose.Schema({
   publishedAt: { type: Date, default: Date.now },
 }, { timestamps: true });
 
-postSchema.index({ slug: 1 });
+// Remove duplicate index - keep only the explicit index definition
+// The 'unique: true' in slug already creates an index, so we don't need postSchema.index({ slug: 1 })
 postSchema.index({ publishedAt: -1 });
 postSchema.index({ tags: 1 });
 
