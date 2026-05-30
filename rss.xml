@@ -5,10 +5,19 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Android, MERN, ML experiments, and hackathon journeys</description>
   <language>en</language>
-  <lastBuildDate>Fri, 29 May 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 30 May 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
-  <!-- POST 1: May 21, 2026 (Thursday) -->
+  <!-- POST 10: May 30, 2026 (Saturday - TODAY) -->
+  <item>
+    <title>Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</link>
+    <description>Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die, and why you should never confuse the two.</description>
+    <pubDate>Sat, 30 May 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</guid>
+  </item>
+
+  <!-- POST 1: May 21, 2026 -->
   <item>
     <title>My Love and Passion About Coding Since 2018 When I Made RPG Maker Games</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</link>
@@ -17,7 +26,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</guid>
   </item>
 
-  <!-- POST 2: May 22, 2026 (Friday) -->
+  <!-- POST 2: May 22, 2026 -->
   <item>
     <title>The Idea About the Blogging Website</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</link>
@@ -26,7 +35,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</guid>
   </item>
 
-  <!-- POST 3: May 23, 2026 (Saturday) -->
+  <!-- POST 3: May 23, 2026 -->
   <item>
     <title>How I Work as an Instructor at Sai Ambrosia After 10th</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
@@ -35,7 +44,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</guid>
   </item>
 
-  <!-- POST 4: May 24, 2026 (Sunday) -->
+  <!-- POST 4: May 24, 2026 -->
   <item>
     <title>The Tech Skills I Have Learned</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</link>
@@ -44,7 +53,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</guid>
   </item>
 
-  <!-- POST 5: May 25, 2026 (Monday) -->
+  <!-- POST 5: May 25, 2026 -->
   <item>
     <title>How to Connect Java Application to PostgreSQL</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</link>
@@ -53,7 +62,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</guid>
   </item>
 
-  <!-- POST 6: May 26, 2026 (Tuesday) -->
+  <!-- POST 6: May 26, 2026 -->
   <item>
     <title>Hibernate ORM: What It Is and Why You Need It</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</link>
@@ -62,7 +71,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</guid>
   </item>
 
-  <!-- POST 7: May 27, 2026 (Wednesday) -->
+  <!-- POST 7: May 27, 2026 -->
   <item>
     <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
@@ -71,7 +80,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</guid>
   </item>
 
-  <!-- POST 8: May 28, 2026 (Thursday) -->
+  <!-- POST 8: May 28, 2026 -->
   <item>
     <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
@@ -80,7 +89,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</guid>
   </item>
 
-  <!-- POST 9: May 29, 2026 (Friday - TODAY) -->
+  <!-- POST 9: May 29, 2026 -->
   <item>
     <title>I Finished Can't Hurt Me by David Goggins. My Brain Feels Heavier.</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</link>

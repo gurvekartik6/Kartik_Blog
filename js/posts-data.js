@@ -377,6 +377,141 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>Stay hard. (Yeah, I said it.)</p>
   `,
   },
+  // ── POST 10 (May 30, 2026) ──────────────────────────
+  {
+    slug: "hibernate-session-factory-session-lifecycle-deep-dive",
+    title: "Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle",
+    excerpt:
+      "Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die, and why you should never confuse the two.",
+    emoji: "",
+    tags: ["Java", "Hibernate", "Database", "Deep Dive", "Performance"],
+    author: "Kartik Yadav Gurve",
+    date: "May 30, 2026",
+    readTime: 6,
+    featured: true,
+    content: `
+<h2 id="the-brain-and-the-hands">The Brain and The Hands</h2>
+<p>Think of Hibernate as a restaurant kitchen. <strong>SessionFactory</strong> is the head chef (plans everything, makes rules, expensive to create). <strong>Session</strong> is the line cook (does the actual work, handles one order, then rests).</p>
+<p>You have ONE kitchen per restaurant. You have MANY cooks per shift. Same with Hibernate.</p>
+
+<h2 id="sessionfactory">SessionFactory: The Heavyweight King</h2>
+<p><strong>What it is:</strong> A factory that creates Session objects. But more importantly — it caches your database schema, your mappings, and your configuration.</p>
+<p><strong>How many:</strong> ONE per database. Create it once when your app starts. Destroy it when your app shuts down.</p>
+<p><strong>Real-world example:</strong> The blueprint of a car factory. You don't rebuild the blueprint for every car. You build it once, then stamp out cars.</p>
+<p><strong>What it holds inside:</strong></p>
+<ul>
+  <li>Database connection details (URL, username, password)</li>
+  <li>Entity mappings (which Java class maps to which table)</li>
+  <li>Second-level cache (shared across all sessions)</li>
+  <li>Dialect details (PostgreSQL speaks differently than MySQL)</li>
+</ul>
+
+<h2 id="session">Session: The Short-Lived Worker</h2>
+<p><strong>What it is:</strong> A single unit of work. It represents one conversation between your app and the database.</p>
+<p><strong>How many:</strong> Many. Open one per request or per transaction. Close it immediately after work is done.</p>
+<p><strong>Real-world example:</strong> A cashier handling one customer's order. They open the conversation, take the order, get the food, close the conversation. Next customer = new cashier session.</p>
+<p><strong>What it holds inside:</strong></p>
+<ul>
+  <li>First-level cache (persistence context — like a notepad for the current work)</li>
+  <li>Database connection (acquired from SessionFactory's pool)</li>
+  <li>Transaction boundaries (begin, commit, rollback)</li>
+</ul>
+
+<h2 id="lifecycle">The Lifecycle: Born → Alive → Dead</h2>
+
+<h3>SessionFactory Lifecycle:</h3>
+<pre><code>App starts → Build Configuration → Build SessionFactory → 
+SessionFactory stays alive → App shuts down → Close SessionFactory</code></pre>
+<p><strong>⚠️ Warning:</strong> Building SessionFactory is EXPENSIVE. It parses mappings, validates schema, and builds internal caches. Never rebuild it per request.</p>
+
+<h3>Session Lifecycle:</h3>
+<pre><code>Open Session → Begin Transaction → Do Work (persist/merge/find/remove) → 
+Commit/Rollback → Close Session</code></pre>
+<p><strong>⚠️ Warning:</strong> An open Session holds a database connection. Leak Sessions = leak connections = app dies.</p>
+
+<h2 id="common-mistakes">The 3 Deadly Sins (And How to Avoid Them)</h2>
+
+<p><strong>Sin #1: Creating SessionFactory per request</strong><br/>
+❌ Bad: App creates SessionFactory, does work, closes SessionFactory.<br/>
+✅ Good: Create ONE SessionFactory at app startup. Reuse it forever.</p>
+
+<p><strong>Sin #2: Forgetting to close Session</strong><br/>
+❌ Bad: Session remains open. Connection never returns to pool.<br/>
+✅ Good: Use try-with-resources or close() in finally block.</p>
+
+<p><strong>Sin #3: Doing too much in one Session</strong><br/>
+❌ Bad: One Session that loads 10,000 records, updates them, and stays open for 5 minutes.<br/>
+✅ Good: Short, focused sessions. Commit often. Close quickly.</p>
+
+<h2 id="best-practices">Best Practices (From Someone Who Broke Things)</h2>
+
+<ul>
+  <li><strong>SessionFactory once, Session per operation</strong> — Think of SessionFactory as your app's spine. Session as your breath. Many breaths, one spine.</li>
+  <li><strong>Keep sessions short</strong> — Open, work, close. Under 1 second ideally. Under 5 seconds always.</li>
+  <li><strong>Never do lazy loading outside a session</strong> — Hibernate's famous LazyInitializationException happens when you close Session then try to access a collection. Load what you need BEFORE closing.</li>
+  <li><strong>Use a single Session per HTTP request pattern</strong> — In web apps, open Session when request comes in, close it when response goes out. But keep the work inside transactions small.</li>
+</ul>
+
+<h2 id="visual-memory">The Visual Your Brain Will Remember</h2>
+
+<pre><code>┌─────────────────────────────────────┐
+│         SESSIONFACTORY              │
+│  (Created ONCE at app startup)      │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐│
+│  │Session 1│ │Session 2│ │Session 3││
+│  │(short)  │ │(short)  │ │(short)  ││
+│  └─────────┘ └─────────┘ └─────────┘│
+│         (Many sessions)             │
+└─────────────────────────────────────┘</code></pre>
+
+<p>SessionFactory = the container.<br/>
+Session = the worker inside that container.<br/>
+One factory. Many sessions. Short lives. Happy database.</p>
+
+<h2 id="summary">Summary in Simple Terms</h2>
+
+<table style="border-collapse: collapse; width: 100%;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 8px;">Feature</th>
+    <th style="border: 1px solid #ddd; padding: 8px;">SessionFactory</th>
+    <th style="border: 1px solid #ddd; padding: 8px;">Session</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">How many?</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">One per database</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Many per app</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Lifetime</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Whole app lifetime</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">One unit of work</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Creation cost</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">EXPENSIVE (do once)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Cheap (do many times)</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Caches</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Second-level (app-wide)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">First-level (per transaction)</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Thread-safe?</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">✅ Yes (share anywhere)</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">❌ No (one thread at a time)</td>
+  </tr>
+</table>
+
+<h2 id="final-word">The One Thing to Remember</h2>
+<p><strong>SessionFactory = born once, dies when app dies.</strong><br/>
+<strong>Session = born per request, dies immediately after.</strong></p>
+<p>Mix this up? Your app leaks memory, connections, and eventually dies. Get it right? Hibernate runs smooth like butter.</p>
+
+<h2 id="next-steps">What's Next After This Deep Dive?</h2>
+<p>Now you know the container vs the worker. Next step: understanding Hibernate caching (first-level vs second-level) — why your repeated queries sometimes hit the database and sometimes don't. That's a post for another day.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
