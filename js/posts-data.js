@@ -519,7 +519,7 @@ One factory. Many sessions. Short lives. Happy database.</p>
       "Hibernate Session Problems: Transactions, Lazy Loading, and Session Management",
     excerpt:
       "You know what SessionFactory and Session are. Now learn the 3 biggest problems developers face and how to fix them.",
-    emoji: "🔧",
+    emoji: "",
     tags: ["Java", "Hibernate", "Session", "Transactions", "Lazy Loading"],
     author: "Kartik Yadav Gurve",
     date: "May 31, 2026",
