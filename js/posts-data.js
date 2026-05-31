@@ -512,6 +512,123 @@ One factory. Many sessions. Short lives. Happy database.</p>
 <p>Now you know the container vs the worker. Next step: understanding Hibernate caching (first-level vs second-level) — why your repeated queries sometimes hit the database and sometimes don't. That's a post for another day.</p>
     `,
   },
+  // ── POST 11 (May 31, 2026) ──────────────────────────────────
+  {
+    slug: "hibernate-session-problems-transactions-lazy-loading",
+    title:
+      "Hibernate Session Problems: Transactions, Lazy Loading, and Session Management",
+    excerpt:
+      "You know what SessionFactory and Session are. Now learn the 3 biggest problems developers face and how to fix them.",
+    emoji: "🔧",
+    tags: ["Java", "Hibernate", "Session", "Transactions", "Lazy Loading"],
+    author: "Kartik Yadav Gurve",
+    date: "May 31, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<h2 id="recap">Quick Recap from POST 10</h2>
+<p><strong>SessionFactory</strong> = born once, dies when app dies.<br/>
+<strong>Session</strong> = born per request, dies immediately after.</p>
+<p>Now let's talk about what actually BREAKS when you use Sessions wrong.</p>
+
+<h2 id="problem-1">Problem #1: The Forgotten Transaction</h2>
+<p><strong>What happens:</strong> You call <code>persist()</code> or <code>merge()</code> but forget to begin/commit transaction. Nothing saves to database.</p>
+
+<pre><code>// ❌ WRONG
+Session session = factory.openSession();
+session.persist(user);  // Nothing happens!
+session.close();
+
+// ✅ CORRECT
+Session session = factory.openSession();
+Transaction tx = session.beginTransaction();
+session.persist(user);
+tx.commit();  // NOW it saves
+session.close();</code></pre>
+
+<p><strong>Simple rule:</strong> No transaction = no database change. Always wrap writes in a transaction.</p>
+
+<h2 id="problem-2">Problem #2: LazyInitializationException (The Famous One)</h2>
+<p><strong>What happens:</strong> You load a User (without loading their orders). Close Session. Then try to access <code>user.getOrders()</code>. BOOM. Exception.</p>
+
+<pre><code>// ❌ WRONG
+Session session = factory.openSession();
+User user = session.find(User.class, 1L);
+session.close();  // Session closed
+user.getOrders().size();  // EXCEPTION! Session is gone
+
+// ✅ FIX #1: Load what you need BEFORE closing
+Session session = factory.openSession();
+User user = session.find(User.class, 1L);
+user.getOrders().size();  // Force load while session is open
+session.close();
+
+// ✅ FIX #2: Use JOIN FETCH in query
+Query query = session.createQuery(
+  "FROM User u JOIN FETCH u.orders WHERE u.id = :id"
+);
+User user = query.uniqueResult();
+session.close();
+user.getOrders().size();  // Works! Data already loaded</code></pre>
+
+<p><strong>Simple rule:</strong> If you need child data, load it BEFORE closing the Session.</p>
+
+<h2 id="problem-3">Problem #3: The Open Session in View Pattern (Good or Bad?)</h2>
+<p><strong>What it is:</strong> Open Session when HTTP request starts. Close when response ends. Keeps Session alive for your entire webpage.</p>
+
+<p><strong>Why people use it:</strong> Avoids LazyInitializationException. You can access any data in your HTML templates.</p>
+
+<p><strong>Why it's dangerous:</strong> One slow query = database connection held for entire request. One error = connection leaks. 1000 users = 1000 open connections = database dies.</p>
+
+<p><strong>My advice:</strong> Don't use it. Load exactly what you need before closing Session. Be intentional.</p>
+
+<h2 id="best-practices">The 3 Rules I Live By</h2>
+
+<ul>
+  <li><strong>Rule 1:</strong> Session per operation. Open → Work → Commit → Close. Under 1 second.</li>
+  <li><strong>Rule 2:</strong> Transactions for writes. Always. No exceptions.</li>
+  <li><strong>Rule 3:</strong> Load what you need. Use JOIN FETCH. Don't rely on lazy loading outside Session.</li>
+</ul>
+
+<h2 id="session-template">The Safe Session Template</h2>
+
+<pre><code>public User getUserById(Long id) {
+    try (Session session = factory.openSession()) {
+        // JOIN FETCH if you need child data
+        Query query = session.createQuery(
+            "FROM User u JOIN FETCH u.orders WHERE u.id = :id"
+        );
+        query.setParameter("id", id);
+        return (User) query.uniqueResult();
+    } // Session auto-closes here
+}</code></pre>
+
+<p>This template: Opens Session, does work, closes Session. No leaks. No exceptions. Clean.</p>
+
+<h2 id="summary">Summary</h2>
+
+<table style="border-collapse: collapse; width: 100%;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 8px;">Problem</th>
+    <th style="border: 1px solid #ddd; padding: 8px;">Fix</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Data not saving</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Use beginTransaction() + commit()</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">LazyInitializationException</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Load data before closing Session (JOIN FETCH)</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">Connection leaks</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Close Session immediately after work</td>
+  </tr>
+</table>
+
+<p>SessionFactory = your app's backbone. Session = your work unit. Treat Session right, and Hibernate will love you. ❤️</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
