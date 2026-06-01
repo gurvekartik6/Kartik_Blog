@@ -28,10 +28,6 @@
       "dest": "/backend/server.js"
     },
     {
-      "src": "/(.*\\.(html|css|js|xml))",
-      "dest": "/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/$1"
     }

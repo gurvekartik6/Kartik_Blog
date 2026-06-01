@@ -5,6 +5,6 @@
     "build": "echo 'Build completed'"
   },
   "engines": {
-    "node": "24.x"
+    "node": "20.x"
   }
 }

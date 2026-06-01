@@ -59,20 +59,14 @@
     }
     .social-big.github:hover { background: #333; }
     .social-big.linkedin:hover { background: #0077b5; }
-    .social-big.twitter:hover { background: #1da1f2; }
-    .social-big.instagram:hover { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
     
-    /* Loading state for button */
     .btn-primary-custom.loading {
       opacity: 0.7;
       cursor: not-allowed;
-      pointer-events: none;
     }
-    
     .btn-primary-custom.loading i {
       animation: spin 1s linear infinite;
     }
-    
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -289,7 +283,7 @@ async function submitContact() {
     return;
   }
 
-  // Disable button and show loading state
+  // Disable button
   const sendBtn = document.getElementById('sendBtn');
   const originalText = sendBtn.innerHTML;
   sendBtn.innerHTML = '<i class="fa-solid fa-spinner"></i> Sending...';
@@ -297,8 +291,8 @@ async function submitContact() {
   sendBtn.disabled = true;
 
   try {
-    // Send to your backend API
-    const response = await fetch('http://localhost:3000/api/contact', {
+    // Use relative URL - THIS IS THE FIX
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -315,11 +309,10 @@ async function submitContact() {
     const data = await response.json();
 
     if (response.ok && data.ok) {
-      // Success
       if (typeof Toast !== 'undefined') {
         Toast.show(`Message sent! I'll reply within 24 hours, ${firstName || 'there'} 🙌`, 'success', 4000);
       } else {
-        alert(`Message sent successfully! I'll reply within 24 hours.`);
+        alert('Message sent successfully!');
       }
       
       // Clear form
@@ -337,37 +330,18 @@ async function submitContact() {
       throw new Error(data.error || 'Failed to send message');
     }
   } catch (error) {
-    console.error('Error sending message:', error);
+    console.error('Error:', error);
     if (typeof Toast !== 'undefined') {
-      Toast.show('Failed to send message. Please try again later.', 'error');
+      Toast.show('Failed to send message. Please try again.', 'error');
     } else {
-      alert('Failed to send message. Please make sure the backend server is running.');
+      alert('Failed to send message. Please try again.');
     }
   } finally {
-    // Reset button
     sendBtn.innerHTML = originalText;
     sendBtn.classList.remove('loading');
     sendBtn.disabled = false;
   }
 }
-
-// Optional: Add API health check on page load
-async function checkBackendHealth() {
-  try {
-    const response = await fetch('http://localhost:3000/api/health');
-    const data = await response.json();
-    if (data.status === 'ok') {
-      console.log('✅ Backend connected, PostgreSQL is running');
-    }
-  } catch (error) {
-    console.warn('⚠️ Backend not reachable. Make sure server.js is running on port 3000');
-  }
-}
-
-// Check backend when page loads
-document.addEventListener('DOMContentLoaded', () => {
-  checkBackendHealth();
-});
 </script>
 </body>
 </html>

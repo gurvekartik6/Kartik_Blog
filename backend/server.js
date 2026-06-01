@@ -1,6 +1,5 @@
 /**
  * server.js — Complete Blog API with PostgreSQL
- * Features: Comments, Likes, Views, Contact Messages, Admin Auth
  */
 
 require('dotenv').config();
@@ -24,7 +23,6 @@ const pool = new Pool({
 pool.connect((err) => {
   if (err) {
     console.error('❌ PostgreSQL error:', err.message);
-    process.exit(1);
   } else {
     console.log('✅ PostgreSQL connected');
     initDatabase();
@@ -33,7 +31,7 @@ pool.connect((err) => {
 
 // ─── Middleware ───────────────────────────────────────────────
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: '*',
   credentials: true,
 }));
 app.use(express.json({ limit: '10kb' }));
@@ -71,7 +69,6 @@ function requireAuth(req, res, next) {
 // ─── Database Initialization ──────────────────────────────────────
 async function initDatabase() {
   try {
-    // Comments table
     await pool.query(`
       CREATE TABLE IF NOT EXISTS comments (
         id SERIAL PRIMARY KEY,
@@ -83,10 +80,7 @@ async function initDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
-    await pool.query(`CREATE INDEX IF NOT EXISTS idx_comments_post_slug ON comments(post_slug)`);
-    await pool.query(`CREATE INDEX IF NOT EXISTS idx_comments_approved ON comments(approved)`);
-
-    // Post stats table (likes & views)
+    
     await pool.query(`
       CREATE TABLE IF NOT EXISTS post_stats (
         id SERIAL PRIMARY KEY,
@@ -97,8 +91,7 @@ async function initDatabase() {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
-
-    // Post likes tracking (per IP)
+    
     await pool.query(`
       CREATE TABLE IF NOT EXISTS post_likes (
         id SERIAL PRIMARY KEY,
@@ -108,8 +101,7 @@ async function initDatabase() {
         UNIQUE(slug, ip_address)
       )
     `);
-
-    // Contacts table
+    
     await pool.query(`
       CREATE TABLE IF NOT EXISTS contacts (
         id SERIAL PRIMARY KEY,
@@ -121,8 +113,7 @@ async function initDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
-
-    // Admin users table
+    
     await pool.query(`
       CREATE TABLE IF NOT EXISTS admin_users (
         id SERIAL PRIMARY KEY,
@@ -131,25 +122,54 @@ async function initDatabase() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `);
-
+    
     // Create default admin
-    const adminCheck = await pool.query('SELECT * FROM admin_users WHERE username = $1', [process.env.ADMIN_USERNAME || 'admin']);
+    const adminCheck = await pool.query('SELECT * FROM admin_users WHERE username = $1', ['admin']);
     if (adminCheck.rows.length === 0) {
-      const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD || 'admin123', 10);
-      await pool.query('INSERT INTO admin_users (username, password_hash) VALUES ($1, $2)', 
-        [process.env.ADMIN_USERNAME || 'admin', hashedPassword]);
-      console.log('✅ Default admin created (admin/admin123)');
+      const hashedPassword = await bcrypt.hash('admin123', 10);
+      await pool.query('INSERT INTO admin_users (username, password_hash) VALUES ($1, $2)', ['admin', hashedPassword]);
+      console.log('✅ Default admin created');
     }
-
+    
     console.log('✅ All tables ready');
   } catch (err) {
     console.error('DB init error:', err);
   }
 }
 
-// ─── COMMENTS API ────────────────────────────────────────────────
+// ─── HEALTH CHECK ────────────────────────────────────────────────
+app.get('/api/health', async (req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    res.json({ status: 'ok', db: 'connected', uptime: process.uptime() });
+  } catch (err) {
+    res.json({ status: 'error', db: 'disconnected', uptime: process.uptime() });
+  }
+});
 
-// Get comments for a post (public - only approved)
+// ─── CONTACT API ─────────────────────────────────────────────────
+app.post('/api/contact', async (req, res) => {
+  console.log('Contact endpoint hit:', req.body);
+  try {
+    const { name, email, subject, message } = req.body;
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: 'All fields required' });
+    }
+
+    const result = await pool.query(
+      'INSERT INTO contacts (name, email, subject, message) VALUES ($1, $2, $3, $4) RETURNING id',
+      [sanitize(name), sanitize(email).toLowerCase(), sanitize(subject || ''), sanitize(message)]
+    );
+    
+    console.log('Contact saved with ID:', result.rows[0].id);
+    res.json({ ok: true, message: 'Message sent!' });
+  } catch (e) {
+    console.error('Contact error:', e);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ─── COMMENTS API ────────────────────────────────────────────────
 app.get('/api/comments/:slug', async (req, res) => {
   try {
     const result = await pool.query(
@@ -162,17 +182,6 @@ app.get('/api/comments/:slug', async (req, res) => {
   }
 });
 
-// Get all comments (admin only)
-app.get('/api/admin/comments', requireAuth, async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM comments ORDER BY created_at DESC');
-    res.json(result.rows);
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
-});
-
-// Submit comment (requires approval)
 app.post('/api/comments', async (req, res) => {
   try {
     const { postSlug, name, email, body } = req.body;
@@ -182,7 +191,7 @@ app.post('/api/comments', async (req, res) => {
 
     await pool.query(
       'INSERT INTO comments (post_slug, name, email, body, approved) VALUES ($1, $2, $3, $4, false)',
-      [sanitize(postSlug), sanitize(name).slice(0, 80), sanitize(email).toLowerCase(), sanitize(body).slice(0, 1000)]
+      [sanitize(postSlug), sanitize(name), sanitize(email), sanitize(body)]
     );
     
     res.json({ ok: true, message: 'Comment submitted for approval' });
@@ -191,45 +200,16 @@ app.post('/api/comments', async (req, res) => {
   }
 });
 
-// Approve comment (admin)
-app.patch('/api/admin/comments/:id/approve', requireAuth, async (req, res) => {
-  try {
-    await pool.query('UPDATE comments SET approved = true WHERE id = $1', [req.params.id]);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
-});
-
-// Delete comment (admin)
-app.delete('/api/admin/comments/:id', requireAuth, async (req, res) => {
-  try {
-    await pool.query('DELETE FROM comments WHERE id = $1', [req.params.id]);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
-});
-
 // ─── LIKES & VIEWS API ───────────────────────────────────────────
-
-// Get stats for a post
 app.get('/api/posts/:slug/stats', async (req, res) => {
   try {
     const { slug } = req.params;
-    
     let result = await pool.query('SELECT * FROM post_stats WHERE slug = $1', [slug]);
     
     if (result.rows.length === 0) {
-      result = await pool.query(
-        'INSERT INTO post_stats (slug, views, likes) VALUES ($1, 1, 0) RETURNING *',
-        [slug]
-      );
+      result = await pool.query('INSERT INTO post_stats (slug, views, likes) VALUES ($1, 1, 0) RETURNING *', [slug]);
     } else {
-      result = await pool.query(
-        'UPDATE post_stats SET views = views + 1, updated_at = CURRENT_TIMESTAMP WHERE slug = $1 RETURNING *',
-        [slug]
-      );
+      result = await pool.query('UPDATE post_stats SET views = views + 1 WHERE slug = $1 RETURNING *', [slug]);
     }
     
     res.json(result.rows[0]);
@@ -238,30 +218,18 @@ app.get('/api/posts/:slug/stats', async (req, res) => {
   }
 });
 
-// Like a post
 app.post('/api/posts/:slug/like', async (req, res) => {
   try {
     const { slug } = req.params;
     const clientIp = getClientIp(req);
     
-    const existing = await pool.query(
-      'SELECT * FROM post_likes WHERE slug = $1 AND ip_address = $2',
-      [slug, clientIp]
-    );
-    
+    const existing = await pool.query('SELECT * FROM post_likes WHERE slug = $1 AND ip_address = $2', [slug, clientIp]);
     if (existing.rows.length > 0) {
       return res.status(400).json({ error: 'Already liked' });
     }
     
-    await pool.query(
-      'INSERT INTO post_likes (slug, ip_address) VALUES ($1, $2)',
-      [slug, clientIp]
-    );
-    
-    const result = await pool.query(
-      'UPDATE post_stats SET likes = likes + 1 WHERE slug = $1 RETURNING likes',
-      [slug]
-    );
+    await pool.query('INSERT INTO post_likes (slug, ip_address) VALUES ($1, $2)', [slug, clientIp]);
+    const result = await pool.query('UPDATE post_stats SET likes = likes + 1 WHERE slug = $1 RETURNING likes', [slug]);
     
     res.json({ liked: true, likes: result.rows[0].likes });
   } catch (e) {
@@ -269,42 +237,17 @@ app.post('/api/posts/:slug/like', async (req, res) => {
   }
 });
 
-// Check if user liked
 app.get('/api/posts/:slug/like-status', async (req, res) => {
   try {
     const clientIp = getClientIp(req);
-    const result = await pool.query(
-      'SELECT * FROM post_likes WHERE slug = $1 AND ip_address = $2',
-      [req.params.slug, clientIp]
-    );
+    const result = await pool.query('SELECT * FROM post_likes WHERE slug = $1 AND ip_address = $2', [req.params.slug, clientIp]);
     res.json({ liked: result.rows.length > 0 });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// ─── CONTACT API ─────────────────────────────────────────────────
-
-// Submit contact message
-app.post('/api/contact', async (req, res) => {
-  try {
-    const { name, email, subject, message } = req.body;
-    if (!name || !email || !message) {
-      return res.status(400).json({ error: 'All fields required' });
-    }
-
-    await pool.query(
-      'INSERT INTO contacts (name, email, subject, message) VALUES ($1, $2, $3, $4)',
-      [sanitize(name), sanitize(email).toLowerCase(), sanitize(subject), sanitize(message)]
-    );
-    
-    res.json({ ok: true, message: 'Message sent!' });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
-});
-
-// Get all contacts (admin only)
+// ─── ADMIN API ───────────────────────────────────────────────────
 app.get('/api/contacts', requireAuth, async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM contacts ORDER BY created_at DESC');
@@ -314,7 +257,6 @@ app.get('/api/contacts', requireAuth, async (req, res) => {
   }
 });
 
-// Mark contact as read (admin)
 app.patch('/api/contacts/:id/read', requireAuth, async (req, res) => {
   try {
     await pool.query('UPDATE contacts SET read = true WHERE id = $1', [req.params.id]);
@@ -324,22 +266,61 @@ app.patch('/api/contacts/:id/read', requireAuth, async (req, res) => {
   }
 });
 
-// Delete contact (admin)
 app.delete('/api/contacts/:id', requireAuth, async (req, res) => {
   try {
-    const result = await pool.query('DELETE FROM contacts WHERE id = $1 RETURNING id', [req.params.id]);
-    if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Contact not found' });
-    }
+    await pool.query('DELETE FROM contacts WHERE id = $1', [req.params.id]);
     res.json({ ok: true });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// ─── ADMIN AUTH ─────────────────────────────────────────────────
+app.get('/api/admin/comments', requireAuth, async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM comments ORDER BY created_at DESC');
+    res.json(result.rows);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
 
-// Login
+app.patch('/api/admin/comments/:id/approve', requireAuth, async (req, res) => {
+  try {
+    await pool.query('UPDATE comments SET approved = true WHERE id = $1', [req.params.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.delete('/api/admin/comments/:id', requireAuth, async (req, res) => {
+  try {
+    await pool.query('DELETE FROM comments WHERE id = $1', [req.params.id]);
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get('/api/admin/stats', requireAuth, async (req, res) => {
+  try {
+    const pendingComments = await pool.query("SELECT COUNT(*) FROM comments WHERE approved = false");
+    const totalComments = await pool.query("SELECT COUNT(*) FROM comments");
+    const totalContacts = await pool.query("SELECT COUNT(*) FROM contacts");
+    const unreadContacts = await pool.query("SELECT COUNT(*) FROM contacts WHERE read = false");
+    
+    res.json({
+      pendingComments: parseInt(pendingComments.rows[0].count),
+      totalComments: parseInt(totalComments.rows[0].count),
+      totalContacts: parseInt(totalContacts.rows[0].count),
+      unreadContacts: parseInt(unreadContacts.rows[0].count)
+    });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ─── ADMIN AUTH ───────────────────────────────────────────────────
 app.post('/api/admin/login', async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -362,13 +343,11 @@ app.post('/api/admin/login', async (req, res) => {
   }
 });
 
-// Logout
 app.post('/api/admin/logout', (req, res) => {
   req.session.destroy();
   res.json({ ok: true });
 });
 
-// Check auth status
 app.get('/api/admin/check-auth', (req, res) => {
   if (req.session.userId) {
     res.json({ authenticated: true, username: req.session.username });
@@ -377,49 +356,23 @@ app.get('/api/admin/check-auth', (req, res) => {
   }
 });
 
-// Get admin stats
-app.get('/api/admin/stats', requireAuth, async (req, res) => {
-  try {
-    const [pendingComments, totalComments, totalContacts, unreadContacts] = await Promise.all([
-      pool.query("SELECT COUNT(*) FROM comments WHERE approved = false"),
-      pool.query("SELECT COUNT(*) FROM comments"),
-      pool.query("SELECT COUNT(*) FROM contacts"),
-      pool.query("SELECT COUNT(*) FROM contacts WHERE read = false")
-    ]);
-    
-    res.json({
-      pendingComments: parseInt(pendingComments.rows[0].count),
-      totalComments: parseInt(totalComments.rows[0].count),
-      totalContacts: parseInt(totalContacts.rows[0].count),
-      unreadContacts: parseInt(unreadContacts.rows[0].count)
-    });
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
-});
-
-// ─── HEALTH CHECK ────────────────────────────────────────────────
-
-app.get('/api/health', async (req, res) => {
-  try {
-    await pool.query('SELECT 1');
-    res.json({ status: 'ok', db: 'connected', uptime: process.uptime() });
-  } catch (err) {
-    res.json({ status: 'error', db: 'disconnected', uptime: process.uptime() });
-  }
-});
-
-// Serve admin page
+// ─── SERVE ADMIN PAGE ────────────────────────────────────────────
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'admin.html'));
 });
 
-// 404 handler
-app.use((req, res) => res.status(404).json({ error: 'Route not found' }));
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`\n🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📊 Admin dashboard: http://localhost:${PORT}/admin`);
-  console.log(`📝 API endpoints ready!\n`);
+// ─── 404 HANDLER ──────────────────────────────────────────────────
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
 });
+
+// ─── START SERVER (for local development) ─────────────────────────
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📊 Admin dashboard: http://localhost:${PORT}/admin`);
+  });
+}
+
+// ─── EXPORT FOR VERCEL ────────────────────────────────────────────
+module.exports = app;
