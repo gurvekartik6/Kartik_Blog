@@ -25,19 +25,24 @@ const POSTS_DB = [
   // ── POST 1 (May 21, 2026) ──────────────────────────────────
   {
     slug: "my-love-and-passion-about-coding-since-2018",
-    title:
-      "My Love and Passion About Coding Since 2018 When I Made RPG Maker Games",
-    excerpt:
-      "My love and passion about coding since 2018 when I made RPG maker games",
+    title: "Coding Since 2018",
+    excerpt: "RPG Maker, GBA games, and never finishing anything.",
     emoji: "",
-    tags: ["Personal", "Coding", "Passion"],
+    tags: ["Personal", "Coding"],
     author: "Kartik Yadav Gurve",
     date: "May 21, 2026",
-    readTime: 5,
+    readTime: 1,
     featured: true,
     content: `
-<h2 id="intro">My Love and Passion About Coding Since 2018</h2>
-<p>I made RPG maker games in 2018 and that started my coding journey.</p>
+<p>2018. I was making dumb games in RPG Maker. Playing Poken GBA roms. Breaking things. Fixing nothing.</p>
+
+<p>Never finished a single game.</p>
+
+<p>But that was the start.</p>
+
+<p>Now I code for real. Still breaking things. Still loving it.</p>
+
+<p>— Kartik</p>
     `,
   },
 
