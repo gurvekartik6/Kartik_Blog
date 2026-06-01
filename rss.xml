@@ -3,10 +3,23 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Android, MERN, ML experiments, and hackathon journeys</description>
+  <description>Android, MERN, ML experiments, Hibernate deep dives, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Sat, 31 May 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 01 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 12: June 1, 2026 -->
+  <item>
+    <title>2 Hibernate Concepts That Save Your Database: N+1 Problem &amp; First-Level Cache</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-n-plus-1-problem-and-first-level-cache</link>
+    <description>Why 10 users become 11 queries (and how to fix it). Plus: the cache you already have but didn't know about.</description>
+    <pubDate>Mon, 01 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-n-plus-1-problem-and-first-level-cache</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Performance</category>
+    <category>Caching</category>
+  </item>
 
   <!-- POST 11: May 31, 2026 -->
   <item>
@@ -15,96 +28,129 @@
     <description>You know what SessionFactory and Session are. Now learn the 3 biggest problems developers face and how to fix them.</description>
     <pubDate>Sat, 31 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-problems-transactions-lazy-loading</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Transactions</category>
+    <category>Lazy Loading</category>
   </item>
 
   <!-- POST 10: May 30, 2026 -->
   <item>
     <title>Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</link>
-    <description>Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die.</description>
+    <description>Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die, and why you should never confuse the two.</description>
     <pubDate>Sat, 30 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Deep Dive</category>
+    <category>Performance</category>
   </item>
 
   <!-- POST 9: May 29, 2026 -->
   <item>
-    <title>I Finished Can't Hurt Me by David Goggins. My Brain Feels Heavier.</title>
+    <title>I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</link>
-    <description>David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed.</description>
+    <description>David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed. Here's what changed after finishing his book.</description>
     <pubDate>Fri, 29 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</guid>
+    <category>Books</category>
+    <category>Mindset</category>
+    <category>Motivation</category>
+    <category>Self-Improvement</category>
   </item>
 
   <!-- POST 8: May 28, 2026 -->
   <item>
     <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
-    <description>A simple guide to persist, merge, find, and remove – the 4 superhero methods of Hibernate.</description>
+    <description>A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.</description>
     <pubDate>Thu, 28 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>CRUD</category>
   </item>
 
   <!-- POST 7: May 27, 2026 -->
   <item>
     <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
-    <description>A simple guide to @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.</description>
+    <description>A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.</description>
     <pubDate>Wed, 27 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Database</category>
   </item>
 
   <!-- POST 6: May 26, 2026 -->
   <item>
     <title>Hibernate ORM: What It Is and Why You Need It</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</link>
-    <description>Simple explanation of Hibernate — the Java ORM that saves you from writing SQL manually.</description>
+    <description>Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.</description>
     <pubDate>Tue, 26 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>Database</category>
   </item>
 
   <!-- POST 5: May 25, 2026 -->
   <item>
     <title>How to Connect Java Application to PostgreSQL</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</link>
-    <description>Step-by-step guide to connect Java with PostgreSQL database</description>
+    <description>Step-by-step guide to connect Java with PostgreSQL database using JDBC driver.</description>
     <pubDate>Mon, 25 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</guid>
+    <category>Java</category>
+    <category>PostgreSQL</category>
+    <category>Database</category>
+    <category>JDBC</category>
   </item>
 
   <!-- POST 4: May 24, 2026 -->
   <item>
     <title>The Tech Skills I Have Learned</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</link>
-    <description>The tech skills I have learned over the years</description>
+    <description>The tech skills I have learned over the years — Android, Kotlin, Firebase, ML, Power BI, Docker and more.</description>
     <pubDate>Sun, 24 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</guid>
+    <category>Skills</category>
+    <category>Learning</category>
   </item>
 
   <!-- POST 3: May 23, 2026 -->
   <item>
     <title>How I Work as an Instructor at Sai Ambrosia After 10th</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
-    <description>After 10th how I work as instructor at Sai Ambrosia Education</description>
+    <description>After 10th how I work as instructor at Sai Ambrosia Education — teaching Power BI and more.</description>
     <pubDate>Sat, 23 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</guid>
+    <category>Teaching</category>
+    <category>Power BI</category>
   </item>
 
   <!-- POST 2: May 22, 2026 -->
   <item>
     <title>The Idea About the Blogging Website</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</link>
-    <description>The idea about the blogging website and why I built it this way</description>
+    <description>The idea about the blogging website and why I built it this way — no backend, just a central database.</description>
     <pubDate>Fri, 22 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</guid>
+    <category>Blogging</category>
+    <category>Web Development</category>
   </item>
 
   <!-- POST 1: May 21, 2026 -->
   <item>
-    <title>My Love and Passion About Coding Since 2018 When I Made RPG Maker Games</title>
+    <title>Coding Since 2018</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</link>
-    <description>My love and passion about coding since 2018 when I made RPG maker games</description>
+    <description>RPG Maker, GBA games, and never finishing anything. But that was the start of my coding journey.</description>
     <pubDate>Thu, 21 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</guid>
+    <category>Personal</category>
+    <category>Coding</category>
   </item>
 
 </channel>

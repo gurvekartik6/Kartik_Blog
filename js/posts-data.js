@@ -634,6 +634,128 @@ user.getOrders().size();  // Works! Data already loaded</code></pre>
 <p>SessionFactory = your app's backbone. Session = your work unit. Treat Session right, and Hibernate will love you. ❤️</p>
     `,
   },
+    // ── POST 12 (June 1, 2026) ──────────────────────────────────
+  {
+    slug: "hibernate-n-plus-1-problem-and-first-level-cache",
+    title: "2 Hibernate Concepts That Save Your Database: N+1 Problem & First-Level Cache",
+    excerpt:
+      "Why 10 users become 11 queries (and how to fix it). Plus: the cache you already have but didn't know about.",
+    emoji: "",
+    tags: ["Java", "Hibernate", "Performance", "Caching"],
+    author: "Kartik Yadav Gurve",
+    date: "June 1, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<h2 id="concept-1">Concept 1: First-Level Cache (The Free One)</h2>
+
+<p><strong>What it is:</strong> Every Hibernate Session has a built-in cache. You don't turn it on. It's just there. Always.</p>
+
+<p><strong>What it does:</strong> Remembers every object you fetch during a session. Ask for the same object twice? Hibernate gives you the cached copy — no second database query.</p>
+
+<h3>Example:</h3>
+<pre><code>Session session = factory.openSession();
+
+// First call → Goes to database
+User user1 = session.find(User.class, 1L);
+
+// Second call → No database hit! Returns cached copy
+User user2 = session.find(User.class, 1L);
+
+session.close();</code></pre>
+
+<p><strong>Result:</strong> One SQL query. Not two. First-level cache saved you.</p>
+
+<p><strong>How long does it live?</strong> Until the session dies. Close the session = cache clears.</p>
+
+<p><strong>Simple rule:</strong> Same session, same ID = one query only.</p>
+
+<hr />
+
+<h2 id="concept-2">Concept 2: The N+1 Problem (The Silent Killer)</h2>
+
+<p><strong>What it is:</strong> You load N parent objects. Hibernate makes N extra queries to load their children. Total = N+1 queries. Your database cries.</p>
+
+<h3>The Problem — Visual Example:</h3>
+
+<p>You have <strong>10 Users</strong>. Each User has <strong>Orders</strong>. You write:</p>
+
+<pre><code>List&lt;User&gt; users = session.createQuery("FROM User").list();
+
+for (User user : users) {
+    System.out.println(user.getOrders().size()); // ← BOOM
+}</code></pre>
+
+<p><strong>What Hibernate does behind your back:</strong></p>
+
+<pre><code>Query 1: SELECT * FROM users           (gets 10 users)
+Query 2: SELECT * FROM orders WHERE user_id = 1
+Query 3: SELECT * FROM orders WHERE user_id = 2
+Query 4: SELECT * FROM orders WHERE user_id = 3
+...
+Query 11: SELECT * FROM orders WHERE user_id = 10
+
+TOTAL = 11 QUERIES for 10 users! That's N+1</code></pre>
+
+<h3>The Fix — JOIN FETCH (One Query to Rule Them All)</h3>
+
+<pre><code>// ✅ FIXED: Load everything in ONE query
+List&lt;User&gt; users = session.createQuery(
+    "FROM User u JOIN FETCH u.orders"
+).list();
+
+// Now user.getOrders() is already loaded. No extra queries!</code></pre>
+
+<p><strong>Result:</strong> One SQL query with a JOIN. Not 11 queries. Database says thank you.</p>
+
+<p><strong>When does N+1 happen?</strong> Whenever you access a lazy-loaded collection after loading the parent — and forget to use JOIN FETCH.</p>
+
+<p><strong>How to spot it?</strong> Enable Hibernate SQL logging:</p>
+<pre><code># In application.properties
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true</code></pre>
+<p>See 50 queries for 10 rows? That's N+1.</p>
+
+<hr />
+
+<h2 id="quick-comparison">Quick Comparison</h2>
+
+<table style="border-collapse: collapse; width: 100%;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 8px;">Concept</th>
+    <th style="border: 1px solid #ddd; padding: 8px;">What It Does</th>
+    <th style="border: 1px solid #ddd; padding: 8px;">You Need To...</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">First-Level Cache</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Prevents duplicate queries in same session</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Nothing — it's automatic!</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 8px;">N+1 Problem</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Causes 1+N queries instead of 1</td>
+    <td style="border: 1px solid #ddd; padding: 8px;">Use JOIN FETCH or @EntityGraph</td>
+  </tr>
+</table>
+
+<hr />
+
+<h2 id="summary">Summary — What to Remember</h2>
+
+<ul>
+  <li>✅ <strong>First-level cache</strong> = free. Same session + same ID = no duplicate query.</li>
+  <li>⚠️ <strong>N+1 problem</strong> = expensive. Looping through collections = hidden queries.</li>
+  <li>🔧 <strong>Fix N+1</strong> = <code>JOIN FETCH</code> in your HQL query. One query, all data.</li>
+</ul>
+
+<pre><code>// Your new best friend
+"FROM User u JOIN FETCH u.orders WHERE u.id = :id"</code></pre>
+
+<hr />
+
+<p><strong>More on Hibernate:</strong> Second-level cache (shared across sessions), batch fetching (@BatchSize), and the difference between Hibernate and JPA. But for now — fix N+1, love your first-level cache, and your app will fly 🚀</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
