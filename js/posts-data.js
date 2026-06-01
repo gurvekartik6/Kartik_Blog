@@ -34,7 +34,7 @@ const POSTS_DB = [
     readTime: 1,
     featured: true,
     content: `
-<p>2018. I was making dumb games in RPG Maker. Playing Poken GBA roms. Breaking things. Fixing nothing.</p>
+<p>2018. I was making dumb games in RPG Maker. Playing Pokemon GBA roms. Breaking things. Fixing nothing.</p>
 
 <p>Never finished a single game.</p>
 
