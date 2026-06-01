@@ -1,8 +1,10 @@
 {
-  "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "express-session": "^1.19.0",
-    "jsonwebtoken": "^9.0.3",
-    "pg": "^8.21.0"
+  "name": "kartik-blog",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'Build completed'"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
