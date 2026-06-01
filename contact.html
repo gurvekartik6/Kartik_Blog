@@ -61,6 +61,22 @@
     .social-big.linkedin:hover { background: #0077b5; }
     .social-big.twitter:hover { background: #1da1f2; }
     .social-big.instagram:hover { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    
+    /* Loading state for button */
+    .btn-primary-custom.loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    
+    .btn-primary-custom.loading i {
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
   <script>
     document.addEventListener('contextmenu', function(e) {
@@ -120,29 +136,25 @@
           <h2 class="section-title mb-4">Get in Touch</h2>
 
           <div class="d-flex flex-column gap-3 mb-5">
-            <a href="mailto:kartik@example.com" class="contact-info-card">
-              
+            <a href="mailto:gurvekartik20@gmail.com" class="contact-info-card">
               <div>
                 <div class="contact-label">Email</div>
                 <div class="contact-value">gurvekartik20@gmail.com</div>
               </div>
             </a>
             <a href="#" class="contact-info-card">
-              
               <div>
                 <div class="contact-label">Location</div>
                 <div class="contact-value">Wardha, Maharashtra, India</div>
               </div>
             </a>
             <a href="#" class="contact-info-card">
-              
               <div>
                 <div class="contact-label">University</div>
                 <div class="contact-value">SGGS Nanded · CSE (3rd Year)</div>
               </div>
             </a>
             <div class="contact-info-card" style="cursor:default;">
-              
               <div>
                 <div class="contact-label">Past Roles</div>
                 <div class="contact-value">Android Intern @ Mountreach · Instructor @ Sai Ambrosia</div>
@@ -155,8 +167,6 @@
           <div class="d-flex gap-3 flex-wrap">
             <a href="https://github.com/gurvekartik6" class="social-big github" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-big linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <!-- <a href="#" class="social-big twitter" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="social-big instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a> -->
           </div>
         </div>
       </div>
@@ -203,7 +213,7 @@
             <label class="floating-label" for="cmessage">Your Message</label>
           </div>
 
-          <button class="btn-primary-custom w-100 justify-content-center" onclick="submitContact()">
+          <button class="btn-primary-custom w-100 justify-content-center" id="sendBtn" onclick="submitContact()">
             <i class="fa-solid fa-paper-plane"></i> Send Message
           </button>
 
@@ -224,7 +234,6 @@
       <div class="footer-social">
         <a href="https://github.com/gurvekartik6" class="social-link"><i class="fa-brands fa-github"></i></a>
         <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-        <!-- <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a> -->
       </div>
     </div>
   </div>
@@ -237,11 +246,15 @@
 <script src="js/newsletter.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/main.js"></script>
+
 <script>
 let selectedTopic = '';
 
 function selectTopic(el, topic) {
-  document.querySelectorAll('.topic-chip').forEach(c => c.style.background = '');
+  document.querySelectorAll('.topic-chip').forEach(c => {
+    c.style.background = '';
+    c.style.borderColor = '';
+  });
   el.style.background = 'rgba(124,58,237,0.2)';
   el.style.borderColor = 'var(--accent-purple)';
   selectedTopic = topic;
@@ -249,26 +262,112 @@ function selectTopic(el, topic) {
   if (!subj.value) subj.value = topic;
 }
 
-function submitContact() {
-  const name = (document.getElementById('fname').value + ' ' + document.getElementById('lname').value).trim();
+async function submitContact() {
+  const firstName = document.getElementById('fname').value.trim();
+  const lastName = document.getElementById('lname').value.trim();
+  const name = (firstName + ' ' + lastName).trim();
   const email = document.getElementById('cemail').value.trim();
-  const msg = document.getElementById('cmessage').value.trim();
+  const subject = document.getElementById('csubject').value.trim() || selectedTopic;
+  const message = document.getElementById('cmessage').value.trim();
 
-  if (!name || !email || !msg) {
-    Toast.show('Please fill in all required fields.', 'warning');
+  // Validation
+  if (!name || !email || !message) {
+    if (typeof Toast !== 'undefined') {
+      Toast.show('Please fill in all required fields.', 'warning');
+    } else {
+      alert('Please fill in all required fields.');
+    }
     return;
   }
+  
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    Toast.show('Please enter a valid email address.', 'error');
+    if (typeof Toast !== 'undefined') {
+      Toast.show('Please enter a valid email address.', 'error');
+    } else {
+      alert('Please enter a valid email address.');
+    }
     return;
   }
 
-  // In production, submit to your backend/API
-  Toast.show(`Message sent! I'll reply within 24 hours, ${name.split(' ')[0]} 🙌`, 'success', 4000);
-  ['fname','lname','cemail','csubject','cmessage'].forEach(id => document.getElementById(id).value = '');
-  selectedTopic = '';
-  document.querySelectorAll('.topic-chip').forEach(c => { c.style.background = ''; c.style.borderColor = ''; });
+  // Disable button and show loading state
+  const sendBtn = document.getElementById('sendBtn');
+  const originalText = sendBtn.innerHTML;
+  sendBtn.innerHTML = '<i class="fa-solid fa-spinner"></i> Sending...';
+  sendBtn.classList.add('loading');
+  sendBtn.disabled = true;
+
+  try {
+    // Send to your backend API
+    const response = await fetch('http://localhost:3000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        subject: subject || 'General Inquiry',
+        message: message,
+        topic: selectedTopic
+      })
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.ok) {
+      // Success
+      if (typeof Toast !== 'undefined') {
+        Toast.show(`Message sent! I'll reply within 24 hours, ${firstName || 'there'} 🙌`, 'success', 4000);
+      } else {
+        alert(`Message sent successfully! I'll reply within 24 hours.`);
+      }
+      
+      // Clear form
+      document.getElementById('fname').value = '';
+      document.getElementById('lname').value = '';
+      document.getElementById('cemail').value = '';
+      document.getElementById('csubject').value = '';
+      document.getElementById('cmessage').value = '';
+      selectedTopic = '';
+      document.querySelectorAll('.topic-chip').forEach(c => {
+        c.style.background = '';
+        c.style.borderColor = '';
+      });
+    } else {
+      throw new Error(data.error || 'Failed to send message');
+    }
+  } catch (error) {
+    console.error('Error sending message:', error);
+    if (typeof Toast !== 'undefined') {
+      Toast.show('Failed to send message. Please try again later.', 'error');
+    } else {
+      alert('Failed to send message. Please make sure the backend server is running.');
+    }
+  } finally {
+    // Reset button
+    sendBtn.innerHTML = originalText;
+    sendBtn.classList.remove('loading');
+    sendBtn.disabled = false;
+  }
 }
+
+// Optional: Add API health check on page load
+async function checkBackendHealth() {
+  try {
+    const response = await fetch('http://localhost:3000/api/health');
+    const data = await response.json();
+    if (data.status === 'ok') {
+      console.log('✅ Backend connected, PostgreSQL is running');
+    }
+  } catch (error) {
+    console.warn('⚠️ Backend not reachable. Make sure server.js is running on port 3000');
+  }
+}
+
+// Check backend when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  checkBackendHealth();
+});
 </script>
 </body>
 </html>
