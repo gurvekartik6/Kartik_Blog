@@ -3,10 +3,24 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Android, MERN, ML experiments, Hibernate deep dives, and book takeaways</description>
+  <description>Java, Hibernate, Android, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Mon, 01 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 02 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 13: June 2, 2026 -->
+  <item>
+    <title>3 More Hibernate Concepts: Second-Level Cache, Batch Fetching &amp; JPA vs Hibernate</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate</link>
+    <description>Cache across sessions, fetch collections in batches, and understand JPA vs Hibernate.</description>
+    <pubDate>Tue, 02 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate</guid>
+    <category>Java</category>
+    <category>Hibernate</category>
+    <category>JPA</category>
+    <category>Caching</category>
+    <category>Performance</category>
+  </item>
 
   <!-- POST 12: June 1, 2026 -->
   <item>
@@ -38,12 +52,11 @@
   <item>
     <title>Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</link>
-    <description>Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die, and why you should never confuse the two.</description>
+    <description>Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die.</description>
     <pubDate>Sat, 30 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</guid>
     <category>Java</category>
     <category>Hibernate</category>
-    <category>Deep Dive</category>
     <category>Performance</category>
   </item>
 
@@ -51,20 +64,19 @@
   <item>
     <title>I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</link>
-    <description>David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed. Here's what changed after finishing his book.</description>
+    <description>David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed.</description>
     <pubDate>Fri, 29 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</guid>
     <category>Books</category>
     <category>Mindset</category>
     <category>Motivation</category>
-    <category>Self-Improvement</category>
   </item>
 
   <!-- POST 8: May 28, 2026 -->
   <item>
     <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
-    <description>A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.</description>
+    <description>A simple guide to persist, merge, find, and remove – the 4 superhero methods of Hibernate.</description>
     <pubDate>Thu, 28 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</guid>
     <category>Java</category>
@@ -76,7 +88,7 @@
   <item>
     <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
-    <description>A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.</description>
+    <description>A simple guide to @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.</description>
     <pubDate>Wed, 27 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</guid>
     <category>Java</category>
@@ -88,7 +100,7 @@
   <item>
     <title>Hibernate ORM: What It Is and Why You Need It</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</link>
-    <description>Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.</description>
+    <description>Simple explanation of Hibernate — the Java ORM that saves you from writing SQL manually.</description>
     <pubDate>Tue, 26 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</guid>
     <category>Java</category>

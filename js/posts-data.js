@@ -756,6 +756,49 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
 <p><strong>More on Hibernate:</strong> Second-level cache (shared across sessions), batch fetching (@BatchSize), and the difference between Hibernate and JPA. But for now — fix N+1, love your first-level cache, and your app will fly 🚀</p>
     `,
   },
+    // ── POST 13 (June 2, 2026) ──────────────────────────────────
+  {
+    slug: "hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate",
+    title: "3 More Hibernate Concepts: Second-Level Cache, Batch Fetching & JPA vs Hibernate",
+    excerpt: "Cache across sessions, fetch collections in batches, and understand JPA vs Hibernate.",
+    emoji: "",
+    tags: ["Java", "Hibernate", "JPA", "Caching", "Performance"],
+    author: "Kartik Yadav Gurve",
+    date: "June 2, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<h2>Concept 1: Second-Level Cache</h2>
+<p><strong>First-Level Cache</strong> = per Session. Close Session = cache gone.</p>
+<p><strong>Second-Level Cache</strong> = shared across Sessions.</p>
+<p><strong>Example:</strong> User A loads Product #1 → database hit. User B loads same Product #1 → from cache, no database hit.</p>
+<p><strong>Best for:</strong> Data that rarely changes (products, categories, users).</p>
+<p><strong>Not for:</strong> Frequently changing data (orders, comments).</p>
+
+<h2>Concept 2: Batch Fetching</h2>
+<p><strong>Problem:</strong> JOIN FETCH loads ALL child records at once. If a user has 10,000 orders → memory crash.</p>
+<p><strong>Solution:</strong> @BatchSize(size=20) — fetches 20 orders at a time.</p>
+<p><strong>Result:</strong> 100 orders = 5 queries instead of 100. Saves memory, still fixes N+1.</p>
+<p><strong>When to use:</strong> Large collections (1000+ items). Use JOIN FETCH for small collections.</p>
+
+<h2>Concept 3: JPA vs Hibernate</h2>
+<p><strong>JPA</strong> = A standard/blueprint (rules everyone agrees on).</p>
+<p><strong>Hibernate</strong> = A tool that follows JPA rules (plus extra features).</p>
+<p><strong>Analogy:</strong> JPA is USB-C standard. Hibernate is a USB-C cable.</p>
+<p><strong>JPA code:</strong> EntityManager, @Entity, @Id — works with any JPA provider.</p>
+<p><strong>Hibernate code:</strong> Session, session.get(), custom caching — only works with Hibernate.</p>
+<p><strong>Best practice:</strong> Write JPA code, run on Hibernate. Portable + powerful.</p>
+
+<h2>Summary</h2>
+<ul>
+<li>Second-Level Cache = share data across users → fewer database hits</li>
+<li>Batch Fetching = load large collections in groups → saves memory</li>
+<li>JPA = standard, Hibernate = implementation → use both</li>
+</ul>
+
+<p><strong>More on Hibernate:</strong> Optimistic vs Pessimistic Locking, Inheritance mapping strategies (Single Table, Joined, Table Per Class), and Embeddables (@Embedded, @ElementCollection). Coming next.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
