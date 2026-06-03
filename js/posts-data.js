@@ -799,6 +799,59 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
 <p><strong>More on Hibernate:</strong> Optimistic vs Pessimistic Locking, Inheritance mapping strategies (Single Table, Joined, Table Per Class), and Embeddables (@Embedded, @ElementCollection). Coming next.</p>
     `,
   },
+    // ── POST 14 (June 3, 2026) ──────────────────────────────────
+  {
+    slug: "git-basics-every-developer-should-know",
+    title: "Git Basics: 5 Commands Every Developer Must Know",
+    excerpt: "No more git panic. Just clone, commit, push, pull, and branch — explained simply.",
+    emoji: "",
+    tags: ["Git", "GitHub", "Version Control", "Beginner"],
+    author: "Kartik Yadav Gurve",
+    date: "June 3, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<h2>Command 1: git clone</h2>
+<p><strong>What it does:</strong> Download a repository from GitHub to your computer.</p>
+<pre><code>git clone https://github.com/username/repo-name.git</code></pre>
+
+<h2>Command 2: git add + git commit</h2>
+<p><strong>What it does:</strong> Save your changes locally.</p>
+<pre><code>git add .                    # Stage all changes
+git commit -m "Your message" # Save with description</code></pre>
+
+<h2>Command 3: git push</h2>
+<p><strong>What it does:</strong> Upload your commits to GitHub.</p>
+<pre><code>git push origin main</code></pre>
+
+<h2>Command 4: git pull</h2>
+<p><strong>What it does:</strong> Download latest changes from GitHub.</p>
+<pre><code>git pull origin main</code></pre>
+
+<h2>Command 5: git branch</h2>
+<p><strong>What it does:</strong> Create and switch between branches.</p>
+<pre><code>git branch feature-xyz     # Create branch
+git checkout feature-xyz   # Switch to branch
+git checkout -b new-branch # Create + switch in one command</code></pre>
+
+<h2>Quick Workflow</h2>
+<pre><code>git add .
+git commit -m "Updated code"
+git pull origin main       # Get latest changes first
+git push origin main       # Then push yours</code></pre>
+
+<h2>Summary</h2>
+<ul>
+<li>clone = download repo</li>
+<li>add + commit = save locally</li>
+<li>push = upload to GitHub</li>
+<li>pull = download updates</li>
+<li>branch = work on features separately</li>
+</ul>
+
+<p><strong>More on Git:</strong> Merge conflicts, rebase vs merge, and undoing commits. Coming next.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────

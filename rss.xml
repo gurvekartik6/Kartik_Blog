@@ -3,10 +3,23 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Java, Hibernate, Android, and book takeaways</description>
+  <description>Java, Hibernate, Git, Android, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Tue, 02 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 03 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 14: June 3, 2026 -->
+  <item>
+    <title>Git Basics: 5 Commands Every Developer Must Know</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=git-basics-every-developer-should-know</link>
+    <description>No more git panic. Just clone, commit, push, pull, and branch — explained simply.</description>
+    <pubDate>Wed, 03 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=git-basics-every-developer-should-know</guid>
+    <category>Git</category>
+    <category>GitHub</category>
+    <category>Version Control</category>
+    <category>Beginner</category>
+  </item>
 
   <!-- POST 13: June 2, 2026 -->
   <item>
