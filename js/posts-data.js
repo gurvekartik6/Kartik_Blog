@@ -76,7 +76,7 @@ const POSTS_DB = [
     featured: true,
     content: `
 <h2 id="intro">How I Work as an Instructor at Sai Ambrosia After 10th</h2>
-<p>After 10th I started teaching Power BI at Sai Ambrosia Education.</p>
+<p>After 10th I started teaching  at Sai Ambrosia Education.</p>
     `,
   },
 
