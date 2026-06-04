@@ -804,7 +804,7 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
     slug: "git-basics-every-developer-should-know",
     title: "Git Basics: 5 Commands Every Developer Must Know",
     excerpt: "No more git panic. Just clone, commit, push, pull, and branch — explained simply.",
-    emoji: "",
+    emoji: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
     tags: ["Git", "GitHub", "Version Control", "Beginner"],
     author: "Kartik Yadav Gurve",
     date: "June 3, 2026",
