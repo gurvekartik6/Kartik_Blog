@@ -128,6 +128,22 @@
     .sort-select:focus { border-color: var(--accent-purple); }
     .sort-select option { background: var(--bg-primary); }
 
+    /* ── Blog Card Image Styles ── */
+    .card-image-wrap {
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+      position: relative;
+    }
+    .card-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .card-image-wrap img {
+      transform: scale(1.05);
+    }
+
     /* ── Single Post Styles ── */
     .single-post-container {
       max-width: 800px;
@@ -138,9 +154,16 @@
       text-align: center;
       margin-bottom: 48px;
     }
-    .single-post-emoji {
-      font-size: 4rem;
-      margin-bottom: 16px;
+    .single-post-hero {
+      margin-bottom: 32px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .single-post-hero img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 16px;
     }
     .single-post-title {
       font-family: 'Syne', sans-serif;
@@ -609,9 +632,16 @@ function buildCard(post, index) {
     return `<span class="card-tag" style="${colors[i % 3]}">${t}</span>`;
   }).join('');
 
+  // FALLBACK IMAGE URL
+  const fallbackImage = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop';
+  const postImage = post.image || fallbackImage;
+
   card.innerHTML = `
     <div class="card-image-wrap" style="height:${isWide ? '200px' : '160px'};">
-      <div class="card-image-placeholder" style="font-size:${isWide ? '4rem' : '3rem'}">${post.emoji}</div>
+      <img src="${postImage}" 
+           alt="${post.title}"
+           style="width:100%; height:100%; object-fit:cover;"
+           onerror="this.src='${fallbackImage}'">
     </div>
     <div class="card-content">
       <div class="card-tags">${tagBadges}</div>
@@ -747,13 +777,21 @@ async function showSinglePost(slug) {
   
   const tagHTML = post.tags.map(tag => `<span class="single-post-tag">${tag}</span>`).join('');
   
+  // FALLBACK IMAGE URL
+  const fallbackImage = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=400&fit=crop';
+  const postImage = post.image || fallbackImage;
+  
   document.getElementById('single-post-view').innerHTML = `
     <div class="single-post-container">
       <button class="back-button" onclick="showListing()">
         <i class="fa-solid fa-arrow-left"></i> Back to all articles
       </button>
       <div class="single-post-header">
-        <div class="single-post-emoji">${post.emoji}</div>
+        <div class="single-post-hero">
+          <img src="${postImage}" 
+               alt="${post.title}"
+               onerror="this.src='${fallbackImage}'">
+        </div>
         <h1 class="single-post-title">${post.title}</h1>
         <div class="single-post-meta">
           <span><i class="fa-regular fa-user"></i> ${post.author}</span>
