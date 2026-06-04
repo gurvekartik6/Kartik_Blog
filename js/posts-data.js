@@ -27,7 +27,7 @@ const POSTS_DB = [
     slug: "my-love-and-passion-about-coding-since-2018",
     title: "Coding Since 2018",
     excerpt: "RPG Maker, GBA games, and never finishing anything.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
     tags: ["Personal", "Coding"],
     author: "Kartik Yadav Gurve",
     date: "May 21, 2026",
@@ -51,7 +51,7 @@ const POSTS_DB = [
     slug: "the-idea-about-the-blogging-website",
     title: "The Idea About the Blogging Website",
     excerpt: "The idea about the blogging website and why I built it this way",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
     tags: ["Blogging", "Web Development"],
     author: "Kartik Yadav Gurve",
     date: "May 22, 2026",
@@ -68,7 +68,7 @@ const POSTS_DB = [
     slug: "how-i-work-as-instructor-at-sai-ambrosia",
     title: "How I Work as an Instructor at Sai Ambrosia After 10th",
     excerpt: "After 10th how I work as instructor at Sai Ambrosia Education",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=400&fit=crop",
     tags: ["Teaching", "Power BI"],
     author: "Kartik Yadav Gurve",
     date: "May 23, 2026",
@@ -85,7 +85,7 @@ const POSTS_DB = [
     slug: "tech-skills-i-have-learned",
     title: "The Tech Skills I Have Learned",
     excerpt: "The tech skills I have learned over the years",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=400&fit=crop",
     tags: ["Skills", "Learning"],
     author: "Kartik Yadav Gurve",
     date: "May 24, 2026",
@@ -97,12 +97,12 @@ const POSTS_DB = [
     `,
   },
 
-  // ── POST 5 (May 25, 2026 - YESTERDAY) ───────────────────────
+  // ── POST 5 (May 25, 2026) ───────────────────────
   {
     slug: "connect-java-to-postgresql",
     title: "How to Connect Java Application to PostgreSQL",
     excerpt: "Step-by-step guide to connect Java with PostgreSQL database",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
     tags: ["Java", "PostgreSQL", "Database", "JDBC"],
     author: "Kartik Yadav Gurve",
     date: "May 25, 2026",
@@ -171,13 +171,13 @@ pstmt.executeUpdate();</code></pre>
     `,
   },
 
-  // ── POST 6 (May 26, 2026 - TODAY) ──────────────────────────
+  // ── POST 6 (May 26, 2026) ──────────────────────────
   {
     slug: "hibernate-orm-simple-guide",
     title: "Hibernate ORM: What It Is and Why You Need It",
     excerpt:
       "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database"],
     author: "Kartik Yadav Gurve",
     date: "May 26, 2026",
@@ -214,13 +214,13 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>Hibernate = Less SQL, more Java. Perfect for saving time and keeping your code clean.</p>
     `,
   },
-  // ── POST 7 (May 26, 2026 - TODAY) ──────────────────────────
+  // ── POST 7 (May 27, 2026) ──────────────────────────
   {
     slug: "hibernate-orm-mapping-relationships-annotations",
     title: "Hibernate ORM: Mapping Relationships & Annotations (Theory)",
     excerpt:
       "A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Theory"],
     author: "Kartik Yadav Gurve",
     date: "May 27, 2026",
@@ -270,38 +270,38 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>No code, just concepts! Hibernate maps your Java thinking directly to database tables.</p>
     `,
   },
-  // ── POST 8 (May 28, 2026 - TODAY) ──────────────────────────
+  // ── POST 8 (May 28, 2026) ──────────────────────────
   {
     slug: "hibernate-orm-crud-methods-merge-persist-remove",
     title: "Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)",
     excerpt:
       "A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1556075798-4825dfa3a995?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Theory", "CRUD"],
     author: "Kartik Yadav Gurve",
     date: "May 28, 2026",
     readTime: 4,
     featured: true,
     content: `
-<h2 id="intro">Your App’s Conversation with the Database</h2>
+<h2 id="intro">Your App's Conversation with the Database</h2>
 <p>Imagine Hibernate is a smart assistant. You don't write SQL. You just tell Hibernate: <em>"Save this"</em>, <em>"Find that"</em>, <em>"Update this"</em>, or <em>"Delete that"</em>. Hibernate uses 4 main methods to talk to your database.</p>
 
-<h2 id="persist">1. persist() – “Save a New Record”</h2>
+<h2 id="persist">1. persist() – "Save a New Record"</h2>
 <p><strong>What it does:</strong> Inserts a brand new row into your database table.</p>
 <p><strong>Real-world example:</strong> You sign up for a new Instagram account. Hibernate does: <code>INSERT INTO users ...</code></p>
 <p><strong>Simple rule:</strong> Use <code>persist()</code> when you are 100% sure the record does NOT exist yet.</p>
 
-<h2 id="find">2. find() – “Find an Existing Record”</h2>
+<h2 id="find">2. find() – "Find an Existing Record"</h2>
 <p><strong>What it does:</strong> Fetches/reads one record from the database using its ID (primary key).</p>
 <p><strong>Real-world example:</strong> You open your profile page. Hibernate does: <code>SELECT * FROM users WHERE id = ?</code></p>
 <p><strong>Simple rule:</strong> Use <code>find()</code> when you know the ID and want the data immediately.</p>
 
-<h2 id="merge">3. merge() – “Update an Existing Record”</h2>
+<h2 id="merge">3. merge() – "Update an Existing Record"</h2>
 <p><strong>What it does:</strong> If the record exists → updates it. If not → inserts it (but normally used for updates).</p>
 <p><strong>Real-world example:</strong> You change your profile bio. Hibernate does: <code>UPDATE users SET bio = ? WHERE id = ?</code></p>
 <p><strong>Simple rule:</strong> Use <code>merge()</code> when you fetched a record, changed some fields, and want to save those changes back.</p>
 
-<h2 id="remove">4. remove() – “Delete a Record”</h2>
+<h2 id="remove">4. remove() – "Delete a Record"</h2>
 <p><strong>What it does:</strong> Permanently deletes a record from the database.</p>
 <p><strong>Real-world example:</strong> You delete your old comment on a YouTube video. Hibernate does: <code>DELETE FROM comments WHERE id = ?</code></p>
 <p><strong>Simple rule:</strong> Use <code>remove()</code> only after you have fetched the record using <code>find()</code>.</p>
@@ -330,13 +330,13 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>That's the magic of Hibernate. Your Java objects talk. Hibernate translates to SQL behind the scenes.</p>
   `,
   },
-  // ── POST 9 (May 29, 2026 - TODAY) ──────────────────────────
+  // ── POST 9 (May 29, 2026) ──────────────────────────
   {
     slug: "cant-hurt-me-book-takeaways-david-goggins",
     title: "I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way).",
     excerpt:
       "David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed. Here's what changed after finishing his book.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&h=400&fit=crop",
     tags: ["Books", "Mindset", "Motivation", "Self-Improvement", "Lessons"],
     author: "Kartik Yadav Gurve",
     date: "May 29, 2026",
@@ -388,7 +388,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
     title: "Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle",
     excerpt:
       "Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die, and why you should never confuse the two.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Deep Dive", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "May 30, 2026",
@@ -480,32 +480,32 @@ One factory. Many sessions. Short lives. Happy database.</p>
     <th style="border: 1px solid #ddd; padding: 8px;">Feature</th>
     <th style="border: 1px solid #ddd; padding: 8px;">SessionFactory</th>
     <th style="border: 1px solid #ddd; padding: 8px;">Session</th>
-  </tr>
-  <tr>
+   </tr>
+   <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">How many?</td>
     <td style="border: 1px solid #ddd; padding: 8px;">One per database</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Many per app</td>
-  </tr>
-  <tr>
+   </tr>
+   <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">Lifetime</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Whole app lifetime</td>
     <td style="border: 1px solid #ddd; padding: 8px;">One unit of work</td>
-  </tr>
-  <tr>
+   </tr>
+   <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">Creation cost</td>
     <td style="border: 1px solid #ddd; padding: 8px;">EXPENSIVE (do once)</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Cheap (do many times)</td>
-  </tr>
-  <tr>
+   </tr>
+   <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">Caches</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Second-level (app-wide)</td>
     <td style="border: 1px solid #ddd; padding: 8px;">First-level (per transaction)</td>
-  </tr>
-  <tr>
+   </tr>
+   <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">Thread-safe?</td>
     <td style="border: 1px solid #ddd; padding: 8px;">✅ Yes (share anywhere)</td>
     <td style="border: 1px solid #ddd; padding: 8px;">❌ No (one thread at a time)</td>
-  </tr>
+   </tr>
 </table>
 
 <h2 id="final-word">The One Thing to Remember</h2>
@@ -524,7 +524,7 @@ One factory. Many sessions. Short lives. Happy database.</p>
       "Hibernate Session Problems: Transactions, Lazy Loading, and Session Management",
     excerpt:
       "You know what SessionFactory and Session are. Now learn the 3 biggest problems developers face and how to fix them.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Session", "Transactions", "Lazy Loading"],
     author: "Kartik Yadav Gurve",
     date: "May 31, 2026",
@@ -616,19 +616,19 @@ user.getOrders().size();  // Works! Data already loaded</code></pre>
   <tr style="background-color: #f0f0f0;">
     <th style="border: 1px solid #ddd; padding: 8px;">Problem</th>
     <th style="border: 1px solid #ddd; padding: 8px;">Fix</th>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">Data not saving</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Use beginTransaction() + commit()</td>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">LazyInitializationException</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Load data before closing Session (JOIN FETCH)</td>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">Connection leaks</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Close Session immediately after work</td>
-  </tr>
+    </tr>
 </table>
 
 <p>SessionFactory = your app's backbone. Session = your work unit. Treat Session right, and Hibernate will love you. ❤️</p>
@@ -640,7 +640,7 @@ user.getOrders().size();  // Works! Data already loaded</code></pre>
     title: "2 Hibernate Concepts That Save Your Database: N+1 Problem & First-Level Cache",
     excerpt:
       "Why 10 users become 11 queries (and how to fix it). Plus: the cache you already have but didn't know about.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Performance", "Caching"],
     author: "Kartik Yadav Gurve",
     date: "June 1, 2026",
@@ -725,17 +725,17 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
     <th style="border: 1px solid #ddd; padding: 8px;">Concept</th>
     <th style="border: 1px solid #ddd; padding: 8px;">What It Does</th>
     <th style="border: 1px solid #ddd; padding: 8px;">You Need To...</th>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">First-Level Cache</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Prevents duplicate queries in same session</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Nothing — it's automatic!</td>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
     <td style="border: 1px solid #ddd; padding: 8px;">N+1 Problem</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Causes 1+N queries instead of 1</td>
     <td style="border: 1px solid #ddd; padding: 8px;">Use JOIN FETCH or @EntityGraph</td>
-  </tr>
+    </tr>
 </table>
 
 <hr />
@@ -761,7 +761,7 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
     slug: "hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate",
     title: "3 More Hibernate Concepts: Second-Level Cache, Batch Fetching & JPA vs Hibernate",
     excerpt: "Cache across sessions, fetch collections in batches, and understand JPA vs Hibernate.",
-    emoji: "",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "JPA", "Caching", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "June 2, 2026",
@@ -804,7 +804,7 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
     slug: "git-basics-every-developer-should-know",
     title: "Git Basics: 5 Commands Every Developer Must Know",
     excerpt: "No more git panic. Just clone, commit, push, pull, and branch — explained simply.",
-    emoji: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=400&fit=crop",
     tags: ["Git", "GitHub", "Version Control", "Beginner"],
     author: "Kartik Yadav Gurve",
     date: "June 3, 2026",
@@ -918,7 +918,7 @@ function searchPosts(query) {
     slug:       "your-post-slug",
     title:      "Your Post Title",
     excerpt:    "Your excerpt here.",
-    emoji:      "🚀",
+    image:      "https://images.unsplash.com/...?w=800&h=400&fit=crop",
     tags:       ["Tag1", "Tag2"],
     author:     "Kartik Yadav Gurve",
     date:       "May 27, 2026",
