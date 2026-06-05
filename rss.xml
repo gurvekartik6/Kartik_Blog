@@ -3,10 +3,35 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Java, Hibernate, Git, Android, and book takeaways</description>
+  <description>Java, Hibernate, Git, Docker, API, Android, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Wed, 03 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 05 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 16: June 5, 2026 -->
+  <item>
+    <title>REST API vs GraphQL: Which One Should You Learn First?</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=rest-api-vs-graphql-simple-comparison</link>
+    <description>Simple comparison with real examples — no complex theory, just practical advice on REST and GraphQL.</description>
+    <pubDate>Thu, 05 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=rest-api-vs-graphql-simple-comparison</guid>
+    <category>API</category>
+    <category>GraphQL</category>
+    <category>REST</category>
+    <category>Backend</category>
+  </item>
+
+  <!-- POST 15: June 4, 2026 -->
+  <item>
+    <title>Docker Basics: 5 Commands That Will Change How You Develop</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=docker-basics-every-developer-needs</link>
+    <description>Stop saying 'it works on my machine' — containerize your apps with these essential Docker commands.</description>
+    <pubDate>Wed, 04 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=docker-basics-every-developer-needs</guid>
+    <category>Docker</category>
+    <category>DevOps</category>
+    <category>Containers</category>
+  </item>
 
   <!-- POST 14: June 3, 2026 -->
   <item>

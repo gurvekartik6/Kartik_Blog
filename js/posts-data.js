@@ -852,6 +852,181 @@ git push origin main       # Then push yours</code></pre>
 <p><strong>More on Git:</strong> Merge conflicts, rebase vs merge, and undoing commits. Coming next.</p>
     `,
   },
+    // ── POST 15 (June 4, 2026) ──────────────────────────────────
+  {
+    slug: "docker-basics-every-developer-needs",
+    title: "Docker Basics: 5 Commands That Will Change How You Develop",
+    excerpt: "Stop saying 'it works on my machine' — containerize your apps with these essential Docker commands.",
+    image: "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
+    tags: ["Docker", "DevOps", "Containers"],
+    author: "Kartik Yadav Gurve",
+    date: "June 4, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<h2 id="what-is-docker">What is Docker?</h2>
+<p>Docker packages your app + all its dependencies into a container. That container runs anywhere — your laptop, a server, the cloud. No more "works on my machine" problems.</p>
+
+<h2 id="command-1">1. docker pull</h2>
+<p><strong>Download an image from Docker Hub</strong></p>
+<pre><code>docker pull node:18
+docker pull postgres:15
+docker pull nginx</code></pre>
+
+<h2 id="command-2">2. docker run</h2>
+<p><strong>Start a container from an image</strong></p>
+<pre><code>docker run -d -p 3000:3000 node:18
+docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=mysecret postgres:15</code></pre>
+<p><code>-d</code> = run in background, <code>-p</code> = map ports, <code>-e</code> = set environment variables</p>
+
+<h2 id="command-3">3. docker ps</h2>
+<p><strong>See running containers</strong></p>
+<pre><code>docker ps
+docker ps -a  # See all containers (including stopped)</code></pre>
+
+<h2 id="command-4">4. docker stop / start</h2>
+<p><strong>Stop or start a container</strong></p>
+<pre><code>docker stop container_name_or_id
+docker start container_name_or_id</code></pre>
+
+<h2 id="command-5">5. docker exec</h2>
+<p><strong>Run commands inside a running container</strong></p>
+<pre><code>docker exec -it container_name bash
+docker exec container_name node app.js</code></pre>
+
+<h2 id="dockerfile">Bonus: Create Your Own Image (Dockerfile)</h2>
+<pre><code>FROM node:18
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]</code></pre>
+<p>Build it: <code>docker build -t my-app .</code></p>
+<p>Run it: <code>docker run -p 3000:3000 my-app</code></p>
+
+<h2 id="summary">Quick Reference</h2>
+<ul>
+<li><code>docker pull</code> → download image</li>
+<li><code>docker run</code> → start container</li>
+<li><code>docker ps</code> → list containers</li>
+<li><code>docker stop</code> → stop container</li>
+<li><code>docker exec</code> → run command inside</li>
+<li><code>docker build</code> → create your own image</li>
+</ul>
+<p>Docker changes everything. Start with these 5 commands and you'll never fear containers again 🐳</p>
+    `,
+  },
+    // ── POST 16 (June 5, 2026) ──────────────────────────────────
+  {
+    slug: "rest-api-vs-graphql-simple-comparison",
+    title: "REST API vs GraphQL: Which One Should You Learn First?",
+    excerpt: "Simple comparison with real examples — no complex theory, just practical advice.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    tags: ["API", "GraphQL", "REST", "Backend"],
+    author: "Kartik Yadav Gurve",
+    date: "June 5, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<h2 id="the-problem">The Problem Both Solve</h2>
+<p>You have data in a database. Your frontend (React, Android, iOS) needs that data. How do they talk? Through an API.</p>
+<p>REST and GraphQL are two different ways to build that conversation.</p>
+
+<h2 id="rest-explained">REST: One Endpoint = One Resource</h2>
+<p><strong>Example:</strong> A blog app needs posts and users.</p>
+<pre><code>GET /posts        → returns ALL posts
+GET /posts/1      → returns post #1
+GET /users/1      → returns user #1
+GET /posts/1/comments → returns comments for post #1</code></pre>
+<p><strong>Problem:</strong> If a page needs post + author + comments, you make 3 separate requests.</p>
+
+<h2 id="graphql-explained">GraphQL: One Endpoint = Ask For Exactly What You Need</h2>
+<p><strong>Example:</strong> Same blog app, one request:</p>
+<pre><code>query {
+  post(id: 1) {
+    title
+    content
+    author { name }
+    comments { body }
+  }
+}</code></pre>
+<p><strong>Result:</strong> One request returns post + author + comments. No over-fetching, no under-fetching.</p>
+
+<h2 id="comparison">Quick Comparison</h2>
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Feature</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">REST</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">GraphQL</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Learning Curve</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Easy → start here</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Steeper</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Number of endpoints</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Many (one per resource)</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">One</td>
+   </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Over-fetching</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Common</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Never (ask for exactly what you need)</td>
+   </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Caching</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Easy (HTTP cache)</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Harder</td>
+   </tr>
+</table>
+
+<h2 id="which-to-learn-first">Which Should You Learn First?</h2>
+
+<p><strong>Learn REST first. Always.</strong></p>
+<ul>
+  <li>90% of APIs are still REST</li>
+  <li>REST teaches you HTTP fundamentals (GET, POST, PUT, DELETE)</li>
+  <li>GraphQL builds on REST concepts</li>
+</ul>
+
+<p><strong>Learn GraphQL when:</strong></p>
+<ul>
+  <li>Your app has many different clients (web, mobile, desktop)</li>
+  <li>Your REST API has become a mess of custom endpoints</li>
+  <li>You're tired of over-fetching data</li>
+  <li>You're building a dashboard with complex data needs</li>
+</ul>
+
+<h2 id="real-world-example">Real Example from My Projects</h2>
+
+<p><strong>Small project (Portfolio + Blog):</strong> REST API. Simple, works, no need for GraphQL complexity.</p>
+
+<p><strong>Big project (Hackathon dashboard):</strong> GraphQL. Different pages needed different data shapes. One endpoint, everyone happy.</p>
+
+<h2 id="tools">Tools to Learn</h2>
+
+<p><strong>For REST:</strong></p>
+<ul>
+  <li>Express.js (Node), Spring Boot (Java), Django (Python)</li>
+  <li>Postman or Insomnia for testing</li>
+</ul>
+
+<p><strong>For GraphQL:</strong></p>
+<ul>
+  <li>Apollo Server, GraphQL Yoga</li>
+  <li>Apollo Client (frontend)</li>
+  <li>GraphQL Playground (test queries)</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+<p>REST = Simple, everywhere, learn it first.<br/>
+GraphQL = Powerful, flexible, learn it second.</p>
+<p>Both are valuable. Both have jobs. Know both = unstoppable.</p>
+<p><strong>Start with REST today. Build a simple API. Then try GraphQL.</strong> 🚀</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
