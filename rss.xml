@@ -3,17 +3,29 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Java, Hibernate, Git, Docker, API, Android, and book takeaways</description>
+  <description>Java, Hibernate, Git, Docker, VS Code, Android, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Thu, 05 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 07 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 17: June 7, 2026 -->
+  <item>
+    <title>Top 5 VS Code Extensions That Make Coding 10x Easier</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</link>
+    <description>My favorite VS Code extensions — no bloat, just tools I use every single day. Prettier, GitLens, Thunder Client, Live Server, and Error Lens.</description>
+    <pubDate>Sun, 07 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</guid>
+    <category>VS Code</category>
+    <category>Tools</category>
+    <category>Productivity</category>
+  </item>
 
   <!-- POST 16: June 5, 2026 -->
   <item>
     <title>REST API vs GraphQL: Which One Should You Learn First?</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=rest-api-vs-graphql-simple-comparison</link>
     <description>Simple comparison with real examples — no complex theory, just practical advice on REST and GraphQL.</description>
-    <pubDate>Thu, 05 Jun 2026 20:00:00 GMT</pubDate>
+    <pubDate>Fri, 05 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=rest-api-vs-graphql-simple-comparison</guid>
     <category>API</category>
     <category>GraphQL</category>
@@ -26,7 +38,7 @@
     <title>Docker Basics: 5 Commands That Will Change How You Develop</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=docker-basics-every-developer-needs</link>
     <description>Stop saying 'it works on my machine' — containerize your apps with these essential Docker commands.</description>
-    <pubDate>Wed, 04 Jun 2026 20:00:00 GMT</pubDate>
+    <pubDate>Thu, 04 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=docker-basics-every-developer-needs</guid>
     <category>Docker</category>
     <category>DevOps</category>

@@ -27,7 +27,8 @@ const POSTS_DB = [
     slug: "my-love-and-passion-about-coding-since-2018",
     title: "Coding Since 2018",
     excerpt: "RPG Maker, GBA games, and never finishing anything.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
     tags: ["Personal", "Coding"],
     author: "Kartik Yadav Gurve",
     date: "May 21, 2026",
@@ -51,7 +52,8 @@ const POSTS_DB = [
     slug: "the-idea-about-the-blogging-website",
     title: "The Idea About the Blogging Website",
     excerpt: "The idea about the blogging website and why I built it this way",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
     tags: ["Blogging", "Web Development"],
     author: "Kartik Yadav Gurve",
     date: "May 22, 2026",
@@ -68,7 +70,8 @@ const POSTS_DB = [
     slug: "how-i-work-as-instructor-at-sai-ambrosia",
     title: "How I Work as an Instructor at Sai Ambrosia After 10th",
     excerpt: "After 10th how I work as instructor at Sai Ambrosia Education",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=400&fit=crop",
     tags: ["Teaching", "Power BI"],
     author: "Kartik Yadav Gurve",
     date: "May 23, 2026",
@@ -85,7 +88,8 @@ const POSTS_DB = [
     slug: "tech-skills-i-have-learned",
     title: "The Tech Skills I Have Learned",
     excerpt: "The tech skills I have learned over the years",
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=400&fit=crop",
     tags: ["Skills", "Learning"],
     author: "Kartik Yadav Gurve",
     date: "May 24, 2026",
@@ -102,7 +106,8 @@ const POSTS_DB = [
     slug: "connect-java-to-postgresql",
     title: "How to Connect Java Application to PostgreSQL",
     excerpt: "Step-by-step guide to connect Java with PostgreSQL database",
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
     tags: ["Java", "PostgreSQL", "Database", "JDBC"],
     author: "Kartik Yadav Gurve",
     date: "May 25, 2026",
@@ -177,7 +182,8 @@ pstmt.executeUpdate();</code></pre>
     title: "Hibernate ORM: What It Is and Why You Need It",
     excerpt:
       "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database"],
     author: "Kartik Yadav Gurve",
     date: "May 26, 2026",
@@ -220,7 +226,8 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
     title: "Hibernate ORM: Mapping Relationships & Annotations (Theory)",
     excerpt:
       "A simple, code-free guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Theory"],
     author: "Kartik Yadav Gurve",
     date: "May 27, 2026",
@@ -276,7 +283,8 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
     title: "Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)",
     excerpt:
       "A simple, code-free guide to understanding persist, merge, find, and remove – the 4 superhero methods of Hibernate.",
-    image: "https://images.unsplash.com/photo-1556075798-4825dfa3a995?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1556075798-4825dfa3a995?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Theory", "CRUD"],
     author: "Kartik Yadav Gurve",
     date: "May 28, 2026",
@@ -336,7 +344,8 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
     title: "I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way).",
     excerpt:
       "David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed. Here's what changed after finishing his book.",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&h=400&fit=crop",
     tags: ["Books", "Mindset", "Motivation", "Self-Improvement", "Lessons"],
     author: "Kartik Yadav Gurve",
     date: "May 29, 2026",
@@ -388,7 +397,8 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
     title: "Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle",
     excerpt:
       "Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die, and why you should never confuse the two.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Deep Dive", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "May 30, 2026",
@@ -524,7 +534,8 @@ One factory. Many sessions. Short lives. Happy database.</p>
       "Hibernate Session Problems: Transactions, Lazy Loading, and Session Management",
     excerpt:
       "You know what SessionFactory and Session are. Now learn the 3 biggest problems developers face and how to fix them.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Session", "Transactions", "Lazy Loading"],
     author: "Kartik Yadav Gurve",
     date: "May 31, 2026",
@@ -634,13 +645,15 @@ user.getOrders().size();  // Works! Data already loaded</code></pre>
 <p>SessionFactory = your app's backbone. Session = your work unit. Treat Session right, and Hibernate will love you. ❤️</p>
     `,
   },
-    // ── POST 12 (June 1, 2026) ──────────────────────────────────
+  // ── POST 12 (June 1, 2026) ──────────────────────────────────
   {
     slug: "hibernate-n-plus-1-problem-and-first-level-cache",
-    title: "2 Hibernate Concepts That Save Your Database: N+1 Problem & First-Level Cache",
+    title:
+      "2 Hibernate Concepts That Save Your Database: N+1 Problem & First-Level Cache",
     excerpt:
       "Why 10 users become 11 queries (and how to fix it). Plus: the cache you already have but didn't know about.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Performance", "Caching"],
     author: "Kartik Yadav Gurve",
     date: "June 1, 2026",
@@ -756,12 +769,15 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
 <p><strong>More on Hibernate:</strong> Second-level cache (shared across sessions), batch fetching (@BatchSize), and the difference between Hibernate and JPA. But for now — fix N+1, love your first-level cache, and your app will fly 🚀</p>
     `,
   },
-    // ── POST 13 (June 2, 2026) ──────────────────────────────────
+  // ── POST 13 (June 2, 2026) ──────────────────────────────────
   {
     slug: "hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate",
-    title: "3 More Hibernate Concepts: Second-Level Cache, Batch Fetching & JPA vs Hibernate",
-    excerpt: "Cache across sessions, fetch collections in batches, and understand JPA vs Hibernate.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    title:
+      "3 More Hibernate Concepts: Second-Level Cache, Batch Fetching & JPA vs Hibernate",
+    excerpt:
+      "Cache across sessions, fetch collections in batches, and understand JPA vs Hibernate.",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "JPA", "Caching", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "June 2, 2026",
@@ -799,12 +815,14 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
 <p><strong>More on Hibernate:</strong> Optimistic vs Pessimistic Locking, Inheritance mapping strategies (Single Table, Joined, Table Per Class), and Embeddables (@Embedded, @ElementCollection). Coming next.</p>
     `,
   },
-    // ── POST 14 (June 3, 2026) ──────────────────────────────────
+  // ── POST 14 (June 3, 2026) ──────────────────────────────────
   {
     slug: "git-basics-every-developer-should-know",
     title: "Git Basics: 5 Commands Every Developer Must Know",
-    excerpt: "No more git panic. Just clone, commit, push, pull, and branch — explained simply.",
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=400&fit=crop",
+    excerpt:
+      "No more git panic. Just clone, commit, push, pull, and branch — explained simply.",
+    image:
+      "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=400&fit=crop",
     tags: ["Git", "GitHub", "Version Control", "Beginner"],
     author: "Kartik Yadav Gurve",
     date: "June 3, 2026",
@@ -852,12 +870,14 @@ git push origin main       # Then push yours</code></pre>
 <p><strong>More on Git:</strong> Merge conflicts, rebase vs merge, and undoing commits. Coming next.</p>
     `,
   },
-    // ── POST 15 (June 4, 2026) ──────────────────────────────────
+  // ── POST 15 (June 4, 2026) ──────────────────────────────────
   {
     slug: "docker-basics-every-developer-needs",
     title: "Docker Basics: 5 Commands That Will Change How You Develop",
-    excerpt: "Stop saying 'it works on my machine' — containerize your apps with these essential Docker commands.",
-    image: "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
+    excerpt:
+      "Stop saying 'it works on my machine' — containerize your apps with these essential Docker commands.",
+    image:
+      "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
     tags: ["Docker", "DevOps", "Containers"],
     author: "Kartik Yadav Gurve",
     date: "June 4, 2026",
@@ -917,12 +937,14 @@ CMD ["npm", "start"]</code></pre>
 <p>Docker changes everything. Start with these 5 commands and you'll never fear containers again 🐳</p>
     `,
   },
-    // ── POST 16 (June 5, 2026) ──────────────────────────────────
+  // ── POST 16 (June 5, 2026) ──────────────────────────────────
   {
     slug: "rest-api-vs-graphql-simple-comparison",
     title: "REST API vs GraphQL: Which One Should You Learn First?",
-    excerpt: "Simple comparison with real examples — no complex theory, just practical advice.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    excerpt:
+      "Simple comparison with real examples — no complex theory, just practical advice.",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     tags: ["API", "GraphQL", "REST", "Backend"],
     author: "Kartik Yadav Gurve",
     date: "June 5, 2026",
@@ -1025,6 +1047,56 @@ GET /posts/1/comments → returns comments for post #1</code></pre>
 GraphQL = Powerful, flexible, learn it second.</p>
 <p>Both are valuable. Both have jobs. Know both = unstoppable.</p>
 <p><strong>Start with REST today. Build a simple API. Then try GraphQL.</strong> 🚀</p>
+    `,
+  },
+    // ── POST 17 (June 7, 2026) ──────────────────────────────────
+  {
+    slug: "top-5-vs-code-extensions-for-developers",
+    title: "Top 5 VS Code Extensions That Make Coding 10x Easier",
+    excerpt: "My favorite VS Code extensions — no bloat, just tools I use every single day.",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop",
+    tags: ["VS Code", "Tools", "Productivity"],
+    author: "Kartik Yadav Gurve",
+    date: "June 7, 2026",
+    readTime: 2,
+    featured: true,
+    content: `
+<h2 id="why-extensions">Why These 5?</h2>
+<p>I tested 50+ extensions. These 5 stayed installed. No bloat. Just productivity.</p>
+
+<h2 id="1-prettier">1. Prettier — Format Everything</h2>
+<p>Stop fighting over code formatting. Prettier does it automatically.</p>
+<pre><code>// Before
+const x=   "hello";
+// After save
+const x = "hello";</code></pre>
+<p><strong>Setting:</strong> Enable "Format on Save"</p>
+
+<h2 id="2-gitlens">2. GitLens — See Who Wrote What</h2>
+<p>Hover over any line of code → See who wrote it and when.</p>
+<p><strong>Best for:</strong> Understanding old code or finding who broke something.</p>
+
+<h2 id="3-thunder-client">3. Thunder Client — Test APIs Without Postman</h2>
+<p>Postman inside VS Code. Test GET, POST, PUT requests instantly.</p>
+<p><strong>Why:</strong> No switching apps. Stay in your editor.</p>
+
+<h2 id="4-live-server">4. Live Server — Instant HTML Reload</h2>
+<p>Right-click HTML file → Open with Live Server. Save → Browser auto-refreshes.</p>
+<p><strong>Best for:</strong> HTML/CSS/JavaScript prototyping.</p>
+
+<h2 id="5-error-lens">5. Error Lens — See Errors Inline</h2>
+<p>Errors appear right next to your code, not just in problems tab.</p>
+<pre><code>console.log(x)  // ❌ 'x' is not defined (right here!)</code></pre>
+
+<h2 id="bonus">Bonus: One Dark Pro Theme</h2>
+<p>Not functional, but looks amazing. The most installed theme for a reason.</p>
+
+<h2 id="how-to-install">How to Install All 5</h2>
+<p>Press <code>Ctrl+Shift+X</code> (Windows) or <code>Cmd+Shift+X</code> (Mac). Search each name. Click Install.</p>
+<p><strong>Total time:</strong> 2 minutes. <strong>Productivity boost:</strong> Huge.</p>
+
+<h2 id="my-rule">My Rule</h2>
+<p>If I don't use an extension weekly, I uninstall it. These 5 survived. Try them today.</p>
     `,
   },
 ];
