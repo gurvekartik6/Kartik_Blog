@@ -1099,6 +1099,118 @@ const x = "hello";</code></pre>
 <p>If I don't use an extension weekly, I uninstall it. These 5 survived. Try them today.</p>
     `,
   },
+    // ── POST 18 (June 7, 2026) ──────────────────────────────────
+  {
+    slug: "spring-vs-spring-boot-what-is-difference",
+    title: "Spring vs Spring Boot: What's the Difference?",
+    excerpt: "Spring is the framework. Spring Boot is the shortcut. Learn the difference in 2 minutes.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring", "Spring Boot", "Java", "Framework"],
+    author: "Kartik Yadav Gurve",
+    date: "June 7, 2026",
+    readTime: 2,
+    featured: true,
+    content: `
+<h2 id="the-confusion">The Confusion</h2>
+<p>Spring? Spring Boot? Same name. Different things. Most beginners get confused.</p>
+<p>Here's the simple truth: <strong>Spring Boot is Spring, but pre-configured.</strong></p>
+
+<h2 id="what-is-spring">What is Spring?</h2>
+<p>Spring is a Java framework for building enterprise apps. It handles:</p>
+<ul>
+  <li>Database connections</li>
+  <li>Security</li>
+  <li>REST APIs</li>
+  <li>Dependency injection</li>
+</ul>
+<p><strong>Problem:</strong> Setup takes time. Lots of configuration files. Lots of XML (old days).</p>
+
+<h2 id="what-is-spring-boot">What is Spring Boot?</h2>
+<p>Spring Boot is Spring + Auto-configuration. It guesses what you need and sets it up.</p>
+<p><strong>Example:</strong> You add a database dependency → Spring Boot automatically configures the connection.</p>
+
+<h2 id="comparison">Quick Comparison</h2>
+
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Feature</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">Spring</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">Spring Boot</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Setup Time</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">30+ minutes</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">2 minutes</td>
+   </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Configuration</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Manual (lots of code)</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Auto (minimal code)</td>
+   </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Server</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Need external Tomcat</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Built-in Tomcat</td>
+   </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">When to Use</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Legacy projects, full control</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">New projects (90% of cases)</td>
+   </tr>
+</table>
+
+<h2 id="code-example">Code Example: Same REST API</h2>
+
+<p><strong>Spring (without Boot):</strong> 5+ files, XML config, manual server setup</p>
+
+<p><strong>Spring Boot:</strong> Just 1 file!</p>
+
+<pre><code>@SpringBootApplication
+@RestController
+public class MyApp {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApp.class, args);
+    }
+    
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello World!";
+    }
+}</code></pre>
+
+<p>Run it. Server starts. API works. That's it!</p>
+
+<h2 id="simple-rule">Simple Rule to Remember</h2>
+
+<ul>
+  <li><strong>Spring</strong> = Framework (the engine)</li>
+  <li><strong>Spring Boot</strong> = Framework + Auto-configuration (engine + self-driving)</li>
+</ul>
+
+<h2 id="which-to-learn-first">Which to Learn First?</h2>
+
+<p><strong>Start with Spring Boot.</strong> Why?</p>
+<ul>
+  <li>Less configuration = less frustration</li>
+  <li>You'll build working apps faster</li>
+  <li>Most companies use Spring Boot, not raw Spring</li>
+</ul>
+
+<p>Learn raw Spring later to understand internals.</p>
+
+<h2 id="next-post">Coming Next in This Series</h2>
+
+<p>Post 19: <strong>Creating Your First Spring Boot Project</strong> (Start.spring.io walkthrough)</p>
+<p>Post 20: <strong>Understanding @SpringBootApplication Annotation</strong></p>
+<p>Post 21: <strong>Spring Boot Starter Dependencies Explained</strong></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Spring Boot = Spring + "It just works"</p>
+<p>Don't overthink. Start with Spring Boot. Build something today.</p>
+<p><strong>Next post:</strong> We'll create a real Spring Boot project from scratch. 🚀</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────

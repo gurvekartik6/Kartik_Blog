@@ -3,17 +3,30 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Java, Hibernate, Git, Docker, VS Code, Android, and book takeaways</description>
+  <description>Spring Boot, Java, Hibernate, Git, Docker, VS Code, Android, and book takeaways</description>
   <language>en</language>
   <lastBuildDate>Sun, 07 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
-  <!-- POST 17: June 7, 2026 -->
+  <!-- POST 18: June 7, 2026 -->
+  <item>
+    <title>Spring vs Spring Boot: What's the Difference?</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=spring-vs-spring-boot-what-is-difference</link>
+    <description>Spring is the framework. Spring Boot is the shortcut. Learn the difference in 2 minutes. Spring Boot = Spring + Auto-configuration.</description>
+    <pubDate>Sun, 07 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=spring-vs-spring-boot-what-is-difference</guid>
+    <category>Spring</category>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Framework</category>
+  </item>
+
+  <!-- POST 17: June 6, 2026 -->
   <item>
     <title>Top 5 VS Code Extensions That Make Coding 10x Easier</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</link>
     <description>My favorite VS Code extensions — no bloat, just tools I use every single day. Prettier, GitLens, Thunder Client, Live Server, and Error Lens.</description>
-    <pubDate>Sun, 07 Jun 2026 20:00:00 GMT</pubDate>
+    <pubDate>Sat, 06 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</guid>
     <category>VS Code</category>
     <category>Tools</category>
