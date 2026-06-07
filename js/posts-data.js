@@ -1049,7 +1049,7 @@ GraphQL = Powerful, flexible, learn it second.</p>
 <p><strong>Start with REST today. Build a simple API. Then try GraphQL.</strong> 🚀</p>
     `,
   },
-    // ── POST 17 (June 7, 2026) ──────────────────────────────────
+    // ── POST 17 (June 6, 2026) ──────────────────────────────────
   {
     slug: "top-5-vs-code-extensions-for-developers",
     title: "Top 5 VS Code Extensions That Make Coding 10x Easier",
@@ -1057,7 +1057,7 @@ GraphQL = Powerful, flexible, learn it second.</p>
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop",
     tags: ["VS Code", "Tools", "Productivity"],
     author: "Kartik Yadav Gurve",
-    date: "June 7, 2026",
+    date: "June 6, 2026",
     readTime: 2,
     featured: true,
     content: `
