@@ -5,14 +5,27 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, Git, Docker, VS Code, Android, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Sun, 07 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 08 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
-  <!-- POST 18: June 7, 2026 -->
+  <!-- POST 18: June 8, 2026 -->
+  <item>
+    <title>Create Your First Spring Boot Project: Step by Step</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=create-first-spring-boot-project-step-by-step</link>
+    <description>From zero to a running Spring Boot app in 5 minutes. No prior Spring experience needed. Step-by-step guide with start.spring.io.</description>
+    <pubDate>Mon, 08 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=create-first-spring-boot-project-step-by-step</guid>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Beginner</category>
+    <category>Tutorial</category>
+  </item>
+
+  <!-- POST 17: June 7, 2026 -->
   <item>
     <title>Spring vs Spring Boot: What's the Difference?</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=spring-vs-spring-boot-what-is-difference</link>
-    <description>Spring is the framework. Spring Boot is the shortcut. Learn the difference in 2 minutes. Spring Boot = Spring + Auto-configuration.</description>
+    <description>Spring is the framework. Spring Boot is the shortcut. Learn the difference in 2 minutes.</description>
     <pubDate>Sun, 07 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=spring-vs-spring-boot-what-is-difference</guid>
     <category>Spring</category>
@@ -21,36 +34,35 @@
     <category>Framework</category>
   </item>
 
-  <!-- POST 17: June 6, 2026 -->
+  <!-- POST 16: June 7, 2026 -->
   <item>
     <title>Top 5 VS Code Extensions That Make Coding 10x Easier</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</link>
-    <description>My favorite VS Code extensions — no bloat, just tools I use every single day. Prettier, GitLens, Thunder Client, Live Server, and Error Lens.</description>
-    <pubDate>Sat, 06 Jun 2026 20:00:00 GMT</pubDate>
+    <description>My favorite VS Code extensions — no bloat, just tools I use every single day.</description>
+    <pubDate>Sun, 07 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</guid>
     <category>VS Code</category>
     <category>Tools</category>
     <category>Productivity</category>
   </item>
 
-  <!-- POST 16: June 5, 2026 -->
+  <!-- POST 15: June 5, 2026 -->
   <item>
     <title>REST API vs GraphQL: Which One Should You Learn First?</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=rest-api-vs-graphql-simple-comparison</link>
-    <description>Simple comparison with real examples — no complex theory, just practical advice on REST and GraphQL.</description>
+    <description>Simple comparison with real examples — no complex theory, just practical advice.</description>
     <pubDate>Fri, 05 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=rest-api-vs-graphql-simple-comparison</guid>
     <category>API</category>
     <category>GraphQL</category>
     <category>REST</category>
-    <category>Backend</category>
   </item>
 
-  <!-- POST 15: June 4, 2026 -->
+  <!-- POST 14: June 4, 2026 -->
   <item>
     <title>Docker Basics: 5 Commands That Will Change How You Develop</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=docker-basics-every-developer-needs</link>
-    <description>Stop saying 'it works on my machine' — containerize your apps with these essential Docker commands.</description>
+    <description>Stop saying 'it works on my machine' — containerize your apps with essential Docker commands.</description>
     <pubDate>Thu, 04 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=docker-basics-every-developer-needs</guid>
     <category>Docker</category>
@@ -58,7 +70,7 @@
     <category>Containers</category>
   </item>
 
-  <!-- POST 14: June 3, 2026 -->
+  <!-- POST 13: June 3, 2026 -->
   <item>
     <title>Git Basics: 5 Commands Every Developer Must Know</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=git-basics-every-developer-should-know</link>
@@ -68,10 +80,9 @@
     <category>Git</category>
     <category>GitHub</category>
     <category>Version Control</category>
-    <category>Beginner</category>
   </item>
 
-  <!-- POST 13: June 2, 2026 -->
+  <!-- POST 12: June 2, 2026 -->
   <item>
     <title>3 More Hibernate Concepts: Second-Level Cache, Batch Fetching &amp; JPA vs Hibernate</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate</link>
@@ -82,36 +93,33 @@
     <category>Hibernate</category>
     <category>JPA</category>
     <category>Caching</category>
-    <category>Performance</category>
   </item>
 
-  <!-- POST 12: June 1, 2026 -->
+  <!-- POST 11: June 1, 2026 -->
   <item>
     <title>2 Hibernate Concepts That Save Your Database: N+1 Problem &amp; First-Level Cache</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-n-plus-1-problem-and-first-level-cache</link>
-    <description>Why 10 users become 11 queries (and how to fix it). Plus: the cache you already have but didn't know about.</description>
+    <description>Why 10 users become 11 queries (and how to fix it). Plus the cache you already have.</description>
     <pubDate>Mon, 01 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-n-plus-1-problem-and-first-level-cache</guid>
     <category>Java</category>
     <category>Hibernate</category>
     <category>Performance</category>
-    <category>Caching</category>
   </item>
 
-  <!-- POST 11: May 31, 2026 -->
+  <!-- POST 10: May 31, 2026 -->
   <item>
     <title>Hibernate Session Problems: Transactions, Lazy Loading, and Session Management</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-problems-transactions-lazy-loading</link>
-    <description>You know what SessionFactory and Session are. Now learn the 3 biggest problems developers face and how to fix them.</description>
+    <description>The 3 biggest problems developers face with Hibernate sessions and how to fix them.</description>
     <pubDate>Sat, 31 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-problems-transactions-lazy-loading</guid>
     <category>Java</category>
     <category>Hibernate</category>
     <category>Transactions</category>
-    <category>Lazy Loading</category>
   </item>
 
-  <!-- POST 10: May 30, 2026 -->
+  <!-- POST 9: May 30, 2026 -->
   <item>
     <title>Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</link>
@@ -123,11 +131,11 @@
     <category>Performance</category>
   </item>
 
-  <!-- POST 9: May 29, 2026 -->
+  <!-- POST 8: May 29, 2026 -->
   <item>
     <title>I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</link>
-    <description>David Goggins won't hug you. He'll call you soft. And honestly? That's exactly what I needed.</description>
+    <description>David Goggins won't hug you. He'll call you soft. Here's what changed after finishing his book.</description>
     <pubDate>Fri, 29 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</guid>
     <category>Books</category>
@@ -135,7 +143,7 @@
     <category>Motivation</category>
   </item>
 
-  <!-- POST 8: May 28, 2026 -->
+  <!-- POST 7: May 28, 2026 -->
   <item>
     <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
@@ -147,7 +155,7 @@
     <category>CRUD</category>
   </item>
 
-  <!-- POST 7: May 27, 2026 -->
+  <!-- POST 6: May 27, 2026 -->
   <item>
     <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
@@ -159,7 +167,7 @@
     <category>Database</category>
   </item>
 
-  <!-- POST 6: May 26, 2026 -->
+  <!-- POST 5: May 26, 2026 -->
   <item>
     <title>Hibernate ORM: What It Is and Why You Need It</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</link>
@@ -171,7 +179,7 @@
     <category>Database</category>
   </item>
 
-  <!-- POST 5: May 25, 2026 -->
+  <!-- POST 4: May 25, 2026 -->
   <item>
     <title>How to Connect Java Application to PostgreSQL</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</link>
@@ -184,7 +192,7 @@
     <category>JDBC</category>
   </item>
 
-  <!-- POST 4: May 24, 2026 -->
+  <!-- POST 3: May 24, 2026 -->
   <item>
     <title>The Tech Skills I Have Learned</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</link>
@@ -195,7 +203,7 @@
     <category>Learning</category>
   </item>
 
-  <!-- POST 3: May 23, 2026 -->
+  <!-- POST 2: May 23, 2026 -->
   <item>
     <title>How I Work as an Instructor at Sai Ambrosia After 10th</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
@@ -206,7 +214,7 @@
     <category>Power BI</category>
   </item>
 
-  <!-- POST 2: May 22, 2026 -->
+  <!-- POST 1: May 22, 2026 -->
   <item>
     <title>The Idea About the Blogging Website</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</link>
@@ -217,7 +225,7 @@
     <category>Web Development</category>
   </item>
 
-  <!-- POST 1: May 21, 2026 -->
+  <!-- BONUS: May 21, 2026 -->
   <item>
     <title>Coding Since 2018</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</link>

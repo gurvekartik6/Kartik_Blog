@@ -1211,6 +1211,147 @@ public class MyApp {
 <p><strong>Next post:</strong> We'll create a real Spring Boot project from scratch. 🚀</p>
     `,
   },
+    // ── POST 19 (June 8, 2026) ──────────────────────────────────
+  {
+    slug: "create-first-spring-boot-project-step-by-step",
+    title: "Create Your First Spring Boot Project: Step by Step",
+    excerpt: "From zero to a running Spring Boot app in 5 minutes. No prior Spring experience needed.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Java", "Beginner", "Tutorial"],
+    author: "Kartik Yadav Gurve",
+    date: "June 8, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<h2 id="what-you-need">What You Need</h2>
+<ul>
+  <li>Java 17 or newer installed</li>
+  <li>VS Code or IntelliJ IDEA</li>
+  <li>Internet connection</li>
+</ul>
+
+<h2 id="step-1">Step 1: Go to start.spring.io</h2>
+<p>Open your browser. Go to <strong>https://start.spring.io</strong></p>
+<p>This is Spring Initializr — it generates complete Spring Boot projects for you.</p>
+
+<h2 id="step-2">Step 2: Fill the Form</h2>
+<p>Enter these values:</p>
+<ul>
+  <li><strong>Project:</strong> Maven</li>
+  <li><strong>Language:</strong> Java</li>
+  <li><strong>Spring Boot:</strong> 3.2.x (latest stable)</li>
+  <li><strong>Group:</strong> com.example</li>
+  <li><strong>Artifact:</strong> my-first-app</li>
+  <li><strong>Java:</strong> 17</li>
+</ul>
+
+<h2 id="step-3">Step 3: Add Dependencies</h2>
+<p>Click "ADD DEPENDENCIES" and add these:</p>
+<ul>
+  <li>✅ <strong>Spring Web</strong> — for building REST APIs</li>
+</ul>
+<p><em>(We'll add more later. Keep it simple for first project.)</em></p>
+
+<h2 id="step-4">Step 4: Generate and Download</h2>
+<p>Click the <strong>GENERATE</strong> button at the bottom.</p>
+<p>A zip file named <code>my-first-app.zip</code> will download.</p>
+
+<h2 id="step-5">Step 5: Extract and Open</h2>
+<p>Extract the zip file to a folder.</p>
+<p>Open the folder in VS Code or IntelliJ IDEA.</p>
+
+<h2 id="step-6">Step 6: Create Your First API</h2>
+<p>Create a new file: <code>src/main/java/com/example/myfirstapp/HelloController.java</code></p>
+
+<pre><code>package com.example.myfirstapp;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+    
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello from Spring Boot!";
+    }
+}</code></pre>
+
+<h2 id="step-7">Step 7: Run the App</h2>
+<p><strong>In VS Code:</strong> Click the "Run" button next to the main method.</p>
+<p><strong>Or in terminal:</strong></p>
+<pre><code>./mvnw spring-boot:run</code></pre>
+
+<p>You'll see output like:</p>
+<pre><code>Started MyFirstAppApplication in 2.5 seconds</code></pre>
+
+<h2 id="step-8">Step 8: Test Your API</h2>
+<p>Open your browser. Go to: <strong>http://localhost:8080/hello</strong></p>
+<p>You should see: <code>Hello from Spring Boot!</code></p>
+
+<p>🎉 <strong>Congratulations! Your first Spring Boot app is running!</strong> 🎉</p>
+
+<h2 id="folder-structure">What's in the Project?</h2>
+
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Folder/File</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">Purpose</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>src/main/java/</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Your Java code goes here</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>src/main/resources/</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Config files, templates, properties</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>pom.xml</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Dependencies and build config</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>application.properties</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">App settings (port, database, etc.)</td>
+  </tr>
+</table>
+
+<h2 id="common-issues">Common Issues & Fixes</h2>
+
+<p><strong>Port 8080 already in use?</strong></p>
+<p>Add this to <code>application.properties</code>:</p>
+<pre><code>server.port=9090</code></pre>
+
+<p><strong>Java not found?</strong></p>
+<p>Install Java 17 and set JAVA_HOME environment variable.</p>
+
+<p><strong>Maven download slow?</strong></p>
+<p>First time takes time. Dependencies download once, then cached.</p>
+
+<h2 id="next-steps">What's Next in This Series?</h2>
+
+<ul>
+  <li>Post 19: <strong>Understanding @SpringBootApplication</strong></li>
+  <li>Post 20: <strong>Spring Boot Annotations Explained</strong></li>
+  <li>Post 21: <strong>Building a Complete REST API (CRUD)</strong></li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<p>You just built a Spring Boot app from scratch:</p>
+<ol>
+  <li>Used start.spring.io to generate project</li>
+  <li>Added Spring Web dependency</li>
+  <li>Created a REST controller with @RestController</li>
+  <li>Ran the app on port 8080</li>
+  <li>Tested the /hello endpoint</li>
+</ol>
+
+<p><strong>You're now a Spring Boot developer! 🚀</strong></p>
+
+<p>Drop a comment if you got stuck. Next post will make things even clearer.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
