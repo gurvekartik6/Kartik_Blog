@@ -1352,6 +1352,144 @@ public class HelloController {
 <p>Drop a comment if you got stuck. Next post will make things even clearer.</p>
     `,
   },
+    // ── POST 19 (June 9, 2026) ──────────────────────────────────
+  {
+    slug: "springbootapplication-annotation-explained",
+    title: "@SpringBootApplication: The Most Important Annotation Explained",
+    excerpt: "What does @SpringBootApplication actually do? It's not magic — it's 3 annotations in one.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Java", "Annotations", "Beginner"],
+    author: "Kartik Yadav Gurve",
+    date: "June 9, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<h2 id="the-mystery">The Mystery of @SpringBootApplication</h2>
+<p>Every Spring Boot app has this line:</p>
+<pre><code>@SpringBootApplication
+public class MyApp {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApp.class, args);
+    }
+}</code></pre>
+<p>But what does <code>@SpringBootApplication</code> actually do?</p>
+<p><strong>It's not magic. It's 3 annotations combined into one.</strong></p>
+
+<h2 id="the-three-annotations">The 3 Annotations Inside</h2>
+
+<p><code>@SpringBootApplication</code> = <code>@Configuration</code> + <code>@EnableAutoConfiguration</code> + <code>@ComponentScan</code></p>
+
+<h3 id="1-configuration">1. @Configuration</h3>
+<p>Marks this class as a source of bean definitions. Think of it as "this class contains settings for Spring."</p>
+<pre><code>@Configuration
+public class AppConfig {
+    @Bean
+    public MyService myService() {
+        return new MyService();
+    }
+}</code></pre>
+
+<h3 id="2-enableautoconfiguration">2. @EnableAutoConfiguration</h3>
+<p><strong>The real magic.</strong> Tells Spring Boot to automatically configure things based on dependencies you added.</p>
+<p><strong>Example:</strong> You add <code>spring-web</code> dependency → Spring Boot auto-configures Tomcat, DispatcherServlet, etc.</p>
+<p><strong>Example:</strong> You add <code>spring-data-jpa</code> → Spring Boot auto-configures database connection, Hibernate, etc.</p>
+
+<h3 id="3-componentscan">3. @ComponentScan</h3>
+<p>Tells Spring: "Scan this package and all sub-packages for components."</p>
+<p>What components? Classes with <code>@Component</code>, <code>@Service</code>, <code>@Repository</code>, <code>@Controller</code>, <code>@RestController</code>.</p>
+
+<h2 id="visual-explanation">Visual Explanation</h2>
+
+<pre><code>Your Project Structure:
+src/main/java/com/example/myapp/
+├── MyApp.java (has @SpringBootApplication)
+├── controller/
+│   └── HelloController.java (@RestController)
+├── service/
+│   └── UserService.java (@Service)
+└── repository/
+    └── UserRepository.java (@Repository)
+
+@ComponentScan scans from "com.example.myapp" downwards.
+Finds ALL components automatically.</code></pre>
+
+<h2 id="what-happens-when-you-run">What Happens When You Run?</h2>
+
+<ol>
+  <li>Spring reads <code>@SpringBootApplication</code></li>
+  <li>It sees <code>@ComponentScan</code> → finds all your controllers, services, repositories</li>
+  <li>It sees <code>@EnableAutoConfiguration</code> → configures database, web server, etc.</li>
+  <li>It sees <code>@Configuration</code> → loads any extra bean definitions</li>
+  <li>Spring Boot starts Tomcat on port 8080</li>
+  <li>Your app is ready!</li>
+</ol>
+
+<h2 id="can-you-write-them-separately">Can You Write Them Separately?</h2>
+
+<p><strong>Yes!</strong> This works exactly the same:</p>
+<pre><code>@Configuration
+@EnableAutoConfiguration
+@ComponentScan
+public class MyApp {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApp.class, args);
+    }
+}</code></pre>
+
+<p>But <code>@SpringBootApplication</code> is cleaner. One line instead of three.</p>
+
+<h2 id="common-mistake">Common Mistake ❌</h2>
+
+<p><strong>Wrong package structure:</strong></p>
+<pre><code>src/main/java/com/example/
+├── MyApp.java (@SpringBootApplication)
+└── myapp/
+    └── HelloController.java</code></pre>
+
+<p><strong>Problem:</strong> <code>@ComponentScan</code> only scans <code>com.example</code> and below. Your controller is in <code>com.example.myapp</code> — that's fine. But if controller was outside, Spring wouldn't find it.</p>
+
+<p><strong>Rule:</strong> Keep your main class at the root of all components.</p>
+
+<h2 id="quick-reference">Quick Reference Card</h2>
+
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Annotation</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">What It Does</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@Configuration</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">This class has bean definitions</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@EnableAutoConfiguration</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Auto-configure based on dependencies</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@ComponentScan</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Find all components in package</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@SpringBootApplication</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">All 3 combined!</td>
+  </tr>
+</table>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+  <li>✅ <code>@SpringBootApplication</code> = 3 annotations in 1</li>
+  <li>✅ <code>@EnableAutoConfiguration</code> does the real magic</li>
+  <li>✅ <code>@ComponentScan</code> finds your controllers and services</li>
+  <li>✅ Keep your main class at the root package</li>
+</ul>
+
+<p><strong>Remember:</strong> Spring Boot isn't magic. It's just smart defaults + auto-configuration. Now you know how it works! 🚀</p>
+
+<h2 id="next-post">Coming Next in This Series</h2>
+<p>Post 20: <strong>Spring Boot Annotations Every Developer Should Know</strong> (@RestController, @Autowired, @Service, @Repository, and more)</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────

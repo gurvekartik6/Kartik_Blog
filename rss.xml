@@ -5,8 +5,21 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, Git, Docker, VS Code, Android, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Mon, 08 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 09 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 19: June 9, 2026 -->
+  <item>
+    <title>@SpringBootApplication: The Most Important Annotation Explained</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=springbootapplication-annotation-explained</link>
+    <description>What does @SpringBootApplication actually do? It's not magic — it's 3 annotations in one: @Configuration + @EnableAutoConfiguration + @ComponentScan.</description>
+    <pubDate>Tue, 09 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=springbootapplication-annotation-explained</guid>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Annotations</category>
+    <category>Beginner</category>
+  </item>
 
   <!-- POST 18: June 8, 2026 -->
   <item>
