@@ -5,8 +5,21 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, Git, Docker, VS Code, Android, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Tue, 09 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 10 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 20: June 10, 2026 -->
+  <item>
+    <title>Spring Boot Annotations: 7 Annotations Every Developer Should Know</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-annotations-every-developer-should-know</link>
+    <description>@RestController, @Autowired, @Service, @Repository, @PathVariable, @RequestBody, @GetMapping — explained with real examples.</description>
+    <pubDate>Wed, 10 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-annotations-every-developer-should-know</guid>
+    <category>Spring Boot</category>
+    <category>Java</category>
+    <category>Annotations</category>
+    <category>REST API</category>
+  </item>
 
   <!-- POST 19: June 9, 2026 -->
   <item>

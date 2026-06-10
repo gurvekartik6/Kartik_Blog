@@ -1490,6 +1490,232 @@ public class MyApp {
 <p>Post 20: <strong>Spring Boot Annotations Every Developer Should Know</strong> (@RestController, @Autowired, @Service, @Repository, and more)</p>
     `,
   },
+    // ── POST 20 (June 10, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-annotations-every-developer-should-know",
+    title: "Spring Boot Annotations: 7 Annotations Every Developer Should Know",
+    excerpt: "@RestController, @Autowired, @Service, @Repository, @PathVariable, @RequestBody, @GetMapping — explained with examples.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Java", "Annotations", "REST API"],
+    author: "Kartik Yadav Gurve",
+    date: "June 10, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<h2 id="why-annotations">Why Annotations?</h2>
+<p>Spring Boot uses annotations instead of XML files. They keep your code clean and readable.</p>
+<p>Here are 7 annotations you'll use in EVERY project.</p>
+
+<h2 id="1-restcontroller">1. @RestController — Handle HTTP Requests</h2>
+<p>Marks a class as a REST API controller. Each method returns JSON/XML directly (not a webpage).</p>
+<pre><code>@RestController
+public class UserController {
+    
+    @GetMapping("/users")
+    public List&lt;User&gt; getUsers() {
+        return userService.findAll();
+    }
+}</code></pre>
+<p><strong>Note:</strong> <code>@RestController</code> = <code>@Controller</code> + <code>@ResponseBody</code></p>
+
+<h2 id="2-getmapping">2. @GetMapping — Handle GET Requests</h2>
+<p>Map HTTP GET requests to Java methods.</p>
+<pre><code>@GetMapping("/users")
+public List&lt;User&gt; getAll() { ... }
+
+@GetMapping("/users/{id}")
+public User getOne(@PathVariable Long id) { ... }</code></pre>
+
+<h2 id="3-postmapping">3. @PostMapping — Handle POST Requests</h2>
+<p>Map HTTP POST requests (usually for creating data).</p>
+<pre><code>@PostMapping("/users")
+public User createUser(@RequestBody User user) {
+    return userService.save(user);
+}</code></pre>
+
+<h2 id="4-pathvariable">4. @PathVariable — Get Values from URL</h2>
+<p>Extract values from the URL path.</p>
+<pre><code>@GetMapping("/products/{id}")
+public Product getProduct(@PathVariable Long id) {
+    // If URL is /products/5 → id = 5
+    return productService.findById(id);
+}
+
+// Multiple path variables
+@GetMapping("/users/{userId}/orders/{orderId}")
+public Order getOrder(@PathVariable Long userId, @PathVariable Long orderId) {
+    return orderService.find(userId, orderId);
+}</code></pre>
+
+<h2 id="5-requestbody">5. @RequestBody — Convert JSON to Java Object</h2>
+<p>Automatically converts JSON from request body into a Java object.</p>
+<pre><code>// Client sends: { "name": "Kartik", "email": "kartik@example.com" }
+@PostMapping("/users")
+public User createUser(@RequestBody User user) {
+    // user.name = "Kartik", user.email = "kartik@example.com"
+    return userService.save(user);
+}</code></pre>
+
+<h2 id="6-service">6. @Service — Mark Business Logic Class</h2>
+<p>Indicates a class contains business logic. Spring will automatically detect and create it.</p>
+<pre><code>@Service
+public class UserService {
+    
+    public User findById(Long id) {
+        // business logic here
+        return userRepository.findById(id);
+    }
+}</code></pre>
+
+<h2 id="7-autowired">7. @Autowired — Inject Dependencies</h2>
+<p>Spring automatically gives you the object you need. No manual "new" keyword!</p>
+<pre><code>@RestController
+public class UserController {
+    
+    @Autowired  // Spring injects UserService automatically
+    private UserService userService;
+    
+    @GetMapping("/users")
+    public List&lt;User&gt; getAll() {
+        return userService.findAll();  // use injected service
+    }
+}</code></pre>
+
+<h2 id="bonus-repository">Bonus: @Repository — Database Access Layer</h2>
+<p>Marks a class for database operations. Spring translates database exceptions.</p>
+<pre><code>@Repository
+public class UserRepository {
+    
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    
+    public User findById(Long id) {
+        return jdbcTemplate.queryForObject(
+            "SELECT * FROM users WHERE id = ?",
+            new BeanPropertyRowMapper<>(User.class),
+            id
+        );
+    }
+}</code></pre>
+
+<h2 id="complete-example">Complete Example: User API</h2>
+
+<pre><code>// 1. Model/Entity
+public class User {
+    private Long id;
+    private String name;
+    private String email;
+    // getters and setters
+}
+
+// 2. Repository
+@Repository
+public class UserRepository {
+    // database operations
+}
+
+// 3. Service
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+    
+    public List&lt;User&gt; getAll() {
+        return userRepository.findAll();
+    }
+}
+
+// 4. Controller
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+    @Autowired
+    private UserService userService;
+    
+    @GetMapping
+    public List&lt;User&gt; getAll() {
+        return userService.getAll();
+    }
+    
+    @GetMapping("/{id}")
+    public User getOne(@PathVariable Long id) {
+        return userService.getById(id);
+    }
+    
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return userService.save(user);
+    }
+}</code></pre>
+
+<h2 id="quick-reference">Quick Reference Card</h2>
+
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Annotation</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">Purpose</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">Used In</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@RestController</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">REST API controller</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Controller layer</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@GetMapping</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Handle GET requests</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Controller methods</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@PostMapping</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Handle POST requests</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Controller methods</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@PathVariable</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Get value from URL</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Method parameters</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@RequestBody</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">JSON → Java object</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Method parameters</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@Service</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Business logic</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Service layer</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@Autowired</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Dependency injection</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Any class field</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@Repository</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Database operations</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Repository layer</td>
+  </tr>
+</table>
+
+<h2 id="summary">Summary</h2>
+
+<ul>
+  <li>✅ <code>@RestController</code> = REST API endpoint</li>
+  <li>✅ <code>@GetMapping/@PostMapping</code> = HTTP methods</li>
+  <li>✅ <code>@PathVariable</code> = get data from URL</li>
+  <li>✅ <code>@RequestBody</code> = get JSON data</li>
+  <li>✅ <code>@Service</code> = business logic</li>
+  <li>✅ <code>@Repository</code> = database access</li>
+  <li>✅ <code>@Autowired</code> = let Spring create objects</li>
+</ul>
+
+<p><strong>Practice these 7 annotations and you'll build 90% of Spring Boot APIs!</strong></p>
+
+<h2 id="next-post">Coming Next in This Series</h2>
+<p>Post 21: <strong>Building a Complete REST API (CRUD) with Spring Boot</strong> — Create, Read, Update, Delete operations with real database connection.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
