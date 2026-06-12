@@ -1716,6 +1716,226 @@ public class UserController {
 <p>Post 21: <strong>Building a Complete REST API (CRUD) with Spring Boot</strong> — Create, Read, Update, Delete operations with real database connection.</p>
     `,
   },
+    // ── POST 21 (June 11, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-rest-api-crud-tutorial",
+    title: "Building a Complete REST API (CRUD) with Spring Boot",
+    excerpt: "Create, Read, Update, Delete — build a complete User Management API step by step.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "REST API", "CRUD", "Java"],
+    author: "Kartik Yadav Gurve",
+    date: "June 11, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<p>Let's build something real. A User API with all CRUD stuff.</p>
+
+<h2 id="what-you-need">What you'll build:</h2>
+<ul>
+  <li>Create user → POST</li>
+  <li>Get all users → GET</li>
+  <li>Get one user → GET by ID</li>
+  <li>Update user → PUT</li>
+  <li>Delete user → DELETE</li>
+</ul>
+
+<h2 id="model">1. The User Model</h2>
+<pre><code>@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String email;
+    private String phone;
+    
+    // getters and setters
+}</code></pre>
+
+<h2 id="repository">2. Repository (JPA magic)</h2>
+<pre><code>@Repository
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+    // JpaRepository gives everything we need
+}</code></pre>
+
+<h2 id="service">3. Service Layer</h2>
+<pre><code>@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+    
+    public List&lt;User&gt; getAll() {
+        return userRepository.findAll();
+    }
+    
+    public User getById(Long id) {
+        return userRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+    
+    public User create(User user) {
+        return userRepository.save(user);
+    }
+    
+    public User update(Long id, User newData) {
+        User old = getById(id);
+        old.setName(newData.getName());
+        old.setEmail(newData.getEmail());
+        old.setPhone(newData.getPhone());
+        return userRepository.save(old);
+    }
+    
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
+}</code></pre>
+
+<h2 id="controller">4. Controller (Where requests land)</h2>
+<pre><code>@RestController
+@RequestMapping("/api/users")
+public class UserController {
+    @Autowired
+    private UserService userService;
+    
+    @GetMapping
+    public List&lt;User&gt; getAll() {
+        return userService.getAll();
+    }
+    
+    @GetMapping("/{id}")
+    public User getOne(@PathVariable Long id) {
+        return userService.getById(id);
+    }
+    
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public User create(@RequestBody User user) {
+        return userService.create(user);
+    }
+    
+    @PutMapping("/{id}")
+    public User update(@PathVariable Long id, @RequestBody User user) {
+        return userService.update(id, user);
+    }
+    
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        userService.delete(id);
+    }
+}</code></pre>
+
+<h2 id="testing">Testing it out</h2>
+
+<p><strong>Create a user:</strong></p>
+<pre><code>POST http://localhost:8080/api/users
+{
+    "name": "Kartik",
+    "email": "kartik@test.com",
+    "phone": "9876543210"
+}</code></pre>
+
+<p><strong>Get all users:</strong> <code>GET http://localhost:8080/api/users</code></p>
+<p><strong>Get one user:</strong> <code>GET http://localhost:8080/api/users/1</code></p>
+<p><strong>Update:</strong> <code>PUT http://localhost:8080/api/users/1</code></p>
+<p><strong>Delete:</strong> <code>DELETE http://localhost:8080/api/users/1</code></p>
+
+<p>That's it. Run and test with Postman.</p>
+    `,
+  },
+    // ── POST 22 (June 12, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-exception-handling-guide",
+    title: "Exception Handling in Spring Boot: Stop Using Try-Catch Everywhere",
+    excerpt: "One place to handle all errors. Clean and simple.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Exception Handling", "Java", "REST API"],
+    author: "Kartik Yadav Gurve",
+    date: "June 12, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<p>I used to write try-catch in every controller method. Looked ugly. Then I found a better way.</p>
+
+<h2 id="the-old-way">The old way (ugly)</h2>
+<pre><code>@GetMapping("/{id}")
+public User getUser(@PathVariable Long id) {
+    try {
+        return userService.findById(id);
+    } catch (Exception e) {
+        return null;  // 👎 just null? really?
+    }
+}</code></pre>
+
+<p>Problems: Ugly code, no error info, repeating same thing everywhere.</p>
+
+<h2 id="the-better-way">The better way</h2>
+
+<p><strong>Step 1: Create a custom exception</strong></p>
+<pre><code>public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException(Long id) {
+        super("User with id " + id + " not found");
+    }
+}</code></pre>
+
+<p><strong>Step 2: Use it in service</strong></p>
+<pre><code>public User getById(Long id) {
+    return userRepository.findById(id)
+        .orElseThrow(() -> new UserNotFoundException(id));
+}</code></pre>
+
+<p><strong>Step 3: One global handler</strong></p>
+<pre><code>@ControllerAdvice
+public class GlobalExceptionHandler {
+    
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity&lt;String&gt; handleNotFound(UserNotFoundException ex) {
+        return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+}</code></pre>
+
+<p>That's it. Now every time a user doesn't exist, Spring Boot returns 404 with your message. No try-catch needed in controllers.</p>
+
+<h2 id="bonus">Bonus: Return proper JSON error</h2>
+
+<pre><code>public class ErrorResponse {
+    private int status;
+    private String message;
+    private String timestamp;
+    
+    public ErrorResponse(int status, String message) {
+        this.status = status;
+        this.message = message;
+        this.timestamp = LocalDateTime.now().toString();
+    }
+}</code></pre>
+
+<p>Update the handler:</p>
+<pre><code>@ExceptionHandler(UserNotFoundException.class)
+public ResponseEntity&lt;ErrorResponse&gt; handleNotFound(UserNotFoundException ex) {
+    ErrorResponse error = new ErrorResponse(404, ex.getMessage());
+    return new ResponseEntity&lt;&gt;(error, HttpStatus.NOT_FOUND);
+}</code></pre>
+
+<p>Now your API returns clean JSON errors like this:</p>
+<pre><code>{
+    "status": 404,
+    "message": "User with id 99 not found",
+    "timestamp": "2026-06-12T10:30:00"
+}</code></pre>
+
+<h2 id="summary">What changed</h2>
+<ul>
+  <li>Controllers are clean (no try-catch)</li>
+  <li>Error responses are consistent</li>
+  <li>Change error format in one place</li>
+  <li>Right HTTP status codes (404, not 200)</li>
+</ul>
+
+<p>Been using this pattern for a year. Works like charm.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
