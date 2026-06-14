@@ -2195,7 +2195,7 @@ spring.h2.console.enabled=true</code></pre>
   <li>✅ @Profile annotation for profile-specific code</li>
 </ul>
 
-<p>Been using this for 2 years. Never changed a config file manually again.</p>
+
     `,
   },
 ];
