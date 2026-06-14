@@ -1936,6 +1936,268 @@ public ResponseEntity&lt;ErrorResponse&gt; handleNotFound(UserNotFoundException 
 <p>Been using this pattern for a year. Works like charm.</p>
     `,
   },
+    // ── POST 23 (June 13, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-jpa-database-guide",
+    title: "Spring Boot with Database: JPA Made Simple",
+    excerpt: "Connect your Spring Boot app to a real database. No complicated setup.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "JPA", "Database", "Hibernate"],
+    author: "Kartik Yadav Gurve",
+    date: "June 13, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<p>You built a REST API. But data disappears when you restart the app. Time to add a real database.</p>
+
+<h2 id="what-you-need">What you need</h2>
+<ul>
+  <li>PostgreSQL installed (or MySQL)</li>
+  <li>Or just use H2 for testing (no installation)</li>
+</ul>
+
+<h2 id="dependencies">1. Add dependencies</h2>
+<p>In <code>pom.xml</code>:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
+    &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+
+<h2 id="properties">2. Configure database</h2>
+<p>In <code>application.properties</code>:</p>
+<pre><code># PostgreSQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/mydb
+spring.datasource.username=postgres
+spring.datasource.password=yourpass
+
+# JPA settings
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true</code></pre>
+
+<p><strong>What is <code>ddl-auto=update</code>?</strong> Hibernate creates tables automatically from your Java classes. No SQL needed.</p>
+
+<h2 id="entity">3. Create Entity</h2>
+<pre><code>@Entity
+@Table(name = "products")
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
+    private String name;
+    
+    private double price;
+    
+    // getters and setters
+}</code></pre>
+
+<p>Run your app. Hibernate creates the "products" table automatically. Check your database.</p>
+
+<h2 id="repository">4. JPA Repository (No implementation needed!)</h2>
+<pre><code>@Repository
+public interface ProductRepository extends JpaRepository&lt;Product, Long&gt; {
+    // Custom query methods
+    List&lt;Product&gt; findByPriceLessThan(double price);
+    Optional&lt;Product&gt; findByName(String name);
+}</code></pre>
+
+<p>Spring Boot writes the SQL for you. Just declare the method name.</p>
+
+<h2 id="service">5. Use it in Service</h2>
+<pre><code>@Service
+public class ProductService {
+    @Autowired
+    private ProductRepository productRepo;
+    
+    public List&lt;Product&gt; getAll() {
+        return productRepo.findAll();
+    }
+    
+    public Product save(Product product) {
+        return productRepo.save(product);
+    }
+    
+    public List&lt;Product&gt; getCheapProducts(double maxPrice) {
+        return productRepo.findByPriceLessThan(maxPrice);
+    }
+}</code></pre>
+
+<h2 id="test">Testing it</h2>
+<pre><code>@RestController
+@RequestMapping("/products")
+public class ProductController {
+    @Autowired
+    private ProductService service;
+    
+    @PostMapping
+    public Product create(@RequestBody Product product) {
+        return service.save(product);
+    }
+    
+    @GetMapping
+    public List&lt;Product&gt; getAll() {
+        return service.getAll();
+    }
+    
+    @GetMapping("/cheap/{price}")
+    public List&lt;Product&gt; getCheap(@PathVariable double price) {
+        return service.getCheapProducts(price);
+    }
+}</code></pre>
+
+<h2 id="h2-for-testing">Quick tip: Use H2 for testing</h2>
+<p>Don't want to install PostgreSQL? Use H2 (in-memory database):</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+
+<p>Properties:</p>
+<pre><code>spring.datasource.url=jdbc:h2:mem:testdb
+spring.h2.console.enabled=true</code></pre>
+
+<p>Visit <code>http://localhost:8080/h2-console</code> to see your data.</p>
+
+<h2 id="summary">What you learned</h2>
+<ul>
+  <li>✅ Connect any database</li>
+  <li>✅ JpaRepository = CRUD methods for free</li>
+  <li>✅ Custom queries by method names</li>
+  <li>✅ Hibernate auto-creates tables</li>
+</ul>
+
+<p>Took me 2 hours to figure this out first time. Now you know in 3 minutes.</p>
+    `,
+  },
+    // ── POST 24 (June 14, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-profiles-guide",
+    title: "Spring Boot Profiles: Dev, Test, Prod Made Easy",
+    excerpt: "Different settings for different environments. No more changing configs manually.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Profiles", "Configuration"],
+    author: "Kartik Yadav Gurve",
+    date: "June 14, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<p>You have different databases for development and production. You don't want to change config files every time you deploy.</p>
+<p>Spring Boot Profiles solve this.</p>
+
+<h2 id="the-problem">The problem</h2>
+<p>Development: localhost database, debug logs, H2 database</p>
+<p>Production: cloud database, error logs only, PostgreSQL</p>
+<p>Changing properties manually = mistakes waiting to happen.</p>
+
+<h2 id="solution">Solution: Create multiple property files</h2>
+
+<pre><code>src/main/resources/
+├── application.properties        (common for all)
+├── application-dev.properties    (development)
+├── application-test.properties   (testing)
+└── application-prod.properties   (production)</code></pre>
+
+<h2 id="example">Example: Dev vs Prod</h2>
+
+<p><strong>application-dev.properties:</strong></p>
+<pre><code>server.port=8080
+spring.datasource.url=jdbc:h2:mem:devdb
+spring.jpa.show-sql=true
+logging.level.root=DEBUG</code></pre>
+
+<p><strong>application-prod.properties:</strong></p>
+<pre><code>server.port=8080
+spring.datasource.url=jdbc:postgresql://prod-server:5432/mydb
+spring.datasource.username=produser
+spring.datasource.password=strongpass
+spring.jpa.show-sql=false
+logging.level.root=ERROR</code></pre>
+
+<p><strong>application.properties (common):</strong></p>
+<pre><code>spring.application.name=myapp
+spring.jpa.hibernate.ddl-auto=update</code></pre>
+
+<h2 id="activate">How to activate a profile</h2>
+
+<p><strong>Option 1: In application.properties</strong></p>
+<pre><code>spring.profiles.active=dev</code></pre>
+
+<p><strong>Option 2: Command line</strong></p>
+<pre><code>java -jar myapp.jar --spring.profiles.active=prod</code></pre>
+
+<p><strong>Option 3: Environment variable (for Docker/cloud)</strong></p>
+<pre><code>export SPRING_PROFILES_ACTIVE=prod</code></pre>
+
+<h2 id="code">Use profiles in code</h2>
+
+<p><strong>Run code only for specific profile:</strong></p>
+<pre><code>@Profile("dev")
+@Component
+public class DevDataLoader {
+    // This runs only in development
+    // Load dummy data for testing
+}
+
+@Profile("prod")
+@Component
+public class ProdDataLoader {
+    // This runs only in production
+    // Real data only
+}</code></pre>
+
+<p><strong>Or in application.properties:</strong></p>
+<pre><code># Only for dev profile
+spring.h2.console.enabled=true</code></pre>
+
+<h2 id="real-example">What I actually use</h2>
+
+<p><strong>Development (local):</strong></p>
+<ul>
+  <li>H2 database (no installation)</li>
+  <li>Debug logs</li>
+  <li>Port 8080</li>
+  <li>Load fake data on startup</li>
+</ul>
+
+<p><strong>Production (server):</strong></p>
+<ul>
+  <li>PostgreSQL</li>
+  <li>Error logs only</li>
+  <li>Port 8080 (different domain)</li>
+  <li>No fake data</li>
+</ul>
+
+<p><strong>Testing (CI/CD):</strong></p>
+<ul>
+  <li>Test database (resets every run)</li>
+  <li>Info logs</li>
+  <li>Random port (to avoid conflicts)</li>
+</ul>
+
+<h2 id="quick-tip">Quick tip</h2>
+<p>Set default profile in application.properties:</p>
+<pre><code>spring.profiles.active=dev</code></pre>
+<p>Now you never forget which profile is active.</p>
+
+<h2 id="summary">Summary</h2>
+<ul>
+  <li>✅ Different configs for different environments</li>
+  <li>✅ No code changes between dev and prod</li>
+  <li>✅ One command to switch profiles</li>
+  <li>✅ @Profile annotation for profile-specific code</li>
+</ul>
+
+<p>Been using this for 2 years. Never changed a config file manually again.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
