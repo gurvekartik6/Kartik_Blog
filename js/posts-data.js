@@ -2198,6 +2198,129 @@ spring.h2.console.enabled=true</code></pre>
 
     `,
   },
+
+    // ── POST 25 (June 15, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-security-basics-guide",
+    title: "Spring Boot Security: Basic Auth in 10 Minutes",
+    excerpt: "Add username/password protection to your APIs. No more open endpoints.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Security", "Authentication", "Java"],
+    author: "Kartik Yadav Gurve",
+    date: "June 15, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<p>Your APIs are open. Anyone can call them. That's bad for real apps. Let's add security.</p>
+
+<h2 id="what-you-need">Add one dependency</h2>
+<p>In <code>pom.xml</code>:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+
+<p>That's it. Restart your app. Now every endpoint needs a password.</p>
+
+<h2 id="default-login">Default credentials</h2>
+<p>Username: <code>user</code></p>
+<p>Password: (look in console logs)</p>
+<pre><code>Using generated security password: 8a3f2e1c-9d4b-... </code></pre>
+
+<h2 id="custom-password">Set your own password</h2>
+<p>In <code>application.properties</code>:</p>
+<pre><code>spring.security.user.name=admin
+spring.security.user.password=admin123
+spring.security.user.roles=ADMIN</code></pre>
+
+<p>Now use <code>admin / admin123</code> to access your APIs.</p>
+
+<h2 id="in-memory-users">Multiple users (in-memory)</h2>
+<pre><code>@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    
+    @Bean
+    public UserDetailsService users() {
+        UserDetails admin = User.builder()
+            .username("admin")
+            .password("{noop}admin123")
+            .roles("ADMIN")
+            .build();
+            
+        UserDetails user = User.builder()
+            .username("user")
+            .password("{noop}user123")
+            .roles("USER")
+            .build();
+            
+        return new InMemoryUserDetailsManager(admin, user);
+    }
+}</code></pre>
+
+<p><code>{noop}</code> means no password encoding (for learning only).</p>
+
+<h2 id="url-permissions">Control who can access what</h2>
+<pre><code>@Bean
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/public/**").permitAll()      // anyone
+            .requestMatchers("/admin/**").hasRole("ADMIN") // only admin
+            .anyRequest().authenticated()                  // logged in users
+        )
+        .httpBasic();  // use browser login popup
+    
+    return http.build();
+}</code></pre>
+
+<h2 id="test-it">Testing with Postman</h2>
+<p>In Postman, go to Authorization tab:</p>
+<ul>
+  <li>Type: Basic Auth</li>
+  <li>Username: admin</li>
+  <li>Password: admin123</li>
+</ul>
+<p>Now call your API. Works fine.</p>
+<p>Remove auth → get 401 Unauthorized.</p>
+
+<h2 id="real-passwords">Real passwords (BCrypt)</h2>
+<p>Don't use <code>{noop}</code> in production. Use BCrypt:</p>
+<pre><code>@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}</code></pre>
+
+<p>Encode password:</p>
+<pre><code>String encoded = passwordEncoder().encode("mypass");</code></pre>
+
+<h2 id="common-issues">Common issues</h2>
+
+<p><strong>Postman giving 403?</strong></p>
+<p>Add CSRF disable for testing:</p>
+<pre><code>http.csrf(csrf -> csrf.disable());</code></pre>
+
+<p><strong>Login popup not showing?</strong></p>
+<p>Add <code>.httpBasic()</code> in your config.</p>
+
+<p><strong>Static resources blocked?</strong></p>
+<pre><code>.requestMatchers("/css/**", "/js/**").permitAll()</code></pre>
+
+<h2 id="summary">What you learned</h2>
+<ul>
+  <li>✅ Add Spring Security = instant protection</li>
+  <li>✅ Default user/password from console</li>
+  <li>✅ Custom users with roles</li>
+  <li>✅ Control who sees which URLs</li>
+  <li>✅ Test with Postman Basic Auth</li>
+</ul>
+
+<p>Took me 2 days to figure this out first time. Now you know in 10 minutes.</p>
+
+<h2 id="next">Coming next</h2>
+<p>Post 26: <strong>JWT Authentication</strong> — stateless auth for modern apps.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
