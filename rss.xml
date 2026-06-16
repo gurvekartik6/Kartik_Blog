@@ -3,10 +3,23 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Spring Boot, Security, JPA, REST API, Git, Docker, Java</description>
+  <description>Spring Boot, JWT, Security, JPA, REST API, Java, Docker, Git</description>
   <language>en</language>
-  <lastBuildDate>Mon, 15 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 16 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 26: June 16, 2026 -->
+  <item>
+    <title>JWT Authentication in Spring Boot: Stateless Security</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-jwt-authentication-guide</link>
+    <description>Replace Basic Auth with JWT tokens. Modern, stateless, and scalable authentication.</description>
+    <pubDate>Tue, 16 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-jwt-authentication-guide</guid>
+    <category>Spring Boot</category>
+    <category>JWT</category>
+    <category>Security</category>
+    <category>Authentication</category>
+  </item>
 
   <!-- POST 25: June 15, 2026 -->
   <item>

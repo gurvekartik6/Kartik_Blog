@@ -2321,6 +2321,232 @@ public PasswordEncoder passwordEncoder() {
 <p>Post 26: <strong>JWT Authentication</strong> — stateless auth for modern apps.</p>
     `,
   },
+    // ── POST 26 (June 16, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-jwt-authentication-guide",
+    title: "JWT Authentication in Spring Boot: Stateless Security",
+    excerpt: "Replace Basic Auth with JWT tokens. Modern, stateless, and scalable.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "JWT", "Security", "Authentication"],
+    author: "Kartik Yadav Gurve",
+    date: "June 16, 2026",
+    readTime: 4,
+    featured: true,
+    content: `
+<p>Basic Auth sends password with every request. Bad for security. JWT is better.</p>
+
+<h2 id="what-is-jwt">What is JWT?</h2>
+<p>JWT = JSON Web Token. A string that contains user info. Server gives it once. Client sends it with every request.</p>
+<p><strong>How it works:</strong></p>
+<ol>
+  <li>User logs in → server creates JWT token</li>
+  <li>Client stores token</li>
+  <li>Client sends token in header: <code>Authorization: Bearer &lt;token&gt;</code></li>
+  <li>Server validates token → no database lookup needed!</li>
+</ol>
+
+<h2 id="dependencies">1. Add JWT dependencies</h2>
+<p>In <code>pom.xml</code>:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+    &lt;artifactId&gt;jjwt-api&lt;/artifactId&gt;
+    &lt;version&gt;0.11.5&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+    &lt;artifactId&gt;jjwt-impl&lt;/artifactId&gt;
+    &lt;version&gt;0.11.5&lt;/version&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;
+    &lt;artifactId&gt;jjwt-jackson&lt;/artifactId&gt;
+    &lt;version&gt;0.11.5&lt;/version&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+
+<h2 id="jwt-util">2. JWT Utility Class</h2>
+<pre><code>@Component
+public class JwtUtil {
+    private String secret = "your-very-secret-key-here-1234567890";
+    
+    public String generateToken(String username) {
+        return Jwts.builder()
+            .setSubject(username)
+            .setIssuedAt(new Date())
+            .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 hours
+            .signWith(getSignKey())
+            .compact();
+    }
+    
+    public String extractUsername(String token) {
+        return Jwts.parserBuilder()
+            .setSigningKey(getSignKey())
+            .build()
+            .parseClaimsJws(token)
+            .getBody()
+            .getSubject();
+    }
+    
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parserBuilder()
+                .setSigningKey(getSignKey())
+                .build()
+                .parseClaimsJws(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    private Key getSignKey() {
+        byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
+        return Keys.hmacShaKeyFor(keyBytes);
+    }
+}</code></pre>
+
+<h2 id="login-endpoint">3. Login Endpoint</h2>
+<pre><code>@RestController
+@RequestMapping("/auth")
+public class AuthController {
+    @Autowired
+    private JwtUtil jwtUtil;
+    
+    @PostMapping("/login")
+    public ResponseEntity&lt;?&gt; login(@RequestBody LoginRequest request) {
+        // Check username/password (skip for demo)
+        String token = jwtUtil.generateToken(request.getUsername());
+        return ResponseEntity.ok(new LoginResponse(token));
+    }
+}</code></pre>
+
+<h2 id="filter">4. JWT Filter</h2>
+<pre><code>@Component
+public class JwtFilter extends OncePerRequestFilter {
+    @Autowired
+    private JwtUtil jwtUtil;
+    
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, 
+                                    HttpServletResponse response, 
+                                    FilterChain chain) throws IOException, ServletException {
+        
+        String authHeader = request.getHeader("Authorization");
+        
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String token = authHeader.substring(7);
+            
+            if (jwtUtil.validateToken(token)) {
+                String username = jwtUtil.extractUsername(token);
+                // Set authentication in context
+                UsernamePasswordAuthenticationToken auth = 
+                    new UsernamePasswordAuthenticationToken(username, null, null);
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            }
+        }
+        
+        chain.doFilter(request, response);
+    }
+}</code></pre>
+
+<h2 id="security-config">5. Security Config</h2>
+<pre><code>@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    @Autowired
+    private JwtFilter jwtFilter;
+    
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/auth/**").permitAll()  // login open
+                .anyRequest().authenticated()
+            )
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // no sessions!
+            )
+            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        
+        return http.build();
+    }
+}</code></pre>
+
+<h2 id="test-it">Testing with Postman</h2>
+
+<p><strong>Step 1: Login</strong></p>
+<pre><code>POST /auth/login
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+Response:
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}</code></pre>
+
+<p><strong>Step 2: Use token for protected endpoints</strong></p>
+<pre><code>GET /api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</code></pre>
+
+<h2 id="advantages">Why JWT over Basic Auth?</h2>
+
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Feature</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">Basic Auth</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">JWT</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Password sent every time</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">❌ Yes (risky)</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">✅ No (token only)</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Server needs to store session</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">✅ Yes (stateful)</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">✅ No (stateless)</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Scale horizontally</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">❌ Hard</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">✅ Easy</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;">Mobile friendly</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">❌ No</td>
+    <td style="border: 1px solid #ddd; padding: 10px;">✅ Yes</td>
+  </tr>
+</table>
+
+<h2 id="important">Important Notes</h2>
+
+<p><strong>Keep secret key safe:</strong> Don't hardcode like I did. Use environment variable:</p>
+<pre><code>@Value("\${jwt.secret}")
+private String secret;</code></pre>
+
+<p>In <code>application.properties</code>:</p>
+<pre><code>jwt.secret=\${JWT_SECRET:default-secret-key}</code></pre>
+
+<p><strong>Token expiration:</strong> Set short expiry for sensitive apps (15-30 minutes).</p>
+
+<h2 id="summary">What you built</h2>
+<ul>
+  <li>✅ Login endpoint returns JWT token</li>
+  <li>✅ Filter validates every request</li>
+  <li>✅ Stateless = easy scaling</li>
+  <li>✅ No password sent repeatedly</li>
+</ul>
+
+<p>JWT is the standard now. Every modern app uses it.</p>
+
+<h2 id="next">What's next?</h2>
+<p>Post 27: <strong>Spring Boot + React: Full Stack Integration</strong> — Connect frontend with backend.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
