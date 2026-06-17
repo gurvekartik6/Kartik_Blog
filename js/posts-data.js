@@ -2732,7 +2732,7 @@ CMD ["java", "-jar", "app.jar"]</code></pre>
 <h2 id="next">What's next?</h2>
 <p>Post 28: <strong>Spring Boot Testing</strong> — Unit tests, integration tests, and mocking.</p>
     `,
-  },
+  }
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
