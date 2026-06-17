@@ -3,10 +3,23 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Spring Boot, JWT, Security, JPA, REST API, Java, Docker, Git</description>
+  <description>Spring Boot, React, JWT, Security, JPA, REST API, Java, Docker</description>
   <language>en</language>
-  <lastBuildDate>Tue, 16 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 17 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 27: June 17, 2026 -->
+  <item>
+    <title>Spring Boot + React: Full Stack Integration</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-react-integration-guide</link>
+    <description>Connect React frontend with Spring Boot backend. CORS, API calls, and deployment.</description>
+    <pubDate>Wed, 17 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-react-integration-guide</guid>
+    <category>Spring Boot</category>
+    <category>React</category>
+    <category>Full Stack</category>
+    <category>CORS</category>
+  </item>
 
   <!-- POST 26: June 16, 2026 -->
   <item>
@@ -31,7 +44,6 @@
     <category>Spring Boot</category>
     <category>Security</category>
     <category>Authentication</category>
-    <category>Java</category>
   </item>
 
   <!-- POST 24: June 14, 2026 -->
@@ -177,7 +189,7 @@
     <category>GitHub</category>
   </item>
 
-  <!-- POST 12: June 2, 2026 -->
+  <!-- POST 12-1: Previous Hibernate posts -->
   <item>
     <title>3 More Hibernate Concepts: Second-Level Cache, Batch Fetching &amp; JPA vs Hibernate</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate</link>
@@ -188,7 +200,6 @@
     <category>Hibernate</category>
   </item>
 
-  <!-- POST 11: June 1, 2026 -->
   <item>
     <title>2 Hibernate Concepts That Save Your Database: N+1 Problem &amp; First-Level Cache</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-n-plus-1-problem-and-first-level-cache</link>
@@ -199,7 +210,6 @@
     <category>Hibernate</category>
   </item>
 
-  <!-- POST 10: May 31, 2026 -->
   <item>
     <title>Hibernate Session Problems: Transactions, Lazy Loading, and Session Management</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-problems-transactions-lazy-loading</link>
@@ -210,7 +220,6 @@
     <category>Hibernate</category>
   </item>
 
-  <!-- POST 9: May 30, 2026 -->
   <item>
     <title>Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</link>
@@ -221,7 +230,6 @@
     <category>Hibernate</category>
   </item>
 
-  <!-- POST 8: May 29, 2026 -->
   <item>
     <title>I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=cant-hurt-me-book-takeaways-david-goggins</link>
@@ -232,7 +240,6 @@
     <category>Mindset</category>
   </item>
 
-  <!-- POST 7: May 28, 2026 -->
   <item>
     <title>Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</link>
@@ -243,7 +250,6 @@
     <category>Hibernate</category>
   </item>
 
-  <!-- POST 6: May 27, 2026 -->
   <item>
     <title>Hibernate ORM: Mapping Relationships &amp; Annotations (Theory)</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-mapping-relationships-annotations</link>
@@ -254,7 +260,6 @@
     <category>Hibernate</category>
   </item>
 
-  <!-- POST 5: May 26, 2026 -->
   <item>
     <title>Hibernate ORM: What It Is and Why You Need It</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-simple-guide</link>
@@ -265,7 +270,6 @@
     <category>Hibernate</category>
   </item>
 
-  <!-- POST 4: May 25, 2026 -->
   <item>
     <title>How to Connect Java Application to PostgreSQL</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=connect-java-to-postgresql</link>
@@ -276,7 +280,6 @@
     <category>PostgreSQL</category>
   </item>
 
-  <!-- POST 3: May 24, 2026 -->
   <item>
     <title>The Tech Skills I Have Learned</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=tech-skills-i-have-learned</link>
@@ -287,7 +290,6 @@
     <category>Learning</category>
   </item>
 
-  <!-- POST 2: May 23, 2026 -->
   <item>
     <title>How I Work as an Instructor at Sai Ambrosia After 10th</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=how-i-work-as-instructor-at-sai-ambrosia</link>
@@ -298,7 +300,6 @@
     <category>Power BI</category>
   </item>
 
-  <!-- POST 1: May 22, 2026 -->
   <item>
     <title>The Idea About the Blogging Website</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=the-idea-about-the-blogging-website</link>
@@ -309,7 +310,6 @@
     <category>Web Development</category>
   </item>
 
-  <!-- BONUS: May 21, 2026 -->
   <item>
     <title>Coding Since 2018</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=my-love-and-passion-about-coding-since-2018</link>

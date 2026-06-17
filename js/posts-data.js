@@ -2547,6 +2547,192 @@ private String secret;</code></pre>
 <p>Post 27: <strong>Spring Boot + React: Full Stack Integration</strong> — Connect frontend with backend.</p>
     `,
   },
+    // ── POST 27 (June 17, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-react-integration-guide",
+    title: "Spring Boot + React: Full Stack Integration",
+    excerpt: "Connect React frontend with Spring Boot backend. CORS, API calls, and deployment.",
+    image: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "React", "Full Stack", "CORS"],
+    author: "Kartik Yadav Gurve",
+    date: "June 17, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<p>You have Spring Boot APIs. You have React frontend. Now make them talk to each other.</p>
+
+<h2 id="the-problem">The Problem: CORS</h2>
+<p>React runs on <code>http://localhost:3000</code>. Spring Boot runs on <code>http://localhost:8080</code>.</p>
+<p>Browser blocks cross-origin requests by default. CORS fixes this.</p>
+
+<h2 id="cors-config">1. Enable CORS in Spring Boot</h2>
+<p>Add this config:</p>
+<pre><code>@Configuration
+public class CorsConfig {
+    
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                    .allowedOrigins("http://localhost:3000")
+                    .allowedMethods("GET", "POST", "PUT", "DELETE")
+                    .allowedHeaders("*")
+                    .allowCredentials(true);
+            }
+        };
+    }
+}</code></pre>
+
+<p>Or simpler: Add <code>@CrossOrigin</code> on controller:</p>
+<pre><code>@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+public class UserController {
+    // your endpoints
+}</code></pre>
+
+<h2 id="react-call">2. React: Call Spring Boot API</h2>
+<pre><code>// api.js
+const API_URL = "http://localhost:8080/api";
+
+export const getUsers = async () => {
+    const response = await fetch(\`${API_URL}/users\`);
+    return response.json();
+};
+
+export const createUser = async (user) => {
+    const response = await fetch(\`${API_URL}/users\`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+    });
+    return response.json();
+};</code></pre>
+
+<h2 id="react-component">3. React Component Example</h2>
+<pre><code>import React, { useState, useEffect } from 'react';
+import { getUsers, createUser } from './api';
+
+function UserList() {
+    const [users, setUsers] = useState([]);
+    const [name, setName] = useState('');
+    
+    useEffect(() => {
+        loadUsers();
+    }, []);
+    
+    const loadUsers = async () => {
+        const data = await getUsers();
+        setUsers(data);
+    };
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await createUser({ name });
+        loadUsers();
+        setName('');
+    };
+    
+    return (
+        &lt;div&gt;
+            &lt;form onSubmit={handleSubmit}&gt;
+                &lt;input 
+                    value={name} 
+                    onChange={(e) => setName(e.target.value)} 
+                    placeholder="Enter name"
+                /&gt;
+                &lt;button type="submit"&gt;Add User&lt;/button&gt;
+            &lt;/form&gt;
+            &lt;ul&gt;
+                {users.map(user => (
+                    &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+                ))}
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default UserList;</code></pre>
+
+<h2 id="proxy">4. Proxy (Easier Development)</h2>
+<p>Add this to React's <code>package.json</code>:</p>
+<pre><code>{
+    "proxy": "http://localhost:8080"
+}</code></pre>
+
+<p>Now call APIs without writing full URL:</p>
+<pre><code>fetch("/api/users") // instead of http://localhost:8080/api/users</code></pre>
+
+<h2 id="jwt-auth">5. With JWT Authentication</h2>
+<p>Store token after login:</p>
+<pre><code>const login = async (username, password) => {
+    const response = await fetch('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+    });
+    const data = await response.json();
+    localStorage.setItem('token', data.token);
+};</code></pre>
+
+<p>Send token with every request:</p>
+<pre><code>const getUsers = async () => {
+    const token = localStorage.getItem('token');
+    const response = await fetch('/api/users', {
+        headers: {
+            'Authorization': \`Bearer \${token}\`
+        }
+    });
+    return response.json();
+};</code></pre>
+
+<h2 id="deployment">6. Deployment Options</h2>
+
+<p><strong>Option 1: Separate Hosting</strong></p>
+<ul>
+  <li>Spring Boot → Railway / Render / AWS</li>
+  <li>React → Vercel / Netlify</li>
+  <li>Update API_URL to production URL</li>
+</ul>
+
+<p><strong>Option 2: Serve React from Spring Boot</strong></p>
+<pre><code>// Build React: npm run build
+// Copy build/ folder to Spring Boot's src/main/resources/static
+// Spring Boot serves React files automatically</code></pre>
+
+<p><strong>Option 3: Docker (Both together)</strong></p>
+<pre><code># Dockerfile for React + Spring Boot
+FROM maven:3.8 AS build
+COPY . .
+RUN mvn clean package
+
+FROM openjdk:17
+COPY --from=build target/*.jar app.jar
+EXPOSE 8080
+CMD ["java", "-jar", "app.jar"]</code></pre>
+
+<h2 id="common-issues">Common Issues</h2>
+
+<p><strong>CORS error?</strong> Check allowed origins in Spring Boot.</p>
+<p><strong>404 on API?</strong> Check URL and port numbers.</p>
+<p><strong>Token not sending?</strong> Check Authorization header format.</p>
+<p><strong>React not updating?</strong> Add <code>useEffect</code> with dependencies.</p>
+
+<h2 id="summary">What you built</h2>
+<ul>
+  <li>✅ CORS configured in Spring Boot</li>
+  <li>✅ React calling Spring Boot APIs</li>
+  <li>✅ JWT token handling in React</li>
+  <li>✅ Multiple deployment options</li>
+</ul>
+
+<p>Full stack apps are fun. Frontend + Backend working together.</p>
+
+<h2 id="next">What's next?</h2>
+<p>Post 28: <strong>Spring Boot Testing</strong> — Unit tests, integration tests, and mocking.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────
