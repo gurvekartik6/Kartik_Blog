@@ -2732,7 +2732,193 @@ CMD ["java", "-jar", "app.jar"]</code></pre>
 <h2 id="next">What's next?</h2>
 <p>Post 28: <strong>Spring Boot Testing</strong> — Unit tests, integration tests, and mocking.</p>
     `,
-  }
+  },
+    // ── POST 28 (June 18, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-testing-guide",
+    title: "Spring Boot Testing: Unit Tests & Integration Tests",
+    excerpt: "Test your APIs properly. No more deploying to check if code works.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Testing", "JUnit", "Mockito"],
+    author: "Kartik Yadav Gurve",
+    date: "June 18, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<p>You write code. But does it work? Testing gives you confidence.</p>
+
+<h2 id="types">Two Types of Tests</h2>
+
+<p><strong>Unit Tests:</strong> Test one thing in isolation (e.g., a service method).</p>
+<p><strong>Integration Tests:</strong> Test everything together (e.g., API call to database).</p>
+
+<h2 id="dependencies">1. Add Testing Dependencies</h2>
+<p>Spring Boot includes them by default. But check <code>pom.xml</code>:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+
+<h2 id="unit-test">2. Unit Test with Mockito</h2>
+<p>Test service layer. Mock repository.</p>
+<pre><code>@ExtendWith(MockitoExtension.class)
+class UserServiceTest {
+    
+    @Mock
+    private UserRepository userRepository;
+    
+    @InjectMocks
+    private UserService userService;
+    
+    @Test
+    void shouldReturnUserWhenIdExists() {
+        // Arrange
+        User user = new User();
+        user.setId(1L);
+        user.setName("Kartik");
+        
+        when(userRepository.findById(1L))
+            .thenReturn(Optional.of(user));
+        
+        // Act
+        User result = userService.getUserById(1L);
+        
+        // Assert
+        assertEquals("Kartik", result.getName());
+        verify(userRepository).findById(1L);
+    }
+    
+    @Test
+    void shouldThrowExceptionWhenUserNotFound() {
+        // Arrange
+        when(userRepository.findById(99L))
+            .thenReturn(Optional.empty());
+        
+        // Assert
+        assertThrows(RuntimeException.class, () -> {
+            userService.getUserById(99L);
+        });
+    }
+}</code></pre>
+
+<h2 id="integration-test">3. Integration Test with @WebMvcTest</h2>
+<p>Test controller layer only.</p>
+<pre><code>@WebMvcTest(UserController.class)
+class UserControllerTest {
+    
+    @Autowired
+    private MockMvc mockMvc;
+    
+    @MockBean
+    private UserService userService;
+    
+    @Test
+    void shouldReturnUser() throws Exception {
+        // Arrange
+        User user = new User();
+        user.setId(1L);
+        user.setName("Kartik");
+        
+        when(userService.getUserById(1L)).thenReturn(user);
+        
+        // Act & Assert
+        mockMvc.perform(get("/api/users/1"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.name").value("Kartik"));
+    }
+}</code></pre>
+
+<h2 id="full-integration">4. Full Integration Test with @SpringBootTest</h2>
+<p>Test everything (controller + service + database).</p>
+<pre><code>@SpringBootTest
+@AutoConfigureMockMvc
+class UserIntegrationTest {
+    
+    @Autowired
+    private MockMvc mockMvc;
+    
+    @Test
+    void createUserAndGetItBack() throws Exception {
+        // Create user
+        String userJson = "{\"name\":\"Kartik\",\"email\":\"k@test.com\"}";
+        
+        mockMvc.perform(post("/api/users")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(userJson))
+            .andExpect(status().isCreated())
+            .andExpect(jsonPath("$.id").exists());
+        
+        // Get all users
+        mockMvc.perform(get("/api/users"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$[0].name").value("Kartik"));
+    }
+}</code></pre>
+
+<h2 id="test-database">5. Use Test Database</h2>
+<p>In <code>application-test.properties</code>:</p>
+<pre><code>spring.datasource.url=jdbc:h2:mem:testdb
+spring.jpa.hibernate.ddl-auto=create-drop</code></pre>
+<p>Database resets after each test. Clean tests.</p>
+
+<h2 id="common-annotations">Common Testing Annotations</h2>
+
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Annotation</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">Purpose</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@Test</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Marks a test method</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@Mock</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Creates mock object</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@InjectMocks</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Injects mocks into class</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@MockBean</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Mock for Spring context</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@WebMvcTest</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Test web layer only</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>@SpringBootTest</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Full application test</td>
+  </tr>
+</table>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<ul>
+  <li>✅ Test one thing per test</li>
+  <li>✅ Use meaningful test names (<code>shouldReturnUserWhenIdExists</code>)</li>
+  <li>✅ Mock external services</li>
+  <li>✅ Use test database (not production)</li>
+  <li>✅ Run tests before every push</li>
+</ul>
+
+<h2 id="summary">What you learned</h2>
+<ul>
+  <li>✅ Unit tests with Mockito</li>
+  <li>✅ Integration tests with @WebMvcTest</li>
+  <li>✅ Full tests with @SpringBootTest</li>
+  <li>✅ Test database configuration</li>
+</ul>
+
+<p>Testing takes time. But saves hours of debugging.</p>
+
+<h2 id="next">What's next?</h2>
+<p>Post 29: <strong>Spring Boot + Docker</strong> — Containerize your app.</p>
+    `,
+  },
 ];
 
 // ─── Helper functions used by blog.html and post.html ────────

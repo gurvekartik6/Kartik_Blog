@@ -3,10 +3,23 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Spring Boot, React, JWT, Security, JPA, REST API, Java, Docker</description>
+  <description>Spring Boot, Testing, React, JWT, Security, JPA, REST API, Java, Docker</description>
   <language>en</language>
-  <lastBuildDate>Wed, 17 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 18 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 28: June 18, 2026 -->
+  <item>
+    <title>Spring Boot Testing: Unit Tests &amp; Integration Tests</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-testing-guide</link>
+    <description>Test your APIs properly. No more deploying to check if code works. JUnit + Mockito.</description>
+    <pubDate>Thu, 18 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-testing-guide</guid>
+    <category>Spring Boot</category>
+    <category>Testing</category>
+    <category>JUnit</category>
+    <category>Mockito</category>
+  </item>
 
   <!-- POST 27: June 17, 2026 -->
   <item>
@@ -31,7 +44,6 @@
     <category>Spring Boot</category>
     <category>JWT</category>
     <category>Security</category>
-    <category>Authentication</category>
   </item>
 
   <!-- POST 25: June 15, 2026 -->
