@@ -79,7 +79,7 @@ const POSTS_DB = [
     featured: true,
     content: `
 <h2 id="intro">How I Work as an Instructor at Sai Ambrosia After 10th</h2>
-<p>After 10th I started teaching  at Sai Ambrosia Education.</p>
+<p>After 10th I started teaching at Sai Ambrosia Education.</p>
     `,
   },
 
@@ -220,6 +220,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>Hibernate = Less SQL, more Java. Perfect for saving time and keeping your code clean.</p>
     `,
   },
+
   // ── POST 7 (May 27, 2026) ──────────────────────────
   {
     slug: "hibernate-orm-mapping-relationships-annotations",
@@ -277,6 +278,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>No code, just concepts! Hibernate maps your Java thinking directly to database tables.</p>
     `,
   },
+
   // ── POST 8 (May 28, 2026) ──────────────────────────
   {
     slug: "hibernate-orm-crud-methods-merge-persist-remove",
@@ -338,6 +340,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>That's the magic of Hibernate. Your Java objects talk. Hibernate translates to SQL behind the scenes.</p>
   `,
   },
+
   // ── POST 9 (May 29, 2026) ──────────────────────────
   {
     slug: "cant-hurt-me-book-takeaways-david-goggins",
@@ -391,6 +394,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>
 <p>Stay hard. (Yeah, I said it.)</p>
   `,
   },
+
   // ── POST 10 (May 30, 2026) ──────────────────────────
   {
     slug: "hibernate-session-factory-session-lifecycle-deep-dive",
@@ -527,6 +531,7 @@ One factory. Many sessions. Short lives. Happy database.</p>
 <p>Now you know the container vs the worker. Next step: understanding Hibernate caching (first-level vs second-level) — why your repeated queries sometimes hit the database and sometimes don't. That's a post for another day.</p>
     `,
   },
+
   // ── POST 11 (May 31, 2026) ──────────────────────────────────
   {
     slug: "hibernate-session-problems-transactions-lazy-loading",
@@ -645,6 +650,7 @@ user.getOrders().size();  // Works! Data already loaded</code></pre>
 <p>SessionFactory = your app's backbone. Session = your work unit. Treat Session right, and Hibernate will love you. ❤️</p>
     `,
   },
+
   // ── POST 12 (June 1, 2026) ──────────────────────────────────
   {
     slug: "hibernate-n-plus-1-problem-and-first-level-cache",
@@ -769,6 +775,7 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
 <p><strong>More on Hibernate:</strong> Second-level cache (shared across sessions), batch fetching (@BatchSize), and the difference between Hibernate and JPA. But for now — fix N+1, love your first-level cache, and your app will fly 🚀</p>
     `,
   },
+
   // ── POST 13 (June 2, 2026) ──────────────────────────────────
   {
     slug: "hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate",
@@ -815,6 +822,7 @@ spring.jpa.properties.hibernate.format_sql=true</code></pre>
 <p><strong>More on Hibernate:</strong> Optimistic vs Pessimistic Locking, Inheritance mapping strategies (Single Table, Joined, Table Per Class), and Embeddables (@Embedded, @ElementCollection). Coming next.</p>
     `,
   },
+
   // ── POST 14 (June 3, 2026) ──────────────────────────────────
   {
     slug: "git-basics-every-developer-should-know",
@@ -870,6 +878,7 @@ git push origin main       # Then push yours</code></pre>
 <p><strong>More on Git:</strong> Merge conflicts, rebase vs merge, and undoing commits. Coming next.</p>
     `,
   },
+
   // ── POST 15 (June 4, 2026) ──────────────────────────────────
   {
     slug: "docker-basics-every-developer-needs",
@@ -937,6 +946,7 @@ CMD ["npm", "start"]</code></pre>
 <p>Docker changes everything. Start with these 5 commands and you'll never fear containers again 🐳</p>
     `,
   },
+
   // ── POST 16 (June 5, 2026) ──────────────────────────────────
   {
     slug: "rest-api-vs-graphql-simple-comparison",
@@ -1049,7 +1059,8 @@ GraphQL = Powerful, flexible, learn it second.</p>
 <p><strong>Start with REST today. Build a simple API. Then try GraphQL.</strong> 🚀</p>
     `,
   },
-    // ── POST 17 (June 6, 2026) ──────────────────────────────────
+
+  // ── POST 17 (June 6, 2026) ──────────────────────────────────
   {
     slug: "top-5-vs-code-extensions-for-developers",
     title: "Top 5 VS Code Extensions That Make Coding 10x Easier",
@@ -1099,7 +1110,8 @@ const x = "hello";</code></pre>
 <p>If I don't use an extension weekly, I uninstall it. These 5 survived. Try them today.</p>
     `,
   },
-    // ── POST 18 (June 7, 2026) ──────────────────────────────────
+
+  // ── POST 18 (June 7, 2026) ──────────────────────────────────
   {
     slug: "spring-vs-spring-boot-what-is-difference",
     title: "Spring vs Spring Boot: What's the Difference?",
@@ -1211,7 +1223,8 @@ public class MyApp {
 <p><strong>Next post:</strong> We'll create a real Spring Boot project from scratch. 🚀</p>
     `,
   },
-    // ── POST 19 (June 8, 2026) ──────────────────────────────────
+
+  // ── POST 19 (June 8, 2026) ──────────────────────────────────
   {
     slug: "create-first-spring-boot-project-step-by-step",
     title: "Create Your First Spring Boot Project: Step by Step",
@@ -1352,7 +1365,8 @@ public class HelloController {
 <p>Drop a comment if you got stuck. Next post will make things even clearer.</p>
     `,
   },
-    // ── POST 19 (June 9, 2026) ──────────────────────────────────
+
+  // ── POST 20 (June 9, 2026) ──────────────────────────────────
   {
     slug: "springbootapplication-annotation-explained",
     title: "@SpringBootApplication: The Most Important Annotation Explained",
@@ -1487,10 +1501,11 @@ public class MyApp {
 <p><strong>Remember:</strong> Spring Boot isn't magic. It's just smart defaults + auto-configuration. Now you know how it works! 🚀</p>
 
 <h2 id="next-post">Coming Next in This Series</h2>
-<p>Post 20: <strong>Spring Boot Annotations Every Developer Should Know</strong> (@RestController, @Autowired, @Service, @Repository, and more)</p>
+<p>Post 21: <strong>Spring Boot Annotations Every Developer Should Know</strong> (@RestController, @Autowired, @Service, @Repository, and more)</p>
     `,
   },
-    // ── POST 20 (June 10, 2026) ──────────────────────────────────
+
+  // ── POST 21 (June 10, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-annotations-every-developer-should-know",
     title: "Spring Boot Annotations: 7 Annotations Every Developer Should Know",
@@ -1713,10 +1728,11 @@ public class UserController {
 <p><strong>Practice these 7 annotations and you'll build 90% of Spring Boot APIs!</strong></p>
 
 <h2 id="next-post">Coming Next in This Series</h2>
-<p>Post 21: <strong>Building a Complete REST API (CRUD) with Spring Boot</strong> — Create, Read, Update, Delete operations with real database connection.</p>
+<p>Post 22: <strong>Building a Complete REST API (CRUD) with Spring Boot</strong> — Create, Read, Update, Delete operations with real database connection.</p>
     `,
   },
-    // ── POST 21 (June 11, 2026) ──────────────────────────────────
+
+  // ── POST 22 (June 11, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-rest-api-crud-tutorial",
     title: "Building a Complete REST API (CRUD) with Spring Boot",
@@ -1844,7 +1860,8 @@ public class UserController {
 <p>That's it. Run and test with Postman.</p>
     `,
   },
-    // ── POST 22 (June 12, 2026) ──────────────────────────────────
+
+  // ── POST 23 (June 12, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-exception-handling-guide",
     title: "Exception Handling in Spring Boot: Stop Using Try-Catch Everywhere",
@@ -1936,7 +1953,8 @@ public ResponseEntity&lt;ErrorResponse&gt; handleNotFound(UserNotFoundException 
 <p>Been using this pattern for a year. Works like charm.</p>
     `,
   },
-    // ── POST 23 (June 13, 2026) ──────────────────────────────────
+
+  // ── POST 24 (June 13, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-jpa-database-guide",
     title: "Spring Boot with Database: JPA Made Simple",
@@ -2077,7 +2095,8 @@ spring.h2.console.enabled=true</code></pre>
 <p>Took me 2 hours to figure this out first time. Now you know in 3 minutes.</p>
     `,
   },
-    // ── POST 24 (June 14, 2026) ──────────────────────────────────
+
+  // ── POST 25 (June 14, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-profiles-guide",
     title: "Spring Boot Profiles: Dev, Test, Prod Made Easy",
@@ -2194,12 +2213,10 @@ spring.h2.console.enabled=true</code></pre>
   <li>✅ One command to switch profiles</li>
   <li>✅ @Profile annotation for profile-specific code</li>
 </ul>
-
-
     `,
   },
 
-    // ── POST 25 (June 15, 2026) ──────────────────────────────────
+  // ── POST 26 (June 15, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-security-basics-guide",
     title: "Spring Boot Security: Basic Auth in 10 Minutes",
@@ -2318,10 +2335,11 @@ public PasswordEncoder passwordEncoder() {
 <p>Took me 2 days to figure this out first time. Now you know in 10 minutes.</p>
 
 <h2 id="next">Coming next</h2>
-<p>Post 26: <strong>JWT Authentication</strong> — stateless auth for modern apps.</p>
+<p>Post 27: <strong>JWT Authentication</strong> — stateless auth for modern apps.</p>
     `,
   },
-    // ── POST 26 (June 16, 2026) ──────────────────────────────────
+
+  // ── POST 27 (June 16, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-jwt-authentication-guide",
     title: "JWT Authentication in Spring Boot: Stateless Security",
@@ -2544,10 +2562,11 @@ private String secret;</code></pre>
 <p>JWT is the standard now. Every modern app uses it.</p>
 
 <h2 id="next">What's next?</h2>
-<p>Post 27: <strong>Spring Boot + React: Full Stack Integration</strong> — Connect frontend with backend.</p>
+<p>Post 28: <strong>Spring Boot + React: Full Stack Integration</strong> — Connect frontend with backend.</p>
     `,
   },
-    // ── POST 27 (June 17, 2026) ──────────────────────────────────
+
+  // ── POST 28 (June 17, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-react-integration-guide",
     title: "Spring Boot + React: Full Stack Integration",
@@ -2730,10 +2749,11 @@ CMD ["java", "-jar", "app.jar"]</code></pre>
 <p>Full stack apps are fun. Frontend + Backend working together.</p>
 
 <h2 id="next">What's next?</h2>
-<p>Post 28: <strong>Spring Boot Testing</strong> — Unit tests, integration tests, and mocking.</p>
+<p>Post 29: <strong>Spring Boot Testing</strong> — Unit tests, integration tests, and mocking.</p>
     `,
   },
-    // ── POST 28 (June 18, 2026) ──────────────────────────────────
+
+  // ── POST 29 (June 18, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-testing-guide",
     title: "Spring Boot Testing: Unit Tests & Integration Tests",
@@ -2916,7 +2936,171 @@ spring.jpa.hibernate.ddl-auto=create-drop</code></pre>
 <p>Testing takes time. But saves hours of debugging.</p>
 
 <h2 id="next">What's next?</h2>
-<p>Post 29: <strong>Spring Boot + Docker</strong> — Containerize your app.</p>
+<p>Post 30: <strong>Spring Boot + Docker</strong> — Containerize your app.</p>
+    `,
+  },
+    // ── POST 30 (June 19, 2026) ──────────────────────────────────
+  {
+    slug: "spring-boot-docker-guide",
+    title: "Spring Boot + Docker: Containerize Your App",
+    excerpt: "Package your Spring Boot app as a Docker container. Deploy anywhere.",
+    image: "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
+    tags: ["Spring Boot", "Docker", "DevOps", "Deployment"],
+    author: "Kartik Yadav Gurve",
+    date: "June 19, 2026",
+    readTime: 3,
+    featured: true,
+    content: `
+<p>You built a Spring Boot app. Now package it as a Docker container. Deploy anywhere.</p>
+
+<h2 id="what-is-docker">Why Docker?</h2>
+<p>Docker packages your app + all dependencies into one container. Runs anywhere — your laptop, server, cloud. No more "works on my machine" problems.</p>
+
+<h2 id="step1">1. Build your JAR</h2>
+<p>First, build your Spring Boot JAR file:</p>
+<pre><code>./mvnw clean package</code></pre>
+<p>Your JAR will be in <code>target/</code> folder.</p>
+
+<h2 id="step2">2. Create Dockerfile</h2>
+<p>Create a file named <code>Dockerfile</code> in your project root:</p>
+<pre><code>FROM openjdk:17-jdk-slim
+COPY target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]</code></pre>
+
+<p><strong>What each line does:</strong></p>
+<ul>
+  <li><code>FROM openjdk:17-jdk-slim</code> → Base image with Java 17</li>
+  <li><code>COPY target/*.jar app.jar</code> → Copy your JAR into container</li>
+  <li><code>EXPOSE 8080</code> → Tell Docker your app uses port 8080</li>
+  <li><code>ENTRYPOINT ["java", "-jar", "app.jar"]</code> → Run your app</li>
+</ul>
+
+<h2 id="step3">3. Build Docker Image</h2>
+<pre><code>docker build -t myapp .</code></pre>
+<p>This creates a Docker image named "myapp".</p>
+
+<h2 id="step4">4. Run Container</h2>
+<pre><code>docker run -p 8080:8080 myapp</code></pre>
+<p>Your app runs on <code>http://localhost:8080</code></p>
+
+<h2 id="step5">5. Run in Background</h2>
+<pre><code>docker run -d -p 8080:8080 --name myapp-container myapp</code></pre>
+<p><code>-d</code> = detached mode (runs in background)</p>
+
+<h2 id="docker-compose">Docker Compose (with Database)</h2>
+<p>Create <code>docker-compose.yml</code>:</p>
+<pre><code>version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mydb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: secret
+
+volumes:
+  postgres_data:</code></pre>
+
+<p>Run both together:</p>
+<pre><code>docker-compose up -d</code></pre>
+
+<h2 id="multi-stage">Multi-stage Dockerfile (Optimized)</h2>
+<p>Build JAR inside Docker without installing Maven:</p>
+<pre><code># Stage 1: Build
+FROM maven:3.8-openjdk-17 AS build
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run
+FROM openjdk:17-jdk-slim
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]</code></pre>
+
+<p>Build: <code>docker build -t myapp .</code></p>
+
+<h2 id="common-commands">Useful Docker Commands</h2>
+
+<table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+  <tr style="background-color: #f0f0f0;">
+    <th style="border: 1px solid #ddd; padding: 10px;">Command</th>
+    <th style="border: 1px solid #ddd; padding: 10px;">What it does</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>docker ps</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">List running containers</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>docker stop myapp-container</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Stop container</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>docker rm myapp-container</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Remove container</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>docker images</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">List all images</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>docker rmi myapp</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">Remove image</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #ddd; padding: 10px;"><code>docker logs myapp-container</code></td>
+    <td style="border: 1px solid #ddd; padding: 10px;">See container logs</td>
+  </tr>
+</table>
+
+<h2 id="deploy">Deploy to Cloud</h2>
+
+<p><strong>Deploy to Railway/Render:</strong></p>
+<ol>
+  <li>Push your code to GitHub</li>
+  <li>Connect repo to Railway/Render</li>
+  <li>Railway detects Dockerfile and deploys automatically</li>
+</ol>
+
+<p><strong>Deploy to AWS ECR:</strong></p>
+<pre><code># Tag image
+docker tag myapp:latest your-aws-account.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+
+# Push to ECR
+docker push your-aws-account.dkr.ecr.us-east-1.amazonaws.com/myapp:latest</code></pre>
+
+<h2 id="summary">What you learned</h2>
+<ul>
+  <li>✅ Build JAR with Maven</li>
+  <li>✅ Create Dockerfile</li>
+  <li>✅ Build Docker image</li>
+  <li>✅ Run container</li>
+  <li>✅ Docker Compose with PostgreSQL</li>
+  <li>✅ Deploy to cloud</li>
+</ul>
+
+<p>Docker = your app runs everywhere. No excuses. 🐳</p>
+
+<h2 id="next">What's next?</h2>
+<p>Post 31: <strong>Spring Boot + Kubernetes</strong> — Scale your app with containers.</p>
     `,
   },
 ];
