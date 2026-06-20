@@ -3,10 +3,23 @@
 <channel>
   <title>Kartik Yadav Gurve | Developer Blog</title>
   <link>https://kartik-blog.vercel.app/</link>
-  <description>Spring Boot, Docker, Java, JPA, REST API, Security, JWT, React, Testing</description>
+  <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Fri, 19 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 20 Jun 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 31: June 20, 2026 -->
+  <item>
+    <title>Spring Boot + Kubernetes: Deploy at Scale</title>
+    <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-kubernetes-deployment-guide</link>
+    <description>Take your Docker container to Kubernetes. Scale, manage, and deploy like a pro. No downtime.</description>
+    <pubDate>Sat, 20 Jun 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-kubernetes-deployment-guide</guid>
+    <category>Spring Boot</category>
+    <category>Kubernetes</category>
+    <category>DevOps</category>
+    <category>Deployment</category>
+  </item>
 
   <!-- POST 30: June 19, 2026 -->
   <item>
@@ -25,7 +38,7 @@
   <item>
     <title>Spring Boot Testing: Unit Tests &amp; Integration Tests</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-testing-guide</link>
-    <description>Test your APIs properly. No more deploying to check if code works.</description>
+    <description>Test your APIs properly. No more deploying to check if code works. JUnit + Mockito.</description>
     <pubDate>Thu, 18 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-testing-guide</guid>
     <category>Spring Boot</category>
@@ -38,7 +51,7 @@
   <item>
     <title>Spring Boot + React: Full Stack Integration</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-react-integration-guide</link>
-    <description>Connect React frontend with Spring Boot backend. CORS, API calls, and deployment.</description>
+    <description>Connect React frontend with Spring Boot backend. CORS, API calls, and deployment options.</description>
     <pubDate>Wed, 17 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-react-integration-guide</guid>
     <category>Spring Boot</category>
@@ -102,7 +115,7 @@
   <item>
     <title>Exception Handling in Spring Boot: Stop Using Try-Catch Everywhere</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-exception-handling-guide</link>
-    <description>One place to handle all errors. Clean and simple.</description>
+    <description>One place to handle all errors. Clean and simple. No more try-catch mess.</description>
     <pubDate>Fri, 12 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-exception-handling-guide</guid>
     <category>Spring Boot</category>
@@ -114,7 +127,7 @@
   <item>
     <title>Building a Complete REST API (CRUD) with Spring Boot</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-rest-api-crud-tutorial</link>
-    <description>Create, Read, Update, Delete — build a complete User Management API.</description>
+    <description>Create, Read, Update, Delete — build a complete User Management API step by step.</description>
     <pubDate>Thu, 11 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-rest-api-crud-tutorial</guid>
     <category>Spring Boot</category>
@@ -127,7 +140,7 @@
   <item>
     <title>Spring Boot Annotations: 7 Annotations Every Developer Should Know</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=spring-boot-annotations-every-developer-should-know</link>
-    <description>@RestController, @Autowired, @Service, @Repository, @PathVariable, @RequestBody, @GetMapping explained.</description>
+    <description>@RestController, @Autowired, @Service, @Repository, @PathVariable, @RequestBody, @GetMapping explained with examples.</description>
     <pubDate>Wed, 10 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=spring-boot-annotations-every-developer-should-know</guid>
     <category>Spring Boot</category>
@@ -139,12 +152,13 @@
   <item>
     <title>@SpringBootApplication: The Most Important Annotation Explained</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=springbootapplication-annotation-explained</link>
-    <description>What does @SpringBootApplication actually do? It's 3 annotations in one.</description>
+    <description>What does @SpringBootApplication actually do? It's not magic — it's 3 annotations in one.</description>
     <pubDate>Tue, 09 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=springbootapplication-annotation-explained</guid>
     <category>Spring Boot</category>
     <category>Java</category>
     <category>Annotations</category>
+    <category>Beginner</category>
   </item>
 
   <!-- POST 19: June 8, 2026 -->
@@ -157,6 +171,7 @@
     <category>Spring Boot</category>
     <category>Java</category>
     <category>Beginner</category>
+    <category>Tutorial</category>
   </item>
 
   <!-- POST 18: June 7, 2026 -->
@@ -169,13 +184,14 @@
     <category>Spring</category>
     <category>Spring Boot</category>
     <category>Java</category>
+    <category>Framework</category>
   </item>
 
   <!-- POST 17: June 6, 2026 -->
   <item>
     <title>Top 5 VS Code Extensions That Make Coding 10x Easier</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</link>
-    <description>Prettier, GitLens, Thunder Client, Live Server, Error Lens — my favorite extensions.</description>
+    <description>Prettier, GitLens, Thunder Client, Live Server, Error Lens — my favorite extensions. No bloat.</description>
     <pubDate>Sat, 06 Jun 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=top-5-vs-code-extensions-for-developers</guid>
     <category>VS Code</category>
@@ -193,6 +209,7 @@
     <category>API</category>
     <category>GraphQL</category>
     <category>REST</category>
+    <category>Backend</category>
   </item>
 
   <!-- POST 15: June 4, 2026 -->
@@ -204,6 +221,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=docker-basics-every-developer-needs</guid>
     <category>Docker</category>
     <category>DevOps</category>
+    <category>Containers</category>
   </item>
 
   <!-- POST 14: June 3, 2026 -->
@@ -216,6 +234,7 @@
     <category>Git</category>
     <category>GitHub</category>
     <category>Version Control</category>
+    <category>Beginner</category>
   </item>
 
   <!-- POST 13: June 2, 2026 -->
@@ -229,6 +248,7 @@
     <category>Hibernate</category>
     <category>JPA</category>
     <category>Caching</category>
+    <category>Performance</category>
   </item>
 
   <!-- POST 12: June 1, 2026 -->
@@ -241,17 +261,19 @@
     <category>Java</category>
     <category>Hibernate</category>
     <category>Performance</category>
+    <category>Caching</category>
   </item>
 
   <!-- POST 11: May 31, 2026 -->
   <item>
     <title>Hibernate Session Problems: Transactions, Lazy Loading, and Session Management</title>
     <link>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-problems-transactions-lazy-loading</link>
-    <description>You know what SessionFactory and Session are. Now learn the 3 biggest problems developers face.</description>
+    <description>3 biggest problems developers face with Hibernate sessions and how to fix them.</description>
     <pubDate>Sat, 31 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-problems-transactions-lazy-loading</guid>
     <category>Java</category>
     <category>Hibernate</category>
+    <category>Session</category>
     <category>Transactions</category>
   </item>
 
@@ -264,6 +286,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-session-factory-session-lifecycle-deep-dive</guid>
     <category>Java</category>
     <category>Hibernate</category>
+    <category>Database</category>
     <category>Performance</category>
   </item>
 
@@ -277,6 +300,7 @@
     <category>Books</category>
     <category>Mindset</category>
     <category>Motivation</category>
+    <category>Self-Improvement</category>
   </item>
 
   <!-- POST 8: May 28, 2026 -->
@@ -288,6 +312,7 @@
     <guid>https://kartik-blog.vercel.app/post.html?slug=hibernate-orm-crud-methods-merge-persist-remove</guid>
     <category>Java</category>
     <category>Hibernate</category>
+    <category>Database</category>
     <category>CRUD</category>
   </item>
 
@@ -301,6 +326,7 @@
     <category>Java</category>
     <category>Hibernate</category>
     <category>Database</category>
+    <category>Theory</category>
   </item>
 
   <!-- POST 6: May 26, 2026 -->
