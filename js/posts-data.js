@@ -1,26 +1,3 @@
-/**
- * posts-data.js
- * ─────────────────────────────────────────────────────────────
- * Central database for ALL blog posts.
- * No backend / database required — just add objects to POSTS_DB.
- *
- * HOW TO ADD A NEW POST:
- *   1. Copy the template at the bottom of this file.
- *   2. Fill in every field.
- *   3. Save — it instantly appears on blog.html and is readable on post.html.
- *
- * SLUG RULES:
- *   - Lowercase, hyphens only, no spaces: "my-new-post"
- *   - Must be unique across all posts.
- *
- * CONTENT:
- *   - Write full HTML inside the content string.
- *   - Use <h2 id="section-id"> for TOC anchors.
- *   - Use <pre><code> blocks — Copy Code button is auto-added.
- *   - Use <blockquote> for pull quotes.
- * ─────────────────────────────────────────────────────────────
- */
-
 const POSTS_DB = [
   // ── POST 1 (May 21, 2026) ──────────────────────────────────
   {
@@ -1106,30 +1083,18 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
 
 // ─── Helper functions used by blog.html and post.html ────────
 
-/**
- * Get all posts sorted by date (newest first).
- */
 function getAllPosts() {
   return [...POSTS_DB].sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
-/**
- * Get a single post by slug.
- */
 function getPostBySlug(slug) {
   return POSTS_DB.find((p) => p.slug === slug) || null;
 }
 
-/**
- * Get posts filtered by tag.
- */
 function getPostsByTag(tag) {
   return POSTS_DB.filter((p) => p.tags.includes(tag));
 }
 
-/**
- * Get related posts (same tags, different slug).
- */
 function getRelatedPosts(slug, limit = 3) {
   const post = getPostBySlug(slug);
   if (!post) return [];
@@ -1138,18 +1103,12 @@ function getRelatedPosts(slug, limit = 3) {
   ).slice(0, limit);
 }
 
-/**
- * Get all unique tags across all posts.
- */
 function getAllTags() {
   const tagSet = new Set();
   POSTS_DB.forEach((p) => p.tags.forEach((t) => tagSet.add(t)));
   return [...tagSet].sort();
 }
 
-/**
- * Search posts by query (title + excerpt + tags).
- */
 function searchPosts(query) {
   const q = query.toLowerCase().trim();
   if (!q) return getAllPosts();
@@ -1160,24 +1119,3 @@ function searchPosts(query) {
       p.tags.some((t) => t.toLowerCase().includes(q))
   );
 }
-
-/* ── ADD NEW POST TEMPLATE ────────────────────────────────────
-   Copy this block, fill it in, and push to the POSTS_DB array.
-
-  {
-    slug:       "your-post-slug",
-    title:      "Your Post Title",
-    excerpt:    "Your excerpt here.",
-    image:      "https://images.unsplash.com/...?w=800&h=400&fit=crop",
-    tags:       ["Tag1", "Tag2"],
-    author:     "Kartik Yadav Gurve",
-    date:       "May 27, 2026",
-    readTime:   5,
-    featured:   false,
-    content: `
-      <h2 id="section-1">Section Title</h2>
-      <p>Your content here...</p>
-    `
-  },
-
-──────────────────────────────────────────────────────────── */
