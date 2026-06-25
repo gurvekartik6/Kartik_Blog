@@ -1254,41 +1254,41 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
   }
 ];
 
-// // ─── HELPER FUNCTIONS ──────────────────────────────────────────
+// ─── HELPER FUNCTIONS ──────────────────────────────────────────
 
-// function getAllPosts() {
-//   return [...POSTS_DB].sort((a, b) => new Date(b.date) - new Date(a.date));
-// }
+function getAllPosts() {
+  return [...POSTS_DB].sort((a, b) => new Date(b.date) - new Date(a.date));
+}
 
-// function getPostBySlug(slug) {
-//   return POSTS_DB.find((p) => p.slug === slug) || null;
-// }
+function getPostBySlug(slug) {
+  return POSTS_DB.find((p) => p.slug === slug) || null;
+}
 
-// function getPostsByTag(tag) {
-//   return POSTS_DB.filter((p) => p.tags.includes(tag));
-// }
+function getPostsByTag(tag) {
+  return POSTS_DB.filter((p) => p.tags.includes(tag));
+}
 
-// function getRelatedPosts(slug, limit = 3) {
-//   const post = getPostBySlug(slug);
-//   if (!post) return [];
-//   return POSTS_DB.filter(
-//     (p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t))
-//   ).slice(0, limit);
-// }
+function getRelatedPosts(slug, limit = 3) {
+  const post = getPostBySlug(slug);
+  if (!post) return [];
+  return POSTS_DB.filter(
+    (p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t))
+  ).slice(0, limit);
+}
 
-// function getAllTags() {
-//   const tagSet = new Set();
-//   POSTS_DB.forEach((p) => p.tags.forEach((t) => tagSet.add(t)));
-//   return [...tagSet].sort();
-// }
+function getAllTags() {
+  const tagSet = new Set();
+  POSTS_DB.forEach((p) => p.tags.forEach((t) => tagSet.add(t)));
+  return [...tagSet].sort();
+}
 
-// function searchPosts(query) {
-//   const q = query.toLowerCase().trim();
-//   if (!q) return getAllPosts();
-//   return POSTS_DB.filter(
-//     (p) =>
-//       p.title.toLowerCase().includes(q) ||
-//       p.excerpt.toLowerCase().includes(q) ||
-//       p.tags.some((t) => t.toLowerCase().includes(q))
-//   );
-// }
+function searchPosts(query) {
+  const q = query.toLowerCase().trim();
+  if (!q) return getAllPosts();
+  return POSTS_DB.filter(
+    (p) =>
+      p.title.toLowerCase().includes(q) ||
+      p.excerpt.toLowerCase().includes(q) ||
+      p.tags.some((t) => t.toLowerCase().includes(q))
+  );
+}
