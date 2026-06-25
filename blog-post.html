@@ -538,7 +538,7 @@ function renderPosts() {
   const noResults = document.getElementById('no-results');
   const info = document.getElementById('results-info');
 
-  let posts = getAllPosts();
+  // let posts = getAllPosts();
   if (activeTag !== 'all') posts = posts.filter(p => p.tags.includes(activeTag));
   if (searchQuery) posts = searchPosts(searchQuery).filter(p => activeTag === 'all' || p.tags.includes(activeTag));
   posts = sortPosts(posts);
@@ -639,7 +639,7 @@ function showListing() {
   url.searchParams.delete('slug');
   window.history.pushState({}, '', url);
   
-  renderPosts();
+  // renderPosts();
 }
 
 // ========== INITIALIZE PAGE ==========
@@ -650,7 +650,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slugParam) {
     showSinglePost(slugParam);
   } else {
-    showListing();
+    // showListing();
+  
     
     const countEl = document.getElementById('post-count-hero');
     if (countEl) countEl.textContent = `${POSTS_DB.length} articles`;
