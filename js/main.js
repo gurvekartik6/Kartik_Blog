@@ -207,7 +207,11 @@ const CopyCode = (() => {
   }
 
   function init() {
-    addButtons();
+    // Wait for dynamic content to load
+    setTimeout(addButtons, 500);
+    // Also observe for changes
+    const observer = new MutationObserver(() => addButtons());
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 
   return { init };
@@ -244,42 +248,55 @@ const QuoteHighlight = (() => {
     }
 
     // Highlight button
-    bar.querySelector('.highlight-btn').addEventListener('click', () => {
-      highlightSelection();
-      hideBar();
-    });
+    const highlightBtn = bar.querySelector('.highlight-btn');
+    if (highlightBtn) {
+      highlightBtn.addEventListener('click', () => {
+        highlightSelection();
+        hideBar();
+      });
+    }
 
     // Copy button
-    bar.querySelector('.copy-btn').addEventListener('click', () => {
-      navigator.clipboard.writeText(selectedText).then(() => {
-        Toast.show('Text copied!', 'copied', 2000);
+    const copyBtn = bar.querySelector('.copy-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(selectedText).then(() => {
+          Toast.show('Text copied!', 'copied', 2000);
+        });
+        hideBar();
       });
-      hideBar();
-    });
+    }
 
     // Tweet button
-    bar.querySelector('.tweet-btn').addEventListener('click', () => {
-      const tweet = encodeURIComponent(`"${selectedText.slice(0, 200)}" — via Kartik Yadav Gurve's Blog`);
-      window.open(`https://twitter.com/intent/tweet?text=${tweet}`, '_blank');
-      hideBar();
-    });
+    const tweetBtn = bar.querySelector('.tweet-btn');
+    if (tweetBtn) {
+      tweetBtn.addEventListener('click', () => {
+        const tweet = encodeURIComponent(`"${selectedText.slice(0, 200)}" — via Kartik Yadav Gurve's Blog`);
+        window.open(`https://twitter.com/intent/tweet?text=${tweet}`, '_blank');
+        hideBar();
+      });
+    }
 
     // Quote it button
-    bar.querySelector('.quote-it-btn').addEventListener('click', () => {
-      const commentBox = document.querySelector('#comment-body, .comment-textarea, #commentBox');
-      if (commentBox) {
-        commentBox.value = `> ${selectedText}\n\n` + (commentBox.value || '');
-        commentBox.focus();
-        Toast.show('Quoted in comment box!', 'info', 2000);
-      } else {
-        navigator.clipboard.writeText(`> ${selectedText}`);
-        Toast.show('Quoted text copied!', 'copied', 2000);
-      }
-      hideBar();
-    });
+    const quoteBtn = bar.querySelector('.quote-it-btn');
+    if (quoteBtn) {
+      quoteBtn.addEventListener('click', () => {
+        const commentBox = document.querySelector('#comment-body, .comment-textarea, #commentBox, textarea');
+        if (commentBox) {
+          commentBox.value = `> ${selectedText}\n\n` + (commentBox.value || '');
+          commentBox.focus();
+          Toast.show('Quoted in comment box!', 'info', 2000);
+        } else {
+          navigator.clipboard.writeText(`> ${selectedText}`);
+          Toast.show('Quoted text copied!', 'copied', 2000);
+        }
+        hideBar();
+      });
+    }
   }
 
   function showBar(x, y) {
+    if (!bar) return;
     bar.classList.add('visible');
     const barW = 300;
     const left = Math.min(x, window.innerWidth - barW - 16);
@@ -288,7 +305,7 @@ const QuoteHighlight = (() => {
   }
 
   function hideBar() {
-    bar.classList.remove('visible');
+    if (bar) bar.classList.remove('visible');
     selectedText = '';
   }
 
@@ -318,16 +335,18 @@ const QuoteHighlight = (() => {
   function init() {
     createBar();
 
-    // Only activate on post content
-    const contentArea = document.querySelector('.post-content, .selectable-content, main');
-    if (!contentArea) {
-      document.addEventListener('mouseup', handleSelection);
-    } else {
-      document.addEventListener('mouseup', handleSelection);
-    }
+    // Only activate on selectable content
+    document.addEventListener('mouseup', (e) => {
+      // Don't activate on buttons, inputs, or the bar itself
+      if (e.target.closest('button') || e.target.closest('input') || e.target.closest('.quote-highlight-bar')) {
+        hideBar();
+        return;
+      }
+      handleSelection();
+    });
 
     document.addEventListener('mousedown', (e) => {
-      if (!bar.contains(e.target)) hideBar();
+      if (bar && !bar.contains(e.target)) hideBar();
     });
   }
 
@@ -545,7 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ]);
   }
 
-  // Hero Three.js
+  // Hero Three.js - with null check
   const heroCanvas = document.getElementById('hero-canvas');
   if (heroCanvas && typeof THREE !== 'undefined' && typeof ThreeScenes !== 'undefined') {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
