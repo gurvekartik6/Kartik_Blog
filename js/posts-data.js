@@ -1268,7 +1268,8 @@ function getPostsByTag(tag) {
   return POSTS_DB.filter((p) => p.tags.includes(tag));
 }
 
-function getRelatedPosts(slug, limit = 3) {
+function getRelatedPosts(slug, limit) {
+  if (limit === undefined) limit = 3;
   const post = getPostBySlug(slug);
   if (!post) return [];
   return POSTS_DB.filter(
