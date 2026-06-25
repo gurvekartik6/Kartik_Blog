@@ -557,8 +557,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (twEl) {
     Typewriter.init(twEl, [
       'Full-Stack Developer',
-      'Android Engineer',
-      'Hackathon Enthusiastic',
+      'Android Developer',
+      'Hackathon Enthusiast',
       'Problem Solver',
       'CS Student @SGGS',
     ]);
