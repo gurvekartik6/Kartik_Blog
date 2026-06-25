@@ -896,7 +896,7 @@ public class CorsConfig {
 <pre><code>// api.js
 const API_URL = "http://localhost:8080/api";
 export const getUsers = async () => {
-    // const response = await fetch(\`${API_URL}/users\`);
+    const response = await fetch(\`{API_URL}/users\`);
     return response.json();
 };</code></pre>
 <h2 id="react-component">3. React Component Example</h2>
