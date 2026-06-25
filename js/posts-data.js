@@ -1,3 +1,4 @@
+// posts-data.js - Complete Blog Posts Database
 const POSTS_DB = [
   // ── POST 1 (May 21, 2026) ──────────────────────────────────
   {
@@ -1078,10 +1079,182 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
   <li>✅ Rolling updates = zero downtime</li>
 </ul>
 <p>Kubernetes = run your app at scale. No downtime. No excuses. ☸️</p>`
+  },
+
+  // ── POST 32 (June 21, 2026) ──────────────────────────────────
+  {
+    slug: "microservices-architecture-basics",
+    title: "Microservices Architecture: Breaking the Monolith",
+    excerpt: "Understanding microservices: what they are, why they exist, and when to use them.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    tags: ["Microservices", "Architecture", "System Design"],
+    author: "Kartik Yadav Gurve",
+    date: "June 21, 2026",
+    readTime: 5,
+    featured: true,
+    content: `<h2 id="what-are-microservices">What Are Microservices?</h2>
+<p>Microservices are small, independent services that work together to form an application.</p>
+<h2 id="monolith-vs-microservices">Monolith vs Microservices</h2>
+<p><strong>Monolith:</strong> One big codebase. Everything together.</p>
+<p><strong>Microservices:</strong> Many small services. Each does one thing well.</p>
+<h2 id="key-benefits">Key Benefits</h2>
+<ul>
+  <li><strong>Independent deployment</strong> — Deploy one service without affecting others</li>
+  <li><strong>Team autonomy</strong> — Different teams own different services</li>
+  <li><strong>Technology freedom</strong> — Use different tech stacks per service</li>
+  <li><strong>Scalability</strong> — Scale only what needs scaling</li>
+</ul>
+<h2 id="challenges">Challenges</h2>
+<ul>
+  <li><strong>Complexity</strong> — Many services = many things to manage</li>
+  <li><strong>Network latency</strong> — Services talk over network</li>
+  <li><strong>Data consistency</strong> — Harder to keep data in sync</li>
+</ul>
+<p><strong>Pro tip:</strong> Start with a monolith. Split into microservices only when you need to.</p>`
+  },
+
+  // ── POST 33 (June 22, 2026) ──────────────────────────────────
+  {
+    slug: "system-design-basics-load-balancing",
+    title: "System Design 101: Load Balancing Explained",
+    excerpt: "What happens when millions of users hit your app? Load balancing saves the day.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    tags: ["System Design", "Load Balancing", "Scalability"],
+    author: "Kartik Yadav Gurve",
+    date: "June 22, 2026",
+    readTime: 4,
+    featured: true,
+    content: `<h2 id="the-problem">The Problem</h2>
+<p>One server can handle only so many requests. When traffic grows, you need more servers.</p>
+<h2 id="what-is-load-balancing">What is Load Balancing?</h2>
+<p>A load balancer sits between users and your servers. It distributes incoming requests across multiple servers.</p>
+<h2 id="algorithms">Load Balancing Algorithms</h2>
+<p><strong>Round Robin:</strong> Requests go to servers in order (1,2,3,1,2,3...)</p>
+<p><strong>Least Connections:</strong> Send request to the server with fewest active connections</p>
+<p><strong>IP Hash:</strong> Same user always goes to same server (good for sessions)</p>
+<p><strong>Weighted:</strong> Better servers get more traffic</p>
+<h2 id="types">Types of Load Balancers</h2>
+<p><strong>Hardware:</strong> F5, Citrix — expensive, powerful</p>
+<p><strong>Software:</strong> Nginx, HAProxy, AWS ELB — cheaper, flexible</p>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+  <li>Always use health checks — don't send traffic to dead servers</li>
+  <li>Use SSL termination at the load balancer</li>
+  <li>Sticky sessions when needed</li>
+</ol>`
+  },
+
+  // ── POST 34 (June 23, 2026) ──────────────────────────────────
+  {
+    slug: "caching-strategies-system-design",
+    title: "Caching Strategies: Making Your App Blazing Fast",
+    excerpt: "Cache everything? Not quite. Learn when and what to cache.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    tags: ["Caching", "System Design", "Performance"],
+    author: "Kartik Yadav Gurve",
+    date: "June 23, 2026",
+    readTime: 4,
+    featured: true,
+    content: `<h2 id="what-is-caching">What is Caching?</h2>
+<p>Storing a copy of data so future requests are faster.</p>
+<h2 id="cache-levels">Cache Levels</h2>
+<p><strong>Browser Cache:</strong> Store static files (CSS, JS, images) locally</p>
+<p><strong>CDN:</strong> Edge servers close to users</p>
+<p><strong>Application Cache:</strong> In-memory cache (Redis, Memcached)</p>
+<p><strong>Database Cache:</strong> Database query cache</p>
+<h2 id="strategies">Caching Strategies</h2>
+<p><strong>Cache-Aside:</strong> App checks cache first. If miss, gets from DB and caches.</p>
+<p><strong>Write-Through:</strong> Write to cache AND DB at the same time.</p>
+<p><strong>Write-Back:</strong> Write to cache first. Write to DB later.</p>
+<h2 id="when-to-cache">When to Cache</h2>
+<ul>
+  <li>✅ Frequently read data</li>
+  <li>✅ Data that doesn't change often</li>
+  <li>✅ Expensive computations</li>
+  <li>❌ Frequently changing data</li>
+  <li>❌ Data that needs real-time accuracy</li>
+</ul>
+<h2 id="eviction">Cache Eviction Policies</h2>
+<p><strong>LRU:</strong> Least Recently Used → Remove oldest accessed items</p>
+<p><strong>TTL:</strong> Time To Live → Items expire after set time</p>
+<p><strong>FIFO:</strong> First In First Out → Remove oldest added items</p>`
+  },
+
+  // ── POST 35 (June 24, 2026) ──────────────────────────────────
+  {
+    slug: "database-sharding-explained",
+    title: "Database Sharding: When One Database Isn't Enough",
+    excerpt: "Split your database across multiple servers. Scale beyond limits.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
+    tags: ["Database", "Sharding", "Scalability", "System Design"],
+    author: "Kartik Yadav Gurve",
+    date: "June 24, 2026",
+    readTime: 5,
+    featured: true,
+    content: `<h2 id="what-is-sharding">What is Sharding?</h2>
+<p>Sharding splits your database into smaller parts called "shards". Each shard is a separate database.</p>
+<h2 id="why-shard">Why Shard?</h2>
+<p>One database has limits: storage, CPU, memory, connection limits. Sharding breaks these limits.</p>
+<h2 id="sharding-strategies">Sharding Strategies</h2>
+<p><strong>Range-based:</strong> Split by data ranges. e.g., User IDs 1-1000, 1001-2000</p>
+<p><strong>Hash-based:</strong> Hash the key. Use the hash to decide which shard.</p>
+<p><strong>Directory-based:</strong> Lookup table that maps keys to shards.</p>
+<h2 id="challenges">Challenges</h2>
+<ul>
+  <li><strong>Cross-shard queries</strong> — Joining data across shards is hard</li>
+  <li><strong>Resharding</strong> — Adding new shards means moving data</li>
+  <li><strong>Complexity</strong> — More code, more ops</li>
+</ul>
+<h2 id="when-to-shard">When to Shard?</h2>
+<p><strong>Shard when:</strong></p>
+<ul>
+  <li>Your database is at its limits</li>
+  <li>You have billions of rows</li>
+  <li>You need high write throughput</li>
+</ul>`
+  },
+
+  // ── POST 36 (June 25, 2026) ──────────────────────────────────
+  {
+    slug: "api-gateway-pattern-system-design",
+    title: "API Gateway Pattern: One Door to All Your Services",
+    excerpt: "A single entry point for all your microservices. Authentication, routing, and more.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    tags: ["API Gateway", "Microservices", "System Design"],
+    author: "Kartik Yadav Gurve",
+    date: "June 25, 2026",
+    readTime: 4,
+    featured: true,
+    content: `<h2 id="what-is-api-gateway">What is an API Gateway?</h2>
+<p>An API Gateway is a server that acts as a single entry point for all client requests to your microservices.</p>
+<h2 id="why-use">Why Use an API Gateway?</h2>
+<ul>
+  <li><strong>Single URL</strong> — Clients talk to one endpoint, not many</li>
+  <li><strong>Authentication</strong> — Handle auth once at the gateway</li>
+  <li><strong>Rate Limiting</strong> — Protect your services from abuse</li>
+  <li><strong>Request Routing</strong> — Send requests to the right service</li>
+  <li><strong>Logging & Monitoring</strong> — One place for all logs</li>
+</ul>
+<h2 id="how-it-works">How It Works</h2>
+<pre><code>Client → API Gateway → Service A
+                    → Service B
+                    → Service C</code></pre>
+<h2 id="popular-tools">Popular API Gateway Tools</h2>
+<p><strong>Kong</strong> — Open-source, plugin ecosystem</p>
+<p><strong>Nginx</strong> — Fast, reliable, widely used</p>
+<p><strong>AWS API Gateway</strong> — Managed, serverless</p>
+<p><strong>Spring Cloud Gateway</strong> — Java-based, Spring ecosystem</p>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+  <li>Keep your gateway lightweight — no business logic</li>
+  <li>Use caching for static responses</li>
+  <li>Implement circuit breakers</li>
+  <li>Monitor everything</li>
+</ol>`
   }
 ];
 
-// ─── Helper functions used by blog.html and post.html ────────
+// ─── HELPER FUNCTIONS ──────────────────────────────────────────
 
 function getAllPosts() {
   return [...POSTS_DB].sort((a, b) => new Date(b.date) - new Date(a.date));
