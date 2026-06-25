@@ -541,7 +541,7 @@ function renderPosts() {
   const noResults = document.getElementById('no-results');
   const info = document.getElementById('results-info');
 
-  // let posts = getAllPosts();
+  let posts = getAllPosts();
   if (activeTag !== 'all') posts = posts.filter(p => p.tags.includes(activeTag));
   if (searchQuery) posts = searchPosts(searchQuery).filter(p => activeTag === 'all' || p.tags.includes(activeTag));
   posts = sortPosts(posts);
