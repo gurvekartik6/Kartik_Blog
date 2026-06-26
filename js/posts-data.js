@@ -1,11 +1,12 @@
-// posts-data.js - Complete Blog Posts Database
+// posts-data.js - Complete Blog Posts Database with Fixed Images
+
 const POSTS_DB = [
   // ── POST 1 (May 21, 2026) ──────────────────────────────────
   {
     slug: "my-love-and-passion-about-coding-since-2018",
     title: "Coding Since 2018",
     excerpt: "RPG Maker, GBA games, and never finishing anything.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Personal", "Coding"],
     author: "Kartik Yadav Gurve",
     date: "May 21, 2026",
@@ -23,7 +24,7 @@ const POSTS_DB = [
     slug: "the-idea-about-the-blogging-website",
     title: "The Idea About the Blogging Website",
     excerpt: "The idea about the blogging website and why I built it this way",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop",
     tags: ["Blogging", "Web Development"],
     author: "Kartik Yadav Gurve",
     date: "May 22, 2026",
@@ -896,7 +897,7 @@ public class CorsConfig {
 <pre><code>// api.js
 const API_URL = "http://localhost:8080/api";
 export const getUsers = async () => {
-    const response = await fetch(\`{API_URL}/users\`);
+    const response = await fetch(\`${API_URL}/users\`);
     return response.json();
 };</code></pre>
 <h2 id="react-component">3. React Component Example</h2>
