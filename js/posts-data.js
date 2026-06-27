@@ -4,7 +4,7 @@ const POSTS_DB = [
   // ── POST 1 (May 21, 2026) ──────────────────────────────────
   {
     slug: "my-love-and-passion-about-coding-since-2018",
-    title: "Coding Since 2018",
+    title: "Coding Since 2020",
     excerpt: "RPG Maker, GBA games, and never finishing anything.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Personal", "Coding"],
@@ -12,7 +12,7 @@ const POSTS_DB = [
     date: "May 21, 2026",
     readTime: 1,
     featured: true,
-    content: `<p>2018. I was making dumb games in RPG Maker. Playing Pokemon GBA roms. Breaking things. Fixing nothing.</p>
+    content: `<p>2019-2020. I was making dumb games in RPG Maker. Playing Pokemon GBA roms. Breaking things. Fixing nothing.</p>
 <p>Never finished a single game.</p>
 <p>But that was the start.</p>
 <p>Now I code for real. Still breaking things. Still loving it.</p>
