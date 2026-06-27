@@ -441,9 +441,9 @@ app.use((req, res) => {
 // ─── START SERVER (for local development) ─────────────────────────
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(`\n🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📊 Admin dashboard: http://localhost:${PORT}/admin`);
-    console.log(`📝 API endpoints ready!\n`);
+    console.log(`\nServer running on http://localhost:${PORT}`);
+    console.log(`Admin dashboard: http://localhost:${PORT}/admin`);
+    console.log(`API endpoints ready!\n`);
   });
 }
 

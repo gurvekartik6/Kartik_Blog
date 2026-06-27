@@ -1,4 +1,4 @@
-// posts-data.js - Complete Blog Posts Database with Fixed Images
+// posts-data.js - Complete Blog Posts Database with Unique Images
 
 const POSTS_DB = [
   // ── POST 1 (May 21, 2026) ──────────────────────────────────
@@ -24,7 +24,7 @@ const POSTS_DB = [
     slug: "the-idea-about-the-blogging-website",
     title: "The Idea About the Blogging Website",
     excerpt: "The idea about the blogging website and why I built it this way",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
     tags: ["Blogging", "Web Development"],
     author: "Kartik Yadav Gurve",
     date: "May 22, 2026",
@@ -120,7 +120,7 @@ java -cp "lib/postgresql-42.7.3.jar:." Main</code></pre>`
     slug: "hibernate-orm-simple-guide",
     title: "Hibernate ORM: What It Is and Why You Need It",
     excerpt: "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database"],
     author: "Kartik Yadav Gurve",
     date: "May 26, 2026",
@@ -147,7 +147,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>`
     slug: "hibernate-orm-mapping-relationships-annotations",
     title: "Hibernate ORM: Mapping Relationships & Annotations (Theory)",
     excerpt: "A simple guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Theory"],
     author: "Kartik Yadav Gurve",
     date: "May 27, 2026",
@@ -220,7 +220,7 @@ session.save(user);  // Hibernate handles the SQL</code></pre>`
     slug: "hibernate-session-factory-session-lifecycle-deep-dive",
     title: "Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle",
     excerpt: "Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Deep Dive", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "May 30, 2026",
