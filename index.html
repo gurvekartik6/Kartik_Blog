@@ -20,11 +20,555 @@
   <!-- Our CSS -->
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <script>
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
-  </script>
+  
+  <style>
+    /* ─── Hero Section Override ─── */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Hero Tag ─── */
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px 6px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(124,58,237,0.1);
+      border: 1px solid rgba(124,58,237,0.2);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ─── Hero Title ─── */
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+    .hero-title .highlight {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .typewriter-wrapper {
+      display: inline-block;
+      position: relative;
+    }
+    #typewriter-text {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #typewriter-text::after {
+      content: '|';
+      -webkit-text-fill-color: var(--accent-purple);
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ─── Hero Subtitle ─── */
+    .hero-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+    .hero-subtitle strong {
+      color: var(--text-primary);
+    }
+
+    /* ─── CTA Buttons ─── */
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ─── Scroll Indicator ─── */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 1;
+      opacity: 0.6;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+    .scroll-mouse {
+      width: 24px;
+      height: 38px;
+      border: 2px solid var(--text-muted);
+      border-radius: 12px;
+      position: relative;
+    }
+    .scroll-wheel {
+      width: 4px;
+      height: 8px;
+      background: var(--accent-purple);
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scroll-wheel 1.5s ease-in-out infinite;
+    }
+    @keyframes scroll-wheel {
+      0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(16px); }
+    }
+    .scroll-text {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Stats Section ─── */
+    .stats-section {
+      padding: 60px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .stat-card {
+      text-align: center;
+      padding: 20px;
+    }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* ─── Featured Posts Grid ─── */
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-purple);
+      background: rgba(124,58,237,0.1);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .section-title .highlight {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* ─── Blog Cards ─── */
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition-bounce);
+      height: 100%;
+      cursor: pointer;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-purple);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-image-wrap {
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-secondary);
+    }
+    .card-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .card-image-wrap img {
+      transform: scale(1.05);
+    }
+    .card-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: var(--gradient-hero);
+    }
+    .card-content {
+      padding: 20px 24px 24px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .card-tag {
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(124,58,237,0.1);
+      color: var(--accent-purple);
+      border: 1px solid rgba(124,58,237,0.2);
+    }
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .card-excerpt {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+    }
+    .card-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .author-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+    }
+    .author-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .card-read-time {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .card-read-time i {
+      margin-right: 4px;
+    }
+
+    /* ─── Newsletter Section ─── */
+    .newsletter-section {
+      padding: 60px 0;
+      background: var(--bg-secondary);
+    }
+    .newsletter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: var(--shadow-md);
+    }
+    .newsletter-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--text-primary);
+    }
+    .newsletter-subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 12px 0 24px;
+    }
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      max-width: 480px;
+    }
+    .newsletter-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 18px;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all var(--transition-fast);
+    }
+    .newsletter-input:focus {
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+    }
+    .newsletter-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* ─── Buttons ─── */
+    .btn-primary-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--gradient-accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all var(--transition-bounce);
+      cursor: pointer;
+    }
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+      color: white;
+    }
+    .btn-secondary-custom {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all var(--transition-bounce);
+      cursor: pointer;
+    }
+    .btn-secondary-custom:hover {
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 20px;
+    }
+    .footer-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+    .footer-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 12px 0 16px;
+      max-width: 300px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: all var(--transition-fast);
+    }
+    .social-link:hover {
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+      transform: translateY(-3px);
+    }
+    .footer-heading {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+    .footer-link {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 4px 0;
+      transition: color var(--transition-fast);
+    }
+    .footer-link:hover {
+      color: var(--accent-purple);
+    }
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+    .footer-copy span {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ─── Animations ─── */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: clamp(2.2rem, 6vw, 3rem);
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .newsletter-card {
+        padding: 28px 20px;
+      }
+      .newsletter-form {
+        flex-direction: column;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .hero-cta {
+        flex-direction: column;
+        width: 100%;
+      }
+      .hero-cta a {
+        width: 100%;
+        justify-content: center;
+      }
+      .card-content {
+        padding: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -58,31 +602,23 @@
 <nav class="navbar-custom" role="navigation" aria-label="Main navigation">
   <div class="container">
     <div class="d-flex align-items-center justify-content-between gap-3">
-      <!-- Brand -->
       <a href="index.html" class="nav-brand"><span>./kartik</span></a>
-
-      <!-- Links (desktop) -->
       <div class="d-none d-md-flex align-items-center gap-1">
-        <a href="index.html" class="nav-link-custom">Home</a>
+        <a href="index.html" class="nav-link-custom active">Home</a>
         <a href="blog-post.html" class="nav-link-custom">Blog</a>
         <a href="about.html" class="nav-link-custom">About</a>
         <a href="contact.html" class="nav-link-custom">Contact</a>
       </div>
-
-      <!-- Right side -->
       <div class="d-flex align-items-center gap-2">
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
           <span class="theme-icon">🌙</span>
           <span class="theme-label d-none d-sm-inline">Dark</span>
         </button>
-        <!-- Mobile menu button -->
         <button class="d-md-none theme-toggle" data-bs-toggle="collapse" data-bs-target="#mobileNav" aria-label="Menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
-
-    <!-- Mobile nav -->
     <div class="collapse" id="mobileNav">
       <div class="d-flex flex-column gap-1 pt-3 pb-2">
         <a href="index.html" class="nav-link-custom">Home</a>
@@ -135,7 +671,6 @@
     </div>
   </div>
 
-  <!-- Scroll hint -->
   <div class="scroll-indicator">
     <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
     <span class="scroll-text">Scroll</span>
@@ -143,181 +678,57 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     STATS
+     STATS SECTION
 ════════════════════════════════════════════ -->
-<!-- <section class="stats-section">
+<section class="stats-section">
   <div class="container">
-    <div class="row stagger-children">
+    <div class="row stagger-children" id="statsContainer">
       <div class="col-6 col-md-3">
         <div class="stat-card">
-          <div class="stat-number" data-count="" data-suffix="+">0</div>
+          <div class="stat-number" data-count="36" data-suffix="">0</div>
           <div class="stat-label">Articles Written</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="stat-card">
-          <div class="stat-number" data-count="" data-suffix="+">0</div>
-          <div class="stat-label">Monthly Readers</div>
+          <div class="stat-number" data-count="10" data-suffix="+">0</div>
+          <div class="stat-label">Technologies</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="stat-card">
-          <div class="stat-number" data-count="" data-suffix="">0</div>
+          <div class="stat-number" data-count="4" data-suffix="">0</div>
           <div class="stat-label">Hackathons</div>
         </div>
       </div>
       <div class="col-6 col-md-3">
         <div class="stat-card">
-          <div class="stat-number" data-count="" data-suffix="yr">0</div>
-          <div class="stat-label">Experience</div>
+          <div class="stat-number" data-count="6" data-suffix="+">0</div>
+          <div class="stat-label">Projects Built</div>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- ═══════════════════════════════════════════
-     FEATURED POSTS
+     FEATURED POSTS SECTION
 ════════════════════════════════════════════ -->
-<!-- <section class="section-padding selectable-content" id="blog">
-  <div class="container"> -->
-    <!-- Header -->
-    <!-- <div class="row mb-5">
+<section class="section-padding selectable-content" id="blog">
+  <div class="container">
+    <div class="row mb-5">
       <div class="col-lg-6 animate-on-scroll">
         <div class="section-tag">Latest Articles</div>
-        <h2 class="section-title">Fresh from the<br><span style="background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Keyboard</span></h2>
+        <h2 class="section-title">Fresh from the<br><span class="highlight">Keyboard</span></h2>
       </div>
       <div class="col-lg-6 d-flex align-items-end animate-on-scroll">
         <p class="section-subtitle">Deep dives into Android, MERN stack, ML experiments, and real hackathon stories from team LazyCoder's.</p>
       </div>
-    </div> -->
+    </div>
 
-    <!-- Cards grid -->
-    <!-- <div class="row g-4 stagger-children"> -->
-
-      <!-- Featured large card -->
-      <!-- <div class="col-lg-8">
-        <div class="blog-card h-100">
-          <div class="card-image-wrap" style="min-height:220px;">
-            <div class="card-image-placeholder">🤖</div>
-          </div>
-          <div class="card-content">
-            <div class="card-tags">
-              <span class="card-tag">Android</span>
-              <span class="card-tag" style="background:rgba(8,145,178,0.1);color:var(--accent-cyan);border-color:rgba(8,145,178,0.2);">Kotlin</span>
-              <span class="card-tag" style="background:rgba(219,39,119,0.1);color:var(--accent-pink);border-color:rgba(219,39,119,0.2);">Featured</span>
-            </div>
-            <h3 class="card-title">Building a Real-Time Maternal Health App: Our HackSpectra Story</h3>
-            <p class="card-excerpt">At HackSpectra in MGM Nanded, our team LazyCoder's tackled maternal health monitoring — combining Kotlin, Firebase, and on-device ML to build something truly impactful in 36 hours. Here's every decision we made and why.</p>
-            <div class="card-meta">
-              <div class="card-author">
-                <div class="author-avatar">KY</div>
-                <div>
-                  <div class="author-name">Kartik Yadav Gurve</div>
-                  <div class="author-date">May 18, 2025</div>
-                </div>
-              </div>
-              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 12 min</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- Side column -->
-      <!-- <div class="col-lg-4 d-flex flex-column gap-4">
-        <div class="blog-card">
-          <div class="card-content">
-            <div class="card-tags"><span class="card-tag">MERN</span></div>
-            <h3 class="card-title">Docker + MongoDB: My Production Setup for MERN Apps</h3>
-            <p class="card-excerpt">A step-by-step walkthrough of containerizing a MERN application with Docker Compose and MongoDB Atlas.</p>
-            <div class="card-meta">
-              <div class="card-author">
-                <div class="author-avatar">KY</div>
-                <div>
-                  <div class="author-name">Kartik Yadav Gurve</div>
-                  <div class="author-date">May 12, 2025</div>
-                </div>
-              </div>
-              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 8 min</div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div class="blog-card">
-          <div class="card-content">
-            <div class="card-tags"><span class="card-tag" style="background:rgba(8,145,178,0.1);color:var(--accent-cyan);border-color:rgba(8,145,178,0.2);">ML</span></div>
-            <h3 class="card-title">Krishk Mitra AI — Building Agritech in 24 Hours (Ecothon)</h3>
-            <p class="card-excerpt">How we built an AI agricultural assistant with crop advisory, weather data, and soil analysis at SIPNA COET's Ecothon.</p>
-            <div class="card-meta">
-              <div class="card-author">
-                <div class="author-avatar">KY</div>
-                <div>
-                  <div class="author-name">Kartik Yadav Gurve</div>
-                  <div class="author-date">Apr 28, 2025</div>
-                </div>
-              </div>
-              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 10 min</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- Row 2 -->
-      <!-- <div class="col-md-4">
-        <div class="blog-card">
-          <div class="card-image-wrap" style="height:160px;"><div class="card-image-placeholder">💧</div></div>
-          <div class="card-content">
-            <div class="card-tags"><span class="card-tag">HackegenX</span></div>
-            <h3 class="card-title">Wastewater Management System — Our First Hackathon</h3>
-            <p class="card-excerpt">Building an IoT-based water quality monitoring system as a team for the very first time.</p>
-            <div class="card-meta">
-              <div class="card-author">
-                <div class="author-avatar">KY</div>
-                <div><div class="author-name">Kartik Yadav Gurve</div><div class="author-date">Mar 5, 2025</div></div>
-              </div>
-              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 7 min</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col-md-4">
-        <div class="blog-card">
-          <div class="card-image-wrap" style="height:160px;"><div class="card-image-placeholder">⚡</div></div>
-          <div class="card-content">
-            <div class="card-tags"><span class="card-tag">Power BI</span></div>
-            <h3 class="card-title">Power BI Dashboards That Actually Tell a Story</h3>
-            <p class="card-excerpt">Data visualization best practices I learned while teaching at Sai Ambrosia Education.</p>
-            <div class="card-meta">
-              <div class="card-author">
-                <div class="author-avatar">KY</div>
-                <div><div class="author-name">Kartik Yadav Gurve</div><div class="author-date">Apr 10, 2025</div></div>
-              </div>
-              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 6 min</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="col-md-4">
-        <div class="blog-card">
-          <div class="card-image-wrap" style="height:160px;"><div class="card-image-placeholder">🗳️</div></div>
-          <div class="card-content">
-            <div class="card-tags"><span class="card-tag">Civic Tech</span></div>
-            <h3 class="card-title">JanConsent — Civic Tech at Hack for Impact (MIT CSN)</h3>
-            <p class="card-excerpt">Building a transparent consent and grievance platform for citizens at MIT College of Science & Nature.</p>
-            <div class="card-meta">
-              <div class="card-author">
-                <div class="author-avatar">KY</div>
-                <div><div class="author-name">Kartik Yadav Gurve</div><div class="author-date">May 2, 2025</div></div>
-              </div>
-              <div class="card-read-time"><i class="fa-regular fa-clock"></i> 9 min</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-    <!-- </div>  -->
+    <div class="row g-4 stagger-children" id="featuredPosts">
+      <!-- Posts will be loaded dynamically -->
+    </div>
 
     <div class="text-center mt-5 animate-on-scroll">
       <a href="blog-post.html" class="btn-secondary-custom">
@@ -328,18 +739,18 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     NEWSLETTER
+     NEWSLETTER SECTION
 ════════════════════════════════════════════ -->
 <section class="newsletter-section">
   <div class="container">
     <div class="newsletter-card animate-on-scroll">
       <div class="row align-items-center">
-        <div class="col-lg-6">
+        <div class="col-lg-7">
           <div class="section-tag">Newsletter</div>
-          <h2 class="newsletter-title">Stay in the Loop</h2>
+          <h2 class="newsletter-title">Stay in the <span class="highlight">Loop</span></h2>
           <p class="newsletter-subtitle">Get weekly articles on Android dev, MERN tips, ML experiments, and hackathon recaps — straight to your inbox. No spam, ever.</p>
-          <form class="newsletter-form" novalidate>
-            <input type="email" class="newsletter-input" placeholder="your@email.com" required />
+          <form class="newsletter-form" id="newsletterForm" novalidate>
+            <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="your@email.com" required />
             <button type="submit" class="btn-primary-custom">
               <i class="fa-solid fa-paper-plane"></i> Subscribe
             </button>
@@ -348,8 +759,8 @@
             <i class="fa-solid fa-lock" style="font-size:0.7rem;"></i> No spam. Unsubscribe anytime.
           </p>
         </div>
-        <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
-          <div style="font-size:8rem;line-height:1;user-select:none;opacity:0.7;">✉️</div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-center align-items-center">
+          <div style="font-size:6rem;line-height:1;user-select:none;opacity:0.6;">✉️</div>
         </div>
       </div>
     </div>
@@ -357,63 +768,17 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     TESTIMONIALS
-════════════════════════════════════════════ -->
-<!-- <section class="section-padding">
-  <div class="container">
-    <div class="text-center mb-5 animate-on-scroll">
-      <div class="section-tag">Testimonials</div>
-      <h2 class="section-title">What Teammates Say</h2>
-    </div>
-    <div class="row g-4 stagger-children">
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">Kartik's ability to architect complex Android features under hackathon pressure is unreal. JanConsent wouldn't exist without him.</p>
-          <div class="testimonial-author">
-            <div class="test-avatar">AT</div>
-            <div><div class="test-name">Atharva Deotare</div><div class="test-role">Team LazyCoder's</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">He explains Power BI and data concepts in the most accessible way. His teaching style at Sai Ambrosia is genuinely different.</p>
-          <div class="testimonial-author">
-            <div class="test-avatar">AK</div>
-            <div><div class="test-name">Akshay Kamble</div><div class="test-role">Team LazyCoder's</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">Reading Kartik's blog saved me 3 days of debugging. The Docker + MongoDB article is bookmarked permanently.</p>
-          <div class="testimonial-author">
-            <div class="test-avatar">DB</div>
-            <div><div class="test-name">Darshan Bijewar</div><div class="test-role">Team LazyCoder's</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- ═══════════════════════════════════════════
      FOOTER
 ════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
-    <div class="row g-5">
+    <div class="row g-4">
       <div class="col-lg-4">
         <div class="footer-brand"><span style="background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">./kartik</span></div>
         <p class="footer-desc">Developer blog by Kartik Yadav Gurve — Android, MERN, ML, and hackathon journeys.</p>
         <div class="footer-social">
-          <a href="https://github.com/gurvekartik6" class="social-link"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
-          <!-- <a href="#" class="social-link" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a> -->
+          <a href="https://github.com/gurvekartik6" class="social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/kartik-gurve-17290521b/" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
       </div>
 
@@ -427,17 +792,17 @@
 
       <div class="col-6 col-lg-2">
         <div class="footer-heading">Topics</div>
-        <a href="#" class="footer-link">Android</a>
-        <a href="#" class="footer-link">MERN Stack</a>
-        <a href="#" class="footer-link">AI / ML</a>
-        <a href="#" class="footer-link">Hackathons</a>
+        <a href="blog-post.html?tag=Spring%20Boot" class="footer-link">Spring Boot</a>
+        <a href="blog-post.html?tag=Java" class="footer-link">Java</a>
+        <a href="blog-post.html?tag=System%20Design" class="footer-link">System Design</a>
+        <a href="blog-post.html?tag=Docker" class="footer-link">Docker</a>
       </div>
 
       <div class="col-lg-4">
         <div class="footer-heading">Quick Subscribe</div>
-        <form class="newsletter-form flex-column gap-2" novalidate style="max-width:100%;">
+        <form class="newsletter-form flex-column gap-2" id="footerNewsletter" novalidate style="max-width:100%;">
           <input type="email" class="newsletter-input" placeholder="your@email.com" required />
-          <button type="submit" class="btn-primary-custom mt-2" style="width:fit-content;">
+          <button type="submit" class="btn-primary-custom" style="width:fit-content;">
             <i class="fa-solid fa-paper-plane"></i> Subscribe
           </button>
         </form>
@@ -454,10 +819,158 @@
 <!-- ─── SCRIPTS ─── -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/posts-data.js"></script>
 <script src="js/theme-toggle.js"></script>
 <script src="js/three-scene.js"></script>
 <script src="js/newsletter.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+// ─── Load Featured Posts ───
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('featuredPosts');
+  
+  if (typeof getAllPosts !== 'undefined') {
+    const allPosts = getAllPosts();
+    const featured = allPosts.filter(p => p.featured).slice(0, 3);
+    
+    if (featured.length === 0) {
+      // If no featured posts, show first 3
+      featured.push(...allPosts.slice(0, 3));
+    }
+    
+    container.innerHTML = featured.map((post, index) => {
+      const isWide = index === 0;
+      const colClass = isWide ? 'col-lg-8' : 'col-lg-4';
+      const imageUrl = post.image || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop';
+      
+      return `
+        <div class="${colClass} col-md-6">
+          <div class="blog-card" onclick="window.location.href='blog-post.html?slug=${post.slug}'">
+            <div class="card-image-wrap" style="height:${isWide ? '240px' : '180px'};">
+              <img src="${imageUrl}" alt="${post.title}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\\'card-image-placeholder\\'>📝</div>'">
+            </div>
+            <div class="card-content">
+              <div class="card-tags">
+                ${post.tags.slice(0, 3).map(t => `<span class="card-tag">${t}</span>`).join('')}
+              </div>
+              <h3 class="card-title">${post.title}</h3>
+              <p class="card-excerpt">${post.excerpt}</p>
+              <div class="card-meta">
+                <div class="card-author">
+                  <div class="author-avatar">KY</div>
+                  <div>
+                    <div class="author-name">${post.author}</div>
+                    <div class="author-date">${post.date}</div>
+                  </div>
+                </div>
+                <div class="card-read-time"><i class="fa-regular fa-clock"></i> ${post.readTime} min</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } else {
+    container.innerHTML = '<p class="text-center text-muted">Loading posts...</p>';
+  }
+});
+
+// ─── Stats Counter ───
+document.addEventListener('DOMContentLoaded', function() {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  statNumbers.forEach(el => observer.observe(el));
+  
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const duration = 1800;
+    const start = performance.now();
+    
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = current.toLocaleString();
+      
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+    requestAnimationFrame(update);
+  }
+});
+
+// ─── Scroll Animations ───
+document.addEventListener('DOMContentLoaded', function() {
+  const animateElements = document.querySelectorAll('.animate-on-scroll');
+  const staggerElements = document.querySelectorAll('.stagger-children');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+  
+  animateElements.forEach(el => observer.observe(el));
+  staggerElements.forEach(el => observer.observe(el));
+});
+
+// ─── Newsletter Form Handler ───
+document.querySelectorAll('.newsletter-form').forEach(form => {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const input = this.querySelector('input[type="email"]');
+    const email = input.value.trim();
+    
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showToast('Please enter a valid email address.', 'error');
+      return;
+    }
+    
+    // Store in localStorage
+    const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+    if (!subscribers.includes(email)) {
+      subscribers.push(email);
+      localStorage.setItem('subscribers', JSON.stringify(subscribers));
+    }
+    
+    showToast('Subscribed successfully! 🎉', 'success');
+    input.value = '';
+  });
+});
+
+// ─── Toast Function ───
+function showToast(message, type = 'success') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  
+  const toast = document.createElement('div');
+  toast.className = 'toast-item';
+  const icon = type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️';
+  toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
+  container.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.classList.add('toast-out');
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+</script>
 </body>
 </html>
