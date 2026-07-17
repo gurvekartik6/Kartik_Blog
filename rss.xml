@@ -5,8 +5,21 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, System Design, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Thu, 25 Jun 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 17 Jul 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 37: July 17, 2026 - REACT SERIES STARTS HERE -->
+  <item>
+    <title>React Introduction: What is React and Why Should You Learn It?</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-introduction-what-is-react-and-why-use-it</link>
+    <description>Starting the React series from zero. Learn what React is, why it's so popular, how it works, and who uses it. Component-based, Virtual DOM, and huge ecosystem.</description>
+    <pubDate>Fri, 17 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-introduction-what-is-react-and-why-use-it</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+  </item>
 
   <!-- POST 36: June 25, 2026 -->
   <item>
@@ -450,8 +463,8 @@
 
   <!-- POST 1: May 21, 2026 -->
   <item>
-    <title>Coding Since 2018</title>
-    <link>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</link>
+    <title>Coding Since 2020</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2020</link>
     <description>RPG Maker, GBA games, and never finishing anything. But that was the start of my coding journey.</description>
     <pubDate>Thu, 21 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</guid>

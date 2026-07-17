@@ -6,7 +6,8 @@ const POSTS_DB = [
     slug: "my-love-and-passion-about-coding-since-2018",
     title: "Coding Since 2020",
     excerpt: "RPG Maker, GBA games, and never finishing anything.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Personal", "Coding"],
     author: "Kartik Yadav Gurve",
     date: "May 21, 2026",
@@ -16,7 +17,7 @@ const POSTS_DB = [
 <p>Never finished a single game.</p>
 <p>But that was the start.</p>
 <p>Now I code for real. Still breaking things. Still loving it.</p>
-<p>— Kartik</p>`
+<p>— Kartik</p>`,
   },
 
   // ── POST 2 (May 22, 2026) ──────────────────────────────────
@@ -24,14 +25,15 @@ const POSTS_DB = [
     slug: "the-idea-about-the-blogging-website",
     title: "The Idea About the Blogging Website",
     excerpt: "The idea about the blogging website and why I built it this way",
-    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=400&fit=crop",
     tags: ["Blogging", "Web Development"],
     author: "Kartik Yadav Gurve",
     date: "May 22, 2026",
     readTime: 4,
     featured: true,
     content: `<h2 id="intro">The Idea About the Blogging Website</h2>
-<p>The idea about the blogging website came from wanting to share my journey.</p>`
+<p>The idea about the blogging website came from wanting to share my journey.</p>`,
   },
 
   // ── POST 3 (May 23, 2026) ──────────────────────────────────
@@ -39,14 +41,15 @@ const POSTS_DB = [
     slug: "how-i-work-as-instructor-at-sai-ambrosia",
     title: "How I Work as an Instructor at Sai Ambrosia After 10th",
     excerpt: "After 10th how I work as instructor at Sai Ambrosia Education",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=400&fit=crop",
     tags: ["Teaching", "Power BI"],
     author: "Kartik Yadav Gurve",
     date: "May 23, 2026",
     readTime: 4,
     featured: true,
     content: `<h2 id="intro">How I Work as an Instructor at Sai Ambrosia After 10th</h2>
-<p>After 10th I started teaching at Sai Ambrosia Education.</p>`
+<p>After 10th I started teaching at Sai Ambrosia Education.</p>`,
   },
 
   // ── POST 4 (May 24, 2026) ──────────────────────────────────
@@ -54,14 +57,15 @@ const POSTS_DB = [
     slug: "tech-skills-i-have-learned",
     title: "The Tech Skills I Have Learned",
     excerpt: "The tech skills I have learned over the years",
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&h=400&fit=crop",
     tags: ["Skills", "Learning"],
     author: "Kartik Yadav Gurve",
     date: "May 24, 2026",
     readTime: 4,
     featured: true,
     content: `<h2 id="intro">The Tech Skills I Have Learned</h2>
-<p>The tech skills I have learned include Android, Kotlin, Firebase, ML, Power BI, Docker and more.</p>`
+<p>The tech skills I have learned include Android, Kotlin, Firebase, ML, Power BI, Docker and more.</p>`,
   },
 
   // ── POST 5 (May 25, 2026) ──────────────────────────────────
@@ -69,7 +73,8 @@ const POSTS_DB = [
     slug: "connect-java-to-postgresql",
     title: "How to Connect Java Application to PostgreSQL",
     excerpt: "Step-by-step guide to connect Java with PostgreSQL database",
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
     tags: ["Java", "PostgreSQL", "Database", "JDBC"],
     author: "Kartik Yadav Gurve",
     date: "May 25, 2026",
@@ -112,15 +117,17 @@ public class Main {
 java -cp "lib/postgresql-42.7.3.jar;." Main</code></pre>
 <p><strong>Mac/Linux:</strong></p>
 <pre><code>javac -cp "lib/postgresql-42.7.3.jar:." Main.java
-java -cp "lib/postgresql-42.7.3.jar:." Main</code></pre>`
+java -cp "lib/postgresql-42.7.3.jar:." Main</code></pre>`,
   },
 
   // ── POST 6 (May 26, 2026) ──────────────────────────────────
   {
     slug: "hibernate-orm-simple-guide",
     title: "Hibernate ORM: What It Is and Why You Need It",
-    excerpt: "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    excerpt:
+      "Simple explanation of Hibernate — the Java ORM that saves you from writing SQL queries manually.",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database"],
     author: "Kartik Yadav Gurve",
     date: "May 26, 2026",
@@ -139,15 +146,17 @@ java -cp "lib/postgresql-42.7.3.jar:." Main</code></pre>`
 <p>Instead of writing <code>INSERT INTO users VALUES (...)</code>, you just do:</p>
 <pre><code>User user = new User();
 user.setName("Kartik");
-session.save(user);  // Hibernate handles the SQL</code></pre>`
+session.save(user);  // Hibernate handles the SQL</code></pre>`,
   },
 
   // ── POST 7 (May 27, 2026) ──────────────────────────────────
   {
     slug: "hibernate-orm-mapping-relationships-annotations",
     title: "Hibernate ORM: Mapping Relationships & Annotations (Theory)",
-    excerpt: "A simple guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    excerpt:
+      "A simple guide to understanding @OneToOne, @OneToMany, @ManyToOne, and @ManyToMany in Hibernate.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Theory"],
     author: "Kartik Yadav Gurve",
     date: "May 27, 2026",
@@ -166,15 +175,17 @@ session.save(user);  // Hibernate handles the SQL</code></pre>`
 <p><strong>Real-world example:</strong> Many <strong>Blog Posts</strong> belong to one <strong>Category</strong>.</p>
 <h2 id="many-to-many">4. @ManyToMany</h2>
 <p><strong>Theory:</strong> Many records in Table A can be linked to many records in Table B.</p>
-<p><strong>Real-world example:</strong> A <strong>Student</strong> can enroll in many <strong>Courses</strong>.</p>`
+<p><strong>Real-world example:</strong> A <strong>Student</strong> can enroll in many <strong>Courses</strong>.</p>`,
   },
 
   // ── POST 8 (May 28, 2026) ──────────────────────────────────
   {
     slug: "hibernate-orm-crud-methods-merge-persist-remove",
     title: "Hibernate ORM: The Big 4 Methods (Save, Find, Update, Delete)",
-    excerpt: "A simple guide to persist, merge, find, and remove – the 4 superhero methods of Hibernate.",
-    image: "https://images.unsplash.com/photo-1556075798-4825dfa3a995?w=800&h=400&fit=crop",
+    excerpt:
+      "A simple guide to persist, merge, find, and remove – the 4 superhero methods of Hibernate.",
+    image:
+      "https://images.unsplash.com/photo-1556075798-4825dfa3a995?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Theory", "CRUD"],
     author: "Kartik Yadav Gurve",
     date: "May 28, 2026",
@@ -189,15 +200,17 @@ session.save(user);  // Hibernate handles the SQL</code></pre>`
 <h2 id="merge">3. merge() – "Update an Existing Record"</h2>
 <p><strong>What it does:</strong> If the record exists → updates it. If not → inserts it.</p>
 <h2 id="remove">4. remove() – "Delete a Record"</h2>
-<p><strong>What it does:</strong> Permanently deletes a record from the database.</p>`
+<p><strong>What it does:</strong> Permanently deletes a record from the database.</p>`,
   },
 
   // ── POST 9 (May 29, 2026) ──────────────────────────────────
   {
     slug: "cant-hurt-me-book-takeaways-david-goggins",
     title: "I Finished Can't Hurt Me. My Brain Feels Heavier (In a Good Way).",
-    excerpt: "David Goggins won't hug you. He'll call you soft. Here's what changed after finishing his book.",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&h=400&fit=crop",
+    excerpt:
+      "David Goggins won't hug you. He'll call you soft. Here's what changed after finishing his book.",
+    image:
+      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&h=400&fit=crop",
     tags: ["Books", "Mindset", "Motivation", "Self-Improvement"],
     author: "Kartik Yadav Gurve",
     date: "May 29, 2026",
@@ -212,15 +225,17 @@ session.save(user);  // Hibernate handles the SQL</code></pre>`
 <h2 id="calloused-mind">3. A calloused mind > a comfortable one</h2>
 <p>Goggins says: <strong>"You stop growing when you stop being uncomfortable."</strong></p>
 <h2 id="verdict">Final verdict</h2>
-<p>Would I recommend <em>Can't Hurt Me</em>? Yes — but only if you're ready to stop lying to yourself.</p>`
+<p>Would I recommend <em>Can't Hurt Me</em>? Yes — but only if you're ready to stop lying to yourself.</p>`,
   },
 
   // ── POST 10 (May 30, 2026) ──────────────────────────────────
   {
     slug: "hibernate-session-factory-session-lifecycle-deep-dive",
     title: "Hibernate Deep Dive: SessionFactory, Session, and Their Lifecycle",
-    excerpt: "Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    excerpt:
+      "Understanding Hibernate's heart: how SessionFactory is born, how Sessions live and die.",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Database", "Deep Dive", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "May 30, 2026",
@@ -233,15 +248,18 @@ session.save(user);  // Hibernate handles the SQL</code></pre>`
 <p><strong>How many:</strong> ONE per database. Create it once.</p>
 <h2 id="session">Session: The Short-Lived Worker</h2>
 <p><strong>What it is:</strong> A single unit of work. One conversation between your app and the database.</p>
-<p><strong>How many:</strong> Many. Open one per request.</p>`
+<p><strong>How many:</strong> Many. Open one per request.</p>`,
   },
 
   // ── POST 11 (May 31, 2026) ──────────────────────────────────
   {
     slug: "hibernate-session-problems-transactions-lazy-loading",
-    title: "Hibernate Session Problems: Transactions, Lazy Loading, and Session Management",
-    excerpt: "3 biggest problems developers face with Hibernate sessions and how to fix them.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    title:
+      "Hibernate Session Problems: Transactions, Lazy Loading, and Session Management",
+    excerpt:
+      "3 biggest problems developers face with Hibernate sessions and how to fix them.",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Session", "Transactions", "Lazy Loading"],
     author: "Kartik Yadav Gurve",
     date: "May 31, 2026",
@@ -264,15 +282,18 @@ session.close();</code></pre>
 <p><strong>Fix:</strong> Load data before closing Session using JOIN FETCH.</p>
 <pre><code>Query query = session.createQuery(
   "FROM User u JOIN FETCH u.orders WHERE u.id = :id"
-);</code></pre>`
+);</code></pre>`,
   },
 
   // ── POST 12 (June 1, 2026) ──────────────────────────────────
   {
     slug: "hibernate-n-plus-1-problem-and-first-level-cache",
-    title: "2 Hibernate Concepts That Save Your Database: N+1 Problem & First-Level Cache",
-    excerpt: "Why 10 users become 11 queries (and how to fix it). Plus the cache you already have.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    title:
+      "2 Hibernate Concepts That Save Your Database: N+1 Problem & First-Level Cache",
+    excerpt:
+      "Why 10 users become 11 queries (and how to fix it). Plus the cache you already have.",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "Performance", "Caching"],
     author: "Kartik Yadav Gurve",
     date: "June 1, 2026",
@@ -287,15 +308,18 @@ session.close();</code></pre>
 <p><strong>Fix:</strong> Use JOIN FETCH.</p>
 <pre><code>List&lt;User&gt; users = session.createQuery(
     "FROM User u JOIN FETCH u.orders"
-).list();</code></pre>`
+).list();</code></pre>`,
   },
 
   // ── POST 13 (June 2, 2026) ──────────────────────────────────
   {
     slug: "hibernate-second-level-cache-batch-fetching-jpa-vs-hibernate",
-    title: "3 More Hibernate Concepts: Second-Level Cache, Batch Fetching & JPA vs Hibernate",
-    excerpt: "Cache across sessions, fetch in batches, and understand JPA vs Hibernate.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+    title:
+      "3 More Hibernate Concepts: Second-Level Cache, Batch Fetching & JPA vs Hibernate",
+    excerpt:
+      "Cache across sessions, fetch in batches, and understand JPA vs Hibernate.",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
     tags: ["Java", "Hibernate", "JPA", "Caching", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "June 2, 2026",
@@ -309,15 +333,17 @@ session.close();</code></pre>
 <p><strong>Solution:</strong> @BatchSize(size=20) — fetches 20 orders at a time.</p>
 <h2>Concept 3: JPA vs Hibernate</h2>
 <p><strong>JPA</strong> = A standard (rules everyone agrees on).</p>
-<p><strong>Hibernate</strong> = A tool that follows JPA rules (plus extra features).</p>`
+<p><strong>Hibernate</strong> = A tool that follows JPA rules (plus extra features).</p>`,
   },
 
   // ── POST 14 (June 3, 2026) ──────────────────────────────────
   {
     slug: "git-basics-every-developer-should-know",
     title: "Git Basics: 5 Commands Every Developer Must Know",
-    excerpt: "No more git panic. Just clone, commit, push, pull, and branch — explained simply.",
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=400&fit=crop",
+    excerpt:
+      "No more git panic. Just clone, commit, push, pull, and branch — explained simply.",
+    image:
+      "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=400&fit=crop",
     tags: ["Git", "GitHub", "Version Control", "Beginner"],
     author: "Kartik Yadav Gurve",
     date: "June 3, 2026",
@@ -340,7 +366,7 @@ git commit -m "Your message"</code></pre>
 <p><strong>What it does:</strong> Create and switch between branches.</p>
 <pre><code>git branch feature-xyz
 git checkout feature-xyz
-git checkout -b new-branch</code></pre>`
+git checkout -b new-branch</code></pre>`,
   },
 
   // ── POST 15 (June 4, 2026) ──────────────────────────────────
@@ -348,7 +374,8 @@ git checkout -b new-branch</code></pre>`
     slug: "docker-basics-every-developer-needs",
     title: "Docker Basics: 5 Commands That Will Change How You Develop",
     excerpt: "Stop saying 'it works on my machine' — containerize your apps.",
-    image: "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
     tags: ["Docker", "DevOps", "Containers"],
     author: "Kartik Yadav Gurve",
     date: "June 4, 2026",
@@ -369,7 +396,7 @@ docker ps -a</code></pre>
 <pre><code>docker stop container_name
 docker start container_name</code></pre>
 <h2 id="command-5">5. docker exec</h2>
-<pre><code>docker exec -it container_name bash</code></pre>`
+<pre><code>docker exec -it container_name bash</code></pre>`,
   },
 
   // ── POST 16 (June 5, 2026) ──────────────────────────────────
@@ -377,7 +404,8 @@ docker start container_name</code></pre>
     slug: "rest-api-vs-graphql-simple-comparison",
     title: "REST API vs GraphQL: Which One Should You Learn First?",
     excerpt: "Simple comparison with real examples — no complex theory.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     tags: ["API", "GraphQL", "REST", "Backend"],
     author: "Kartik Yadav Gurve",
     date: "June 5, 2026",
@@ -398,15 +426,17 @@ GET /users/1      → returns user #1</code></pre>
   }
 }</code></pre>
 <h2 id="which-to-learn-first">Which Should You Learn First?</h2>
-<p><strong>Learn REST first. Always.</strong> 90% of APIs are still REST.</p>`
+<p><strong>Learn REST first. Always.</strong> 90% of APIs are still REST.</p>`,
   },
 
   // ── POST 17 (June 6, 2026) ──────────────────────────────────
   {
     slug: "top-5-vs-code-extensions-for-developers",
     title: "Top 5 VS Code Extensions That Make Coding 10x Easier",
-    excerpt: "Prettier, GitLens, Thunder Client, Live Server, Error Lens — my favorite extensions.",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop",
+    excerpt:
+      "Prettier, GitLens, Thunder Client, Live Server, Error Lens — my favorite extensions.",
+    image:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop",
     tags: ["VS Code", "Tools", "Productivity"],
     author: "Kartik Yadav Gurve",
     date: "June 6, 2026",
@@ -426,15 +456,17 @@ const x = "hello";</code></pre>
 <h2 id="4-live-server">4. Live Server — Instant HTML Reload</h2>
 <p>Right-click HTML → Open with Live Server. Save → Browser refreshes.</p>
 <h2 id="5-error-lens">5. Error Lens — See Errors Inline</h2>
-<pre><code>console.log(x)  // ❌ 'x' is not defined</code></pre>`
+<pre><code>console.log(x)  // ❌ 'x' is not defined</code></pre>`,
   },
 
   // ── POST 18 (June 7, 2026) ──────────────────────────────────
   {
     slug: "spring-vs-spring-boot-what-is-difference",
     title: "Spring vs Spring Boot: What's the Difference?",
-    excerpt: "Spring is the framework. Spring Boot is the shortcut. Learn the difference in 2 minutes.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    excerpt:
+      "Spring is the framework. Spring Boot is the shortcut. Learn the difference in 2 minutes.",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring", "Spring Boot", "Java", "Framework"],
     author: "Kartik Yadav Gurve",
     date: "June 7, 2026",
@@ -449,7 +481,7 @@ const x = "hello";</code></pre>
 <p>Spring Boot is Spring + Auto-configuration. It guesses what you need and sets it up.</p>
 <h2 id="comparison">Quick Comparison</h2>
 <p><strong>Spring:</strong> 30+ minutes setup, manual configuration, external Tomcat</p>
-<p><strong>Spring Boot:</strong> 2 minutes setup, auto-configuration, built-in Tomcat</p>`
+<p><strong>Spring Boot:</strong> 2 minutes setup, auto-configuration, built-in Tomcat</p>`,
   },
 
   // ── POST 19 (June 8, 2026) ──────────────────────────────────
@@ -457,7 +489,8 @@ const x = "hello";</code></pre>
     slug: "create-first-spring-boot-project-step-by-step",
     title: "Create Your First Spring Boot Project: Step by Step",
     excerpt: "From zero to a running Spring Boot app in 5 minutes.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Java", "Beginner", "Tutorial"],
     author: "Kartik Yadav Gurve",
     date: "June 8, 2026",
@@ -489,7 +522,7 @@ public class HelloController {
     }
 }</code></pre>
 <h2 id="step-6">Step 6: Run the App</h2>
-<pre><code>./mvnw spring-boot:run</code></pre>`
+<pre><code>./mvnw spring-boot:run</code></pre>`,
   },
 
   // ── POST 20 (June 9, 2026) ──────────────────────────────────
@@ -497,7 +530,8 @@ public class HelloController {
     slug: "springbootapplication-annotation-explained",
     title: "@SpringBootApplication: The Most Important Annotation Explained",
     excerpt: "It's not magic — it's 3 annotations in one.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Java", "Annotations", "Beginner"],
     author: "Kartik Yadav Gurve",
     date: "June 9, 2026",
@@ -510,15 +544,17 @@ public class HelloController {
 <h2 id="2-enableautoconfiguration">2. @EnableAutoConfiguration</h2>
 <p>The real magic. Tells Spring Boot to automatically configure things based on dependencies you added.</p>
 <h2 id="3-componentscan">3. @ComponentScan</h2>
-<p>Tells Spring: "Scan this package and all sub-packages for components."</p>`
+<p>Tells Spring: "Scan this package and all sub-packages for components."</p>`,
   },
 
   // ── POST 21 (June 10, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-annotations-every-developer-should-know",
     title: "Spring Boot Annotations: 7 Annotations Every Developer Should Know",
-    excerpt: "@RestController, @Autowired, @Service, @Repository, @PathVariable, @RequestBody, @GetMapping — explained.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    excerpt:
+      "@RestController, @Autowired, @Service, @Repository, @PathVariable, @RequestBody, @GetMapping — explained.",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Java", "Annotations", "REST API"],
     author: "Kartik Yadav Gurve",
     date: "June 10, 2026",
@@ -537,15 +573,17 @@ public class HelloController {
 <h2 id="6-service">6. @Service</h2>
 <p>Mark business logic class.</p>
 <h2 id="7-autowired">7. @Autowired</h2>
-<p>Inject dependencies automatically.</p>`
+<p>Inject dependencies automatically.</p>`,
   },
 
   // ── POST 22 (June 11, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-rest-api-crud-tutorial",
     title: "Building a Complete REST API (CRUD) with Spring Boot",
-    excerpt: "Create, Read, Update, Delete — build a complete User Management API.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    excerpt:
+      "Create, Read, Update, Delete — build a complete User Management API.",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "REST API", "CRUD", "Java"],
     author: "Kartik Yadav Gurve",
     date: "June 11, 2026",
@@ -593,7 +631,7 @@ public class UserController {
     public User create(@RequestBody User user) {
         return userService.create(user);
     }
-}</code></pre>`
+}</code></pre>`,
   },
 
   // ── POST 23 (June 12, 2026) ──────────────────────────────────
@@ -601,7 +639,8 @@ public class UserController {
     slug: "spring-boot-exception-handling-guide",
     title: "Exception Handling in Spring Boot: Stop Using Try-Catch Everywhere",
     excerpt: "One place to handle all errors. Clean and simple.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Exception Handling", "Java", "REST API"],
     author: "Kartik Yadav Gurve",
     date: "June 12, 2026",
@@ -628,7 +667,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity&lt;String&gt; handleNotFound(UserNotFoundException ex) {
         return new ResponseEntity&lt;&gt;(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
-}</code></pre>`
+}</code></pre>`,
   },
 
   // ── POST 24 (June 13, 2026) ──────────────────────────────────
@@ -636,7 +675,8 @@ public class GlobalExceptionHandler {
     slug: "spring-boot-jpa-database-guide",
     title: "Spring Boot with Database: JPA Made Simple",
     excerpt: "Connect your Spring Boot app to a real database.",
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "JPA", "Database", "Hibernate"],
     author: "Kartik Yadav Gurve",
     date: "June 13, 2026",
@@ -661,7 +701,7 @@ spring.jpa.hibernate.ddl-auto=update</code></pre>
 <pre><code>@Repository
 public interface ProductRepository extends JpaRepository&lt;Product, Long&gt; {
     List&lt;Product&gt; findByPriceLessThan(double price);
-}</code></pre>`
+}</code></pre>`,
   },
 
   // ── POST 25 (June 14, 2026) ──────────────────────────────────
@@ -669,7 +709,8 @@ public interface ProductRepository extends JpaRepository&lt;Product, Long&gt; {
     slug: "spring-boot-profiles-guide",
     title: "Spring Boot Profiles: Dev, Test, Prod Made Easy",
     excerpt: "Different settings for different environments.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Profiles", "Configuration"],
     author: "Kartik Yadav Gurve",
     date: "June 14, 2026",
@@ -692,7 +733,7 @@ logging.level.root=DEBUG</code></pre>
 spring.jpa.show-sql=false
 logging.level.root=ERROR</code></pre>
 <h2 id="activate">How to activate</h2>
-<pre><code>spring.profiles.active=dev</code></pre>`
+<pre><code>spring.profiles.active=dev</code></pre>`,
   },
 
   // ── POST 26 (June 15, 2026) ──────────────────────────────────
@@ -700,7 +741,8 @@ logging.level.root=ERROR</code></pre>
     slug: "spring-boot-security-basics-guide",
     title: "Spring Boot Security: Basic Auth in 10 Minutes",
     excerpt: "Add username/password protection to your APIs.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Security", "Authentication", "Java"],
     author: "Kartik Yadav Gurve",
     date: "June 15, 2026",
@@ -727,7 +769,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         )
         .httpBasic();
     return http.build();
-}</code></pre>`
+}</code></pre>`,
   },
 
   // ── POST 27 (June 16, 2026) ──────────────────────────────────
@@ -735,7 +777,8 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     slug: "spring-boot-jwt-authentication-guide",
     title: "JWT Authentication in Spring Boot: Stateless Security",
     excerpt: "Replace Basic Auth with JWT tokens. Modern and scalable.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "JWT", "Security", "Authentication"],
     author: "Kartik Yadav Gurve",
     date: "June 16, 2026",
@@ -859,15 +902,17 @@ public class SecurityConfig {
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
-}</code></pre>`
+}</code></pre>`,
   },
 
   // ── POST 28 (June 17, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-react-integration-guide",
     title: "Spring Boot + React: Full Stack Integration",
-    excerpt: "Connect React frontend with Spring Boot backend. CORS, API calls, and deployment.",
-    image: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    excerpt:
+      "Connect React frontend with Spring Boot backend. CORS, API calls, and deployment.",
+    image:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "React", "Full Stack", "CORS"],
     author: "Kartik Yadav Gurve",
     date: "June 17, 2026",
@@ -913,15 +958,17 @@ function UserList() {
             {users.map(user => &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;)}
         &lt;/ul&gt;
     );
-}</code></pre>`
+}</code></pre>`,
   },
 
   // ── POST 29 (June 18, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-testing-guide",
     title: "Spring Boot Testing: Unit Tests & Integration Tests",
-    excerpt: "Test your APIs properly. No more deploying to check if code works.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    excerpt:
+      "Test your APIs properly. No more deploying to check if code works.",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Testing", "JUnit", "Mockito"],
     author: "Kartik Yadav Gurve",
     date: "June 18, 2026",
@@ -967,15 +1014,17 @@ class UserControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.name").value("Kartik"));
     }
-}</code></pre>`
+}</code></pre>`,
   },
 
   // ── POST 30 (June 19, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-docker-guide",
     title: "Spring Boot + Docker: Containerize Your App",
-    excerpt: "Package your Spring Boot app as a Docker container. Deploy anywhere.",
-    image: "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
+    excerpt:
+      "Package your Spring Boot app as a Docker container. Deploy anywhere.",
+    image:
+      "https://images.unsplash.com/photo-1605745341112-85968b19335d?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Docker", "DevOps", "Deployment"],
     author: "Kartik Yadav Gurve",
     date: "June 19, 2026",
@@ -1010,15 +1059,17 @@ services:
       - postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mydb</code></pre>
-<pre><code>docker-compose up -d</code></pre>`
+<pre><code>docker-compose up -d</code></pre>`,
   },
 
   // ── POST 31 (June 20, 2026) ──────────────────────────────────
   {
     slug: "spring-boot-kubernetes-deployment-guide",
     title: "Spring Boot + Kubernetes: Deploy at Scale",
-    excerpt: "Take your Docker container to Kubernetes. Scale, manage, and deploy like a pro.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
+    excerpt:
+      "Take your Docker container to Kubernetes. Scale, manage, and deploy like a pro.",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=400&fit=crop",
     tags: ["Spring Boot", "Kubernetes", "DevOps", "Deployment"],
     author: "Kartik Yadav Gurve",
     date: "June 20, 2026",
@@ -1079,15 +1130,17 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
   <li>✅ Scale with one command</li>
   <li>✅ Rolling updates = zero downtime</li>
 </ul>
-<p>Kubernetes = run your app at scale. No downtime. No excuses. ☸️</p>`
+<p>Kubernetes = run your app at scale. No downtime. No excuses. ☸️</p>`,
   },
 
   // ── POST 32 (June 21, 2026) ──────────────────────────────────
   {
     slug: "microservices-architecture-basics",
     title: "Microservices Architecture: Breaking the Monolith",
-    excerpt: "Understanding microservices: what they are, why they exist, and when to use them.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    excerpt:
+      "Understanding microservices: what they are, why they exist, and when to use them.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
     tags: ["Microservices", "Architecture", "System Design"],
     author: "Kartik Yadav Gurve",
     date: "June 21, 2026",
@@ -1111,15 +1164,17 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
   <li><strong>Network latency</strong> — Services talk over network</li>
   <li><strong>Data consistency</strong> — Harder to keep data in sync</li>
 </ul>
-<p><strong>Pro tip:</strong> Start with a monolith. Split into microservices only when you need to.</p>`
+<p><strong>Pro tip:</strong> Start with a monolith. Split into microservices only when you need to.</p>`,
   },
 
   // ── POST 33 (June 22, 2026) ──────────────────────────────────
   {
     slug: "system-design-basics-load-balancing",
     title: "System Design 101: Load Balancing Explained",
-    excerpt: "What happens when millions of users hit your app? Load balancing saves the day.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    excerpt:
+      "What happens when millions of users hit your app? Load balancing saves the day.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
     tags: ["System Design", "Load Balancing", "Scalability"],
     author: "Kartik Yadav Gurve",
     date: "June 22, 2026",
@@ -1142,7 +1197,7 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
   <li>Always use health checks — don't send traffic to dead servers</li>
   <li>Use SSL termination at the load balancer</li>
   <li>Sticky sessions when needed</li>
-</ol>`
+</ol>`,
   },
 
   // ── POST 34 (June 23, 2026) ──────────────────────────────────
@@ -1150,7 +1205,8 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
     slug: "caching-strategies-system-design",
     title: "Caching Strategies: Making Your App Blazing Fast",
     excerpt: "Cache everything? Not quite. Learn when and what to cache.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
     tags: ["Caching", "System Design", "Performance"],
     author: "Kartik Yadav Gurve",
     date: "June 23, 2026",
@@ -1178,15 +1234,17 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
 <h2 id="eviction">Cache Eviction Policies</h2>
 <p><strong>LRU:</strong> Least Recently Used → Remove oldest accessed items</p>
 <p><strong>TTL:</strong> Time To Live → Items expire after set time</p>
-<p><strong>FIFO:</strong> First In First Out → Remove oldest added items</p>`
+<p><strong>FIFO:</strong> First In First Out → Remove oldest added items</p>`,
   },
 
   // ── POST 35 (June 24, 2026) ──────────────────────────────────
   {
     slug: "database-sharding-explained",
     title: "Database Sharding: When One Database Isn't Enough",
-    excerpt: "Split your database across multiple servers. Scale beyond limits.",
-    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
+    excerpt:
+      "Split your database across multiple servers. Scale beyond limits.",
+    image:
+      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=400&fit=crop",
     tags: ["Database", "Sharding", "Scalability", "System Design"],
     author: "Kartik Yadav Gurve",
     date: "June 24, 2026",
@@ -1212,15 +1270,17 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
   <li>Your database is at its limits</li>
   <li>You have billions of rows</li>
   <li>You need high write throughput</li>
-</ul>`
+</ul>`,
   },
 
   // ── POST 36 (June 25, 2026) ──────────────────────────────────
   {
     slug: "api-gateway-pattern-system-design",
     title: "API Gateway Pattern: One Door to All Your Services",
-    excerpt: "A single entry point for all your microservices. Authentication, routing, and more.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
+    excerpt:
+      "A single entry point for all your microservices. Authentication, routing, and more.",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop",
     tags: ["API Gateway", "Microservices", "System Design"],
     author: "Kartik Yadav Gurve",
     date: "June 25, 2026",
@@ -1251,8 +1311,86 @@ kubectl rollout status deployment/spring-boot-app</code></pre>
   <li>Use caching for static responses</li>
   <li>Implement circuit breakers</li>
   <li>Monitor everything</li>
-</ol>`
-  }
+</ol>`,
+  },
+  // ── POST 37 (July 17, 2026) ──────────────────────────────────
+  {
+    slug: "react-introduction-what-is-react-and-why-use-it",
+    title: "React Introduction: What is React and Why Should You Learn It?",
+    excerpt:
+      "Starting the React series from zero. Learn what React is, why it's so popular, and how it works.",
+    image:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    tags: ["React", "JavaScript", "Frontend", "Beginners"],
+    author: "Kartik Yadav Gurve",
+    date: "July 17, 2026",
+    readTime: 4,
+    featured: true,
+    content: `<h2 id="what-is-react">What is React?</h2>
+<p>React is a JavaScript library for building user interfaces.</p>
+<p>It was created by Facebook in 2013. Today, it's one of the most popular frontend technologies in the world.</p>
+
+<h2 id="why-react">Why is React So Popular?</h2>
+<p>Here are the 3 main reasons:</p>
+<ul>
+  <li><strong>Component-Based</strong> — You build small, reusable pieces and combine them.</li>
+  <li><strong>Virtual DOM</strong> — React updates only what changed. Super fast.</li>
+  <li><strong>Huge Ecosystem</strong> — Thousands of libraries, tools, and a big community.</li>
+</ul>
+
+<h2 id="who-uses-react">Who Uses React?</h2>
+<p>Big companies use React:</p>
+<ul>
+  <li>Facebook (created it)</li>
+  <li>Instagram</li>
+  <li>Netflix</li>
+  <li>Uber</li>
+  <li>Airbnb</li>
+</ul>
+
+<h2 id="how-react-works">How Does React Work?</h2>
+<p>Think of it like building with LEGO blocks:</p>
+<p>1. You create small blocks called <strong>Components</strong></p>
+<p>2. Each component returns some <strong>HTML-like code</strong> (called JSX)</p>
+<p>3. React <strong>renders</strong> your components on the screen</p>
+<p>4. When data changes, React <strong>re-renders</strong> only the parts that changed</p>
+
+<h2 id="react-vs-vanilla">React vs Plain JavaScript</h2>
+<p><strong>Vanilla JS:</strong></p>
+<pre><code>const btn = document.getElementById('btn');
+btn.addEventListener('click', function() {
+  document.getElementById('text').innerHTML = 'Clicked!';
+});</code></pre>
+<p><strong>React:</strong></p>
+<pre><code>function App() {
+  const [text, setText] = useState('Click me');
+  return (
+    &lt;button onClick={() => setText('Clicked!')}&gt;
+      {text}
+    &lt;/button&gt;
+  );
+}</code></pre>
+<p>React makes it easier to manage complex UIs.</p>
+
+<h2 id="what-you-need">What You Need to Know Before Learning React?</h2>
+<ul>
+  <li>✅ Basic HTML</li>
+  <li>✅ Basic CSS</li>
+  <li>✅ JavaScript (functions, objects, arrays, arrow functions)</li>
+</ul>
+
+<h2 id="whats-next">What's Next in This Series?</h2>
+<p>In the next post, we will:</p>
+<ul>
+  <li>Set up our first React project</li>
+  <li>Create our first component</li>
+  <li>Understand JSX</li>
+</ul>
+
+<p>See you in the next one! 🚀</p>
+
+<p>— Kartik</p>`,
+  },
 ];
 
 // ─── HELPER FUNCTIONS ──────────────────────────────────────────
@@ -1274,7 +1412,7 @@ function getRelatedPosts(slug, limit) {
   const post = getPostBySlug(slug);
   if (!post) return [];
   return POSTS_DB.filter(
-    (p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t))
+    (p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t)),
   ).slice(0, limit);
 }
 
@@ -1291,6 +1429,6 @@ function searchPosts(query) {
     (p) =>
       p.title.toLowerCase().includes(q) ||
       p.excerpt.toLowerCase().includes(q) ||
-      p.tags.some((t) => t.toLowerCase().includes(q))
+      p.tags.some((t) => t.toLowerCase().includes(q)),
   );
 }
