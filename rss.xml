@@ -5,10 +5,24 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, System Design, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Fri, 17 Jul 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 21 Jul 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
 
-  <!-- POST 37: July 17, 2026 - REACT SERIES STARTS HERE -->
+  <!-- POST 38: July 21, 2026 - REACT SERIES POST 2 -->
+  <item>
+    <title>Setting Up Your First React Project: Create React App Explained</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-setup-first-project-create-react-app</link>
+    <description>Learn how to create your first React project using Create React App. No complex setup, just get started with Node.js, npm, and your first component.</description>
+    <pubDate>Tue, 21 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-setup-first-project-create-react-app</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+    <category>Setup</category>
+  </item>
+
+  <!-- POST 37: July 17, 2026 - REACT SERIES POST 1 -->
   <item>
     <title>React Introduction: What is React and Why Should You Learn It?</title>
     <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-introduction-what-is-react-and-why-use-it</link>
@@ -463,8 +477,8 @@
 
   <!-- POST 1: May 21, 2026 -->
   <item>
-    <title>Coding Since 2020</title>
-    <link>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2020</link>
+    <title>Coding Since 2018</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</link>
     <description>RPG Maker, GBA games, and never finishing anything. But that was the start of my coding journey.</description>
     <pubDate>Thu, 21 May 2026 20:00:00 GMT</pubDate>
     <guid>https://kartik-blog.vercel.app/blog-post.html?slug=my-love-and-passion-about-coding-since-2018</guid>

@@ -1391,6 +1391,137 @@ btn.addEventListener('click', function() {
 
 <p>— Kartik</p>`,
   },
+  // ── POST 38 (July 21, 2026) ──────────────────────────────────
+  {
+    slug: "react-setup-first-project-create-react-app",
+    title: "Setting Up Your First React Project: Create React App Explained",
+    excerpt:
+      "Learn how to create your first React project using Create React App. No complex setup, just get started.",
+    image:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    tags: ["React", "JavaScript", "Frontend", "Beginners", "Setup"],
+    author: "Kartik Yadav Gurve",
+    date: "July 21, 2026",
+    readTime: 5,
+    featured: true,
+    content: `<h2 id="intro">Let's Create Your First React Project</h2>
+<p>In the last post, we learned what React is. Now, let's actually build something.</p>
+<p>We'll use <strong>Create React App</strong> — the easiest way to start a React project.</p>
+
+<h2 id="what-is-create-react-app">What is Create React App?</h2>
+<p>Create React App is a tool that sets up everything for you.</p>
+<p>It gives you:</p>
+<ul>
+  <li>✅ A working React project</li>
+  <li>✅ A development server</li>
+  <li>✅ Hot reload (changes appear instantly)</li>
+  <li>✅ Build tools (to create production files)</li>
+  <li>✅ Testing setup</li>
+</ul>
+<p>You don't need to configure anything. It just works.</p>
+
+<h2 id="prerequisites">What You Need Before Starting</h2>
+<p>You need two things installed on your computer:</p>
+<ul>
+  <li><strong>Node.js</strong> — Download from <a href="https://nodejs.org/">nodejs.org</a></li>
+  <li><strong>VS Code</strong> (or any code editor) — Download from <a href="https://code.visualstudio.com/">code.visualstudio.com</a></li>
+</ul>
+<p>To check if Node is installed, open your terminal and type:</p>
+<pre><code>node --version
+npm --version</code></pre>
+
+<h2 id="step-by-step">Step-by-Step: Create Your First React App</h2>
+
+<h3>Step 1: Open Terminal</h3>
+<p>Open your terminal (Command Prompt on Windows, Terminal on Mac/Linux).</p>
+
+<h3>Step 2: Create the App</h3>
+<p>Type this command:</p>
+<pre><code>npx create-react-app my-first-app</code></pre>
+<p>Wait a few minutes. It will download and install everything.</p>
+
+<h3>Step 3: Go Inside the Folder</h3>
+<pre><code>cd my-first-app</code></pre>
+
+<h3>Step 4: Start the Development Server</h3>
+<pre><code>npm start</code></pre>
+
+<h3>Step 5: See Your App</h3>
+<p>Open your browser and go to: <strong>http://localhost:3000</strong></p>
+<p>🎉 You should see the React logo spinning. Your first React app is running!</p>
+
+<h2 id="folder-structure">Understanding the Folder Structure</h2>
+<p>Let's look at what Create React App created:</p>
+<pre><code>my-first-app/
+├── node_modules/   (All dependencies - don't touch)
+├── public/         (Static files - index.html)
+├── src/            (Your React code - this is where you work)
+│   ├── App.js      (Main component)
+│   ├── App.css     (Styles for App)
+│   ├── index.js    (Entry point)
+│   └── index.css   (Global styles)
+├── package.json    (Project info and dependencies)
+└── README.md       (Documentation)</code></pre>
+
+<h2 id="your-first-change">Your First Change</h2>
+<p>Open <strong>src/App.js</strong> in VS Code. You'll see something like this:</p>
+<pre><code>function App() {
+  return (
+    &lt;div className="App"&gt;
+      &lt;header className="App-header"&gt;
+        &lt;img src={logo} className="App-logo" alt="logo" /&gt;
+        &lt;p&gt;
+          Edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload.
+        &lt;/p&gt;
+      &lt;/header&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+<p>Change the text and save the file. Your browser will automatically update.</p>
+
+<h2 id="important-commands">Important Commands to Remember</h2>
+<table>
+  <tr>
+    <th>Command</th>
+    <th>What it does</th>
+  </tr>
+  <tr>
+    <td><code>npm start</code></td>
+    <td>Starts the development server</td>
+  </tr>
+  <tr>
+    <td><code>npm run build</code></td>
+    <td>Creates production-ready files</td>
+  </tr>
+  <tr>
+    <td><code>npm test</code></td>
+    <td>Runs tests</td>
+  </tr>
+  <tr>
+    <td><code>npm run eject</code></td>
+    <td>Removes the hidden configuration</td>
+  </tr>
+</table>
+
+<h2 id="common-issues">Common Issues and Fixes</h2>
+
+<p><strong>Problem:</strong> "Command not found: npx"</p>
+<p><strong>Fix:</strong> Install Node.js from <a href="https://nodejs.org/">nodejs.org</a></p>
+
+<p><strong>Problem:</strong> Port 3000 is already in use</p>
+<p><strong>Fix:</strong> Run <code>npm start</code> and press "y" to use a different port</p>
+
+<p><strong>Problem:</strong> App doesn't show changes</p>
+<p><strong>Fix:</strong> Save the file. The server should auto-reload. If not, restart with <code>npm start</code></p>
+
+<h2 id="whats-next">What's Next?</h2>
+<p>In the next post, we'll learn about <strong>JSX</strong> — the HTML-like syntax React uses.</p>
+
+<p>For now, explore your new React app. Change some text. Have fun!</p>
+
+<p>— Kartik</p>`,
+  },
 ];
 
 // ─── HELPER FUNCTIONS ──────────────────────────────────────────
