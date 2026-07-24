@@ -1522,6 +1522,191 @@ npm --version</code></pre>
 
 <p>— Kartik</p>`,
   },
+  // ── POST 39 (July 24, 2026) ──────────────────────────────────
+  {
+    slug: "react-jsx-explained",
+    title: "JSX Explained: HTML in JavaScript Made Simple",
+    excerpt:
+      "Learn what JSX is, why React uses it, and how to write your first JSX code. No magic, just JavaScript with HTML-like syntax.",
+    image:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    tags: ["React", "JavaScript", "JSX", "Frontend", "Beginners"],
+    author: "Kartik Yadav Gurve",
+    date: "July 24, 2026",
+    readTime: 5,
+    featured: true,
+    content: `<h2 id="intro">What is JSX?</h2>
+<p>JSX stands for <strong>JavaScript XML</strong>. It's a syntax extension that lets you write HTML-like code inside your JavaScript.</p>
+<p>React uses JSX to describe what the UI should look like.</p>
+
+<h2 id="why-jsx">Why Does React Use JSX?</h2>
+<p>Before JSX, developers had to do this:</p>
+<pre><code>// ❌ Old way (without JSX)
+const element = React.createElement(
+  'h1',
+  { className: 'title' },
+  'Hello World'
+);</code></pre>
+<p>With JSX, you write this:</p>
+<pre><code>// ✅ JSX way
+const element = &lt;h1 className="title"&gt;Hello World&lt;/h1&gt;;</code></pre>
+<p>See the difference? JSX is cleaner, easier to read, and feels like writing HTML.</p>
+
+<h2 id="jsx-vs-html">JSX vs HTML: What's Different?</h2>
+<p>JSX looks like HTML, but there are some important differences:</p>
+
+<h3>1. className instead of class</h3>
+<pre><code>// HTML
+&lt;div class="container"&gt;&lt;/div&gt;
+
+// JSX
+&lt;div className="container"&gt;&lt;/div&gt;</code></pre>
+<p>Why? Because 'class' is a reserved word in JavaScript.</p>
+
+<h3>2. camelCase for attributes</h3>
+<pre><code>// HTML
+&lt;label for="name"&gt;Name&lt;/label&gt;
+
+// JSX
+&lt;label htmlFor="name"&gt;Name&lt;/label&gt;</code></pre>
+<p>Other examples: <code>onClick</code>, <code>onChange</code>, <code>onSubmit</code></p>
+
+<h3>3. Self-closing tags must be closed</h3>
+<pre><code>// HTML (works)
+&lt;img src="image.jpg"&gt;
+
+// JSX (must close)
+&lt;img src="image.jpg" /&gt;</code></pre>
+
+<h3>4. JavaScript inside curly braces { }</h3>
+<pre><code>const name = "Kartik";
+const element = &lt;h1&gt;Hello, {name}!&lt;/h1&gt;;
+// Output: Hello, Kartik!</code></pre>
+
+<h2 id="jsx-examples">JSX Examples</h2>
+
+<h3>Example 1: Basic JSX</h3>
+<pre><code>function Welcome() {
+  return &lt;h1&gt;Welcome to React!&lt;/h1&gt;;
+}</code></pre>
+
+<h3>Example 2: JSX with JavaScript</h3>
+<pre><code>function Greeting() {
+  const user = {
+    firstName: 'Kartik',
+    lastName: 'Yadav'
+  };
+  
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello, {user.firstName} {user.lastName}!&lt;/h1&gt;
+      &lt;p&gt;Today is {new Date().toLocaleDateString()}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+<h3>Example 3: JSX with Conditional Rendering</h3>
+<pre><code>function StatusMessage({ isLoggedIn }) {
+  return (
+    &lt;div&gt;
+      {isLoggedIn ? (
+        &lt;p&gt;Welcome back! &lt;/p&gt;
+      ) : (
+        &lt;p&gt;Please log in &lt;/p&gt;
+      )}
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+<h3>Example 4: JSX with Lists</h3>
+<pre><code>function TodoList() {
+  const todos = ['Learn React', 'Build a project', 'Deploy to Vercel'];
+  
+  return (
+    &lt;ul&gt;
+      {todos.map((todo, index) => (
+        &lt;li key={index}&gt;{todo}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code></pre>
+
+<h2 id="jsx-rules">Important JSX Rules to Remember</h2>
+
+<p><strong>1. Return a single parent element</strong></p>
+<pre><code>// ❌ Wrong - multiple elements without a wrapper
+function App() {
+  return (
+    &lt;h1&gt;Hello&lt;/h1&gt;
+    &lt;p&gt;World&lt;/p&gt;
+  );
+}
+
+// ✅ Correct - wrapped in a div or fragment
+function App() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Hello&lt;/h1&gt;
+      &lt;p&gt;World&lt;/p&gt;
+    &lt;/&gt;
+  );
+}</code></pre>
+<p>React Fragment <code>&lt;&gt;...&lt;/&gt;</code> doesn't add extra DOM elements.</p>
+
+<p><strong>2. Use curly braces for JavaScript expressions</strong></p>
+<pre><code>// ✅ Correct - using curly braces
+const age = 25;
+return &lt;p&gt;Age: {age}&lt;/p&gt;;
+
+// ❌ Wrong - no curly braces
+return &lt;p&gt;Age: age&lt;/p&gt;;  // Shows "Age: age" literally</code></pre>
+
+<p><strong>3. Comments in JSX</strong></p>
+<pre><code>function App() {
+  return (
+    &lt;div&gt;
+      {/* This is a comment in JSX */}
+      &lt;p&gt;Hello World&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+<h2 id="why-jsx-matters">Why JSX Matters</h2>
+<ul>
+  <li><strong>Readable</strong> — Looks like the final UI</li>
+  <li><strong>Familiar</strong> — HTML developers feel at home</li>
+  <li><strong>Powerful</strong> — Full JavaScript power inside HTML</li>
+  <li><strong>Safe</strong> — Prevents injection attacks automatically</li>
+</ul>
+
+<h2 id="practice">Try It Yourself</h2>
+<p>Open your React project from the last post and replace <strong>src/App.js</strong> with:</p>
+<pre><code>function App() {
+  const name = "React Learner";
+  const hobbies = ["Reading", "Coding", "Gaming"];
+  
+  return (
+    &lt;div style={{ padding: "20px" }}&gt;
+      &lt;h1&gt;Hello, {name}! &lt;/h1&gt;
+      &lt;h2&gt;My Hobbies:&lt;/h2&gt;
+      &lt;ul&gt;
+        {hobbies.map((hobby, index) => (
+          &lt;li key={index}&gt;{hobby}&lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+      &lt;p&gt;{new Date().toLocaleDateString()}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+<p>Save and see the changes!</p>
+
+<h2 id="whats-next">What's Next?</h2>
+<p>In the next post, we'll learn about <strong>Components and Props</strong> — the building blocks of any React app.</p>
+
+<p>— Kartik</p>`,
+  },
 ];
 
 // ─── HELPER FUNCTIONS ──────────────────────────────────────────

@@ -5,8 +5,22 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, System Design, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Tue, 21 Jul 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 24 Jul 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 39: July 24, 2026 - REACT SERIES POST 3 -->
+  <item>
+    <title>JSX Explained: HTML in JavaScript Made Simple</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-jsx-explained</link>
+    <description>Learn what JSX is, why React uses it, and how to write your first JSX code. No magic, just JavaScript with HTML-like syntax.</description>
+    <pubDate>Fri, 24 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-jsx-explained</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>JSX</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+  </item>
 
   <!-- POST 38: July 21, 2026 - REACT SERIES POST 2 -->
   <item>
