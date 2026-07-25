@@ -1707,6 +1707,176 @@ export default App;</code></pre>
 
 <p>— Kartik</p>`,
   },
+  // ── POST 40 (July 25, 2026) ──────────────────────────────────
+  {
+    slug: "react-vite-setup-guide",
+    title: "React with Vite: Faster Setup, Better Performance",
+    excerpt:
+      "Learn how to set up React using Vite — the modern, faster alternative to Create React App. Simple steps with common issues fixed.",
+    image:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    tags: ["React", "Vite", "JavaScript", "Frontend", "Beginners", "Setup"],
+    author: "Kartik Yadav Gurve",
+    date: "July 25, 2026",
+    readTime: 4,
+    featured: true,
+    content: `<h2 id="intro">What is Vite?</h2>
+<p>Vite is a modern build tool for frontend development. It's faster than Create React App.</p>
+<p>Think of Vite as a faster way to start React projects. No waiting minutes for setup.</p>
+
+<h2 id="why-vite">Why Use Vite Instead of Create React App?</h2>
+<ul>
+  <li><strong>⚡ Faster</strong> — Setup takes seconds, not minutes</li>
+  <li><strong>🚀 Instant reload</strong> — Changes appear immediately</li>
+  <li><strong>📦 Smaller</strong> — Less unnecessary code</li>
+  <li><strong>🔧 Modern</strong> — Uses ES modules, better for new projects</li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need Node.js installed. Check with:</p>
+<pre><code>node --version
+npm --version</code></pre>
+
+<h2 id="step-by-step">Step-by-Step: Create React App with Vite</h2>
+
+<h3>Step 1: Create a new Vite project</h3>
+<p>Open your terminal and run:</p>
+<pre><code>npm create vite@latest my-vite-app</code></pre>
+
+<h3>Step 2: Choose React</h3>
+<p>You'll see options. Select:</p>
+<pre><code>✔ Select a framework: » React
+✔ Select a variant: » JavaScript</code></pre>
+
+<h3>Step 3: Go inside the folder</h3>
+<pre><code>cd my-vite-app</code></pre>
+
+<h3>Step 4: Install dependencies</h3>
+<pre><code>npm install</code></pre>
+
+<h3>Step 5: Start the development server</h3>
+<pre><code>npm run dev</code></pre>
+
+<h3>Step 6: Open your browser</h3>
+<p>Go to: <strong>http://localhost:5173</strong></p>
+<p>🎉 Your Vite React app is running!</p>
+
+<h2 id="folder-structure">Vite React Folder Structure</h2>
+<pre><code>my-vite-app/
+├── node_modules/
+├── src/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── main.jsx
+│   └── index.css
+├── public/
+├── index.html          (✅ Different from CRA)
+├── vite.config.js      (Vite configuration)
+├── package.json
+└── README.md</code></pre>
+
+<h2 id="differences">Vite vs Create React App: Key Differences</h2>
+
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Create React App</th>
+    <th>Vite</th>
+  </tr>
+  <tr>
+    <td>Start command</td>
+    <td><code>npm start</code></td>
+    <td><code>npm run dev</code></td>
+  </tr>
+  <tr>
+    <td>Port</td>
+    <td>3000</td>
+    <td>5173</td>
+  </tr>
+  <tr>
+    <td>File extensions</td>
+    <td><code>.js</code></td>
+    <td><code>.jsx</code> (recommended)</td>
+  </tr>
+  <tr>
+    <td>Entry file</td>
+    <td><code>src/index.js</code></td>
+    <td><code>src/main.jsx</code></td>
+  </tr>
+  <tr>
+    <td>HTML file</td>
+    <td><code>public/index.html</code></td>
+    <td><code>index.html</code> (root)</td>
+  </tr>
+</table>
+
+<h2 id="common-issues">Common Issues and How to Fix Them</h2>
+
+<h3>Issue 1: "Command not found: npm"</h3>
+<p><strong>Fix:</strong> Install Node.js from <a href="https://nodejs.org/">nodejs.org</a></p>
+
+<h3>Issue 2: Port 5173 already in use</h3>
+<p><strong>Fix:</strong> Use a different port:</p>
+<pre><code>npm run dev -- --port 5174</code></pre>
+
+<h3>Issue 3: Blank page after starting</h3>
+<p><strong>Fix:</strong> Check your terminal for errors. Common causes:</p>
+<ul>
+  <li>Missing dependencies — run <code>npm install</code></li>
+  <li>Syntax error in your code</li>
+  <li>Check <code>main.jsx</code> has correct imports</li>
+</ul>
+
+<h3>Issue 4: Changes not showing</h3>
+<p><strong>Fix:</strong> Restart the dev server:</p>
+<pre><code>Ctrl + C (stop)
+npm run dev (start again)</code></pre>
+
+<h3>Issue 5: "Can't find module" error</h3>
+<p><strong>Fix:</strong> Delete <code>node_modules</code> and reinstall:</p>
+<pre><code>rm -rf node_modules
+npm install</code></pre>
+
+<h2 id="your-first-component">Your First Component in Vite</h2>
+<p>Open <strong>src/App.jsx</strong> and change it to:</p>
+<pre><code>function App() {
+  const name = "React with Vite";
+  
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello from {name}! ⚡&lt;/h1&gt;
+      &lt;p&gt;This is faster than Create React App.&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+
+<h2 id="build-for-production">Building for Production</h2>
+<p>When you're ready to deploy:</p>
+<pre><code>npm run build</code></pre>
+<p>This creates a <strong>dist</strong> folder with your production files.</p>
+
+<h2 id="vite-commands">Quick Commands Reference</h2>
+<pre><code>npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm install      # Install dependencies</code></pre>
+
+<h2 id="summary">Summary</h2>
+<ul>
+  <li>✅ Vite is faster than Create React App</li>
+  <li>✅ Setup takes seconds</li>
+  <li>✅ Uses <code>npm run dev</code> to start</li>
+  <li>✅ Runs on port 5173</li>
+  <li>✅ Files use <code>.jsx</code> extension</li>
+</ul>
+
+<h2 id="whats-next">What's Next?</h2>
+<p>In the next post, we'll learn about <strong>Components and Props</strong> — the building blocks of React apps.</p>
+
+<p>— Kartik</p>`,
+  },
 ];
 
 // ─── HELPER FUNCTIONS ──────────────────────────────────────────

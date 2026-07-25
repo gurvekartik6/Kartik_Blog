@@ -5,8 +5,23 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, System Design, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Fri, 24 Jul 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 25 Jul 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 40: July 25, 2026 - REACT SERIES POST 4 -->
+  <item>
+    <title>React with Vite: Faster Setup, Better Performance</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-vite-setup-guide</link>
+    <description>Learn how to set up React using Vite — the modern, faster alternative to Create React App. Simple steps with common issues fixed.</description>
+    <pubDate>Sat, 25 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-vite-setup-guide</guid>
+    <category>React</category>
+    <category>Vite</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+    <category>Setup</category>
+  </item>
 
   <!-- POST 39: July 24, 2026 - REACT SERIES POST 3 -->
   <item>
