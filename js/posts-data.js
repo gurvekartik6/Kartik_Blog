@@ -1877,6 +1877,248 @@ npm install      # Install dependencies</code></pre>
 
 <p>— Kartik</p>`,
   },
+  // ── POST 41 (July 26, 2026) ──────────────────────────────────
+  {
+    slug: "react-understanding-first-app",
+    title: "Understanding Your First React App: What's Inside?",
+    excerpt:
+      "Open your React app and feel lost? Let's break down every file and folder. No confusion, just clear explanations.",
+    image:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    tags: ["React", "JavaScript", "Frontend", "Beginners", "Setup"],
+    author: "Kartik Yadav Gurve",
+    date: "July 26, 2026",
+    readTime: 5,
+    featured: true,
+    content: `<h2 id="intro">You Created a React App. Now What?</h2>
+<p>You ran <code>npm create vite@latest my-app</code> or <code>npx create-react-app my-app</code>.</p>
+<p>You see a bunch of files. You don't know what they do.</p>
+<p>Let's fix that.</p>
+
+<h2 id="folder-structure">The Folder Structure</h2>
+<p>Here's what you see:</p>
+<pre><code>my-app/
+├── node_modules/     (All the code React needs - don't touch)
+├── public/           (Static files - images, favicon)
+├── src/              (YOUR CODE - this is where you work)
+│   ├── App.jsx       (Main component)
+│   ├── App.css       (Styles for App)
+│   ├── main.jsx      (Entry point - starts everything)
+│   └── index.css     (Global styles)
+├── index.html        (The page users see)
+├── package.json      (List of dependencies)
+├── vite.config.js    (Vite settings - if using Vite)
+└── README.md         (Documentation)</code></pre>
+
+<h2 id="the-entry-point">The Entry Point: main.jsx</h2>
+<p>Open <strong>src/main.jsx</strong> (or <strong>src/index.js</strong> in Create React App):</p>
+<pre><code>import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  &lt;React.StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;
+)</code></pre>
+
+<p><strong>What each line does:</strong></p>
+<ul>
+  <li><code>import React from 'react'</code> — Brings React into your file</li>
+  <li><code>import ReactDOM from 'react-dom/client'</code> — Helps React talk to the browser</li>
+  <li><code>import App from './App.jsx'</code> — Brings your main component</li>
+  <li><code>import './index.css'</code> — Brings global styles</li>
+  <li><code>ReactDOM.createRoot(document.getElementById('root'))</code> — Finds the 'root' div in index.html</li>
+  <li><code>.render(&lt;App /&gt;)</code> — Puts your App component on the screen</li>
+</ul>
+
+<h2 id="the-html-file">The HTML File: index.html</h2>
+<p>Open <strong>index.html</strong> (in the root folder):</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;My App&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;    &lt;!-- React puts everything here --&gt;
+    &lt;script type="module" src="/src/main.jsx"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p><strong>What to notice:</strong></p>
+<ul>
+  <li><code>&lt;div id="root"&gt;&lt;/div&gt;</code> — This empty div is where React puts your app</li>
+  <li><code>src="/src/main.jsx"</code> — This loads your React code</li>
+</ul>
+
+<h2 id="the-main-component">The Main Component: App.jsx</h2>
+<p>Open <strong>src/App.jsx</strong>:</p>
+<pre><code>import './App.css'
+
+function App() {
+  return (
+    &lt;div className="App"&gt;
+      &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App</code></pre>
+
+<p><strong>What's happening:</strong></p>
+<ul>
+  <li><code>function App()</code> — A function that returns HTML-like code (JSX)</li>
+  <li><code>return (...)</code> — What will be shown on screen</li>
+  <li><code>export default App</code> — Makes this available to other files (main.jsx uses it)</li>
+</ul>
+
+<h2 id="the-styles">The Styles: App.css and index.css</h2>
+<p><strong>index.css</strong> — Styles that apply to your entire app</p>
+<p><strong>App.css</strong> — Styles that apply only to your App component</p>
+<p>Both are regular CSS:</p>
+<pre><code>/* App.css */
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: blue;
+}</code></pre>
+
+<h2 id="packagejson">The Heart: package.json</h2>
+<p>Open <strong>package.json</strong>:</p>
+<pre><code>{
+  "name": "my-app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",           // npm run dev - starts the server
+    "build": "vite build",   // npm run build - creates production files
+    "preview": "vite preview" // npm run preview - preview production build
+  },
+  "dependencies": {
+    "react": "^18.2.0",      // React library
+    "react-dom": "^18.2.0"   // React DOM (talks to browser)
+  },
+  "devDependencies": {
+    "vite": "^4.4.0"         // Vite build tool
+  }
+}</code></pre>
+
+<h2 id="how-it-all-works">How It All Works Together</h2>
+
+<p>Here's the flow:</p>
+
+<ol>
+  <li>You run <code>npm run dev</code></li>
+  <li>Vite starts a server</li>
+  <li>You go to <code>http://localhost:5173</code></li>
+  <li>Browser loads <strong>index.html</strong></li>
+  <li>index.html loads <strong>main.jsx</strong></li>
+  <li>main.jsx finds <strong>#root</strong> div</li>
+  <li>main.jsx imports and renders <strong>App</strong> component</li>
+  <li>App returns HTML (JSX) that goes inside #root</li>
+  <li>You see your app! 🎉</li>
+</ol>
+
+<h2 id="what-to-edit">What Should You Edit?</h2>
+
+<p><strong>✅ Edit these files:</strong></p>
+<ul>
+  <li><code>src/App.jsx</code> — Your main component</li>
+  <li><code>src/App.css</code> — Your styles</li>
+  <li><code>src/index.css</code> — Global styles</li>
+  <li><code>index.html</code> — Page title and meta tags</li>
+</ul>
+
+<p><strong>❌ Don't touch these:</strong></p>
+<ul>
+  <li><code>node_modules/</code> — Not needed</li>
+  <li><code>package-lock.json</code> — Auto-generated</li>
+  <li><code>vite.config.js</code> — Only if you know what you're doing</li>
+</ul>
+
+<h2 id="common-confusion">Common Confusion: .js vs .jsx</h2>
+<p>Both work. The difference is:</p>
+<ul>
+  <li><strong>.js</strong> — Regular JavaScript</li>
+  <li><strong>.jsx</strong> — JavaScript with HTML-like code (JSX)</li>
+</ul>
+<p>If your file has HTML-like code, use <strong>.jsx</strong>. It helps your editor show better syntax highlighting.</p>
+
+<h2 id="quick-reference">Quick Reference: What Each File Does</h2>
+
+<table>
+  <tr>
+    <th>File</th>
+    <th>Purpose</th>
+  </tr>
+  <tr>
+    <td><code>main.jsx</code></td>
+    <td>Starts the app, renders App into #root</td>
+  </tr>
+  <tr>
+    <td><code>App.jsx</code></td>
+    <td>Your main component - where you build your UI</td>
+  </tr>
+  <tr>
+    <td><code>index.html</code></td>
+    <td>The page that loads your React app</td>
+  </tr>
+  <tr>
+    <td><code>package.json</code></td>
+    <td>Lists dependencies and scripts</td>
+  </tr>
+  <tr>
+    <td><code>App.css</code></td>
+    <td>Styles for your App component</td>
+  </tr>
+  <tr>
+    <td><code>index.css</code></td>
+    <td>Styles for your entire app</td>
+  </tr>
+</table>
+
+<h2 id="practice">Try This</h2>
+<p>Make these changes to see how the app works:</p>
+
+<p><strong>1. Change the title:</strong></p>
+<p>In <strong>index.html</strong>, change:</p>
+<pre><code>&lt;title&gt;My App&lt;/title&gt;
+&lt;title&gt;My First React App&lt;/title&gt;</code></pre>
+
+<p><strong>2. Change the content:</strong></p>
+<p>In <strong>App.jsx</strong>, change:</p>
+<pre><code>&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;h1&gt;My React App is Working! 🚀&lt;/h1&gt;</code></pre>
+
+<p><strong>3. Add a new element:</strong></p>
+<pre><code>function App() {
+  return (
+    &lt;div className="App"&gt;
+      &lt;h1&gt;My React App is Working! 🚀&lt;/h1&gt;
+      &lt;p&gt;I understand how React works now.&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+
+<h2 id="summary">Summary</h2>
+<ul>
+  <li>✅ <strong>main.jsx</strong> is the entry point</li>
+  <li>✅ <strong>index.html</strong> has a #root div where React renders</li>
+  <li>✅ <strong>App.jsx</strong> is where you build your UI</li>
+  <li>✅ <strong>package.json</strong> manages dependencies</li>
+  <li>✅ Everything flows from index.html → main.jsx → App.jsx</li>
+</ul>
+
+<h2 id="whats-next">What's Next?</h2>
+<p>Now you know what every file does. In the next post, we'll learn about <strong>Components</strong> — how to create reusable pieces of your UI.</p>
+
+<p>— Kartik</p>`,
+  },
 ];
 
 // ─── HELPER FUNCTIONS ──────────────────────────────────────────

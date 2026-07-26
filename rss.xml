@@ -5,8 +5,22 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, System Design, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Sat, 25 Jul 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 26 Jul 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 41: July 26, 2026 - REACT SERIES POST 5 -->
+  <item>
+    <title>Understanding Your First React App: What's Inside?</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-understanding-first-app</link>
+    <description>Open your React app and feel lost? Let's break down every file and folder. No confusion, just clear explanations.</description>
+    <pubDate>Sun, 26 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-understanding-first-app</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+    <category>Setup</category>
+  </item>
 
   <!-- POST 40: July 25, 2026 - REACT SERIES POST 4 -->
   <item>
