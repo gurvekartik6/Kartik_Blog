@@ -5,8 +5,23 @@
   <link>https://kartik-blog.vercel.app/</link>
   <description>Spring Boot, Java, Hibernate, JPA, Docker, Kubernetes, React, Git, REST API, JWT, Security, System Design, and book takeaways</description>
   <language>en</language>
-  <lastBuildDate>Sun, 26 Jul 2026 20:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 28 Jul 2026 20:00:00 GMT</lastBuildDate>
   <atom:link href="https://kartik-blog.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+
+  <!-- POST 42: July 28, 2026 - REACT SERIES POST 6 -->
+  <item>
+    <title>Components and Props: Building Reusable UI Pieces</title>
+    <link>https://kartik-blog.vercel.app/blog-post.html?slug=react-components-props</link>
+    <description>Learn how to break your UI into reusable components and pass data between them using props. Components are LEGO bricks for your app.</description>
+    <pubDate>Tue, 28 Jul 2026 20:00:00 GMT</pubDate>
+    <guid>https://kartik-blog.vercel.app/blog-post.html?slug=react-components-props</guid>
+    <category>React</category>
+    <category>JavaScript</category>
+    <category>Components</category>
+    <category>Props</category>
+    <category>Frontend</category>
+    <category>Beginners</category>
+  </item>
 
   <!-- POST 41: July 26, 2026 - REACT SERIES POST 5 -->
   <item>

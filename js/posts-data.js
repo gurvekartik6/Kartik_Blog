@@ -2119,6 +2119,275 @@ h1 {
 
 <p>— Kartik</p>`,
   },
+  // ── POST 42 (July 28, 2026) ──────────────────────────────────
+  {
+    slug: "react-components-props",
+    title: "Components and Props: Building Reusable UI Pieces",
+    excerpt:
+      "Learn how to break your UI into reusable components and pass data between them using props.",
+    image:
+      "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=800&h=400&fit=crop",
+    tags: [
+      "React",
+      "JavaScript",
+      "Components",
+      "Props",
+      "Frontend",
+      "Beginners",
+    ],
+    author: "Kartik Yadav Gurve",
+    date: "July 28, 2026",
+    readTime: 6,
+    featured: true,
+    content: `<h2 id="intro">What Are Components?</h2>
+<p>Components are the building blocks of React.</p>
+<p>Think of them like LEGO bricks. You build small pieces, then combine them to make something big.</p>
+<p>Every React app is made of components.</p>
+
+<h2 id="two-types">Two Types of Components</h2>
+
+<h3>1. Function Components (Modern Way)</h3>
+<pre><code>function Welcome() {
+  return &lt;h1&gt;Hello!&lt;/h1&gt;
+}</code></pre>
+
+<h3>2. Class Components (Older Way - Not Used Much Now)</h3>
+<pre><code>class Welcome extends React.Component {
+  render() {
+    return &lt;h1&gt;Hello!&lt;/h1&gt;
+  }
+}</code></pre>
+
+<p><strong>We'll use Function Components. They're simpler.</strong></p>
+
+<h2 id="creating-components">Creating Your First Component</h2>
+<p>Create a new file <strong>src/Welcome.jsx</strong>:</p>
+<pre><code>function Welcome() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Welcome to React!&lt;/h1&gt;
+      &lt;p&gt;This is my first component.&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default Welcome</code></pre>
+
+<p>Now use it in <strong>App.jsx</strong>:</p>
+<pre><code>import Welcome from './Welcome'
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome /&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App</code></pre>
+
+<p>That's it! You created and used your first component.</p>
+
+<h2 id="what-are-props">What Are Props?</h2>
+<p>Props = Properties. They're how you pass data from parent to child components.</p>
+<p>Think of props like function arguments. They make components reusable.</p>
+
+<h2 id="props-example">Props Example</h2>
+
+<p><strong>Step 1: Create a component that accepts props</strong></p>
+<p>Create <strong>src/UserCard.jsx</strong>:</p>
+<pre><code>function UserCard(props) {
+  return (
+    &lt;div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}&gt;
+      &lt;h2&gt;{props.name}&lt;/h2&gt;
+      &lt;p&gt;Age: {props.age}&lt;/p&gt;
+      &lt;p&gt;City: {props.city}&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default UserCard</code></pre>
+
+<p><strong>Step 2: Use it and pass props</strong></p>
+<p>In <strong>App.jsx</strong>:</p>
+<pre><code>import UserCard from './UserCard'
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;UserCard name="Kartik" age="22" city="Mumbai" /&gt;
+      &lt;UserCard name="Raj" age="25" city="Delhi" /&gt;
+      &lt;UserCard name="Priya" age="24" city="Bangalore" /&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App</code></pre>
+
+<p>See how we reused the same component with different data? That's the power of props.</p>
+
+<h2 id="destructuring-props">Destructuring Props (Cleaner Code)</h2>
+<p>Instead of <code>props.name</code>, you can do this:</p>
+<pre><code>function UserCard({ name, age, city }) {
+  return (
+    &lt;div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}&gt;
+      &lt;h2&gt;{name}&lt;/h2&gt;
+      &lt;p&gt;Age: {age}&lt;/p&gt;
+      &lt;p&gt;City: {city}&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+<p>Much cleaner!</p>
+
+<h2 id="default-props">Default Props</h2>
+<p>What if someone forgets to pass a prop? Set default values:</p>
+<pre><code>function UserCard({ name = "Unknown", age = "N/A", city = "Unknown" }) {
+  return (
+    &lt;div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px' }}&gt;
+      &lt;h2&gt;{name}&lt;/h2&gt;
+      &lt;p&gt;Age: {age}&lt;/p&gt;
+      &lt;p&gt;City: {city}&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+
+<h2 id="children-prop">The Special "children" Prop</h2>
+<p>You can pass components or HTML inside other components:</p>
+<pre><code>function Card({ children }) {
+  return (
+    &lt;div style={{ border: '2px solid blue', padding: '20px', borderRadius: '8px' }}&gt;
+      {children}
+    &lt;/div&gt;
+  )
+}
+
+// Usage
+function App() {
+  return (
+    &lt;Card&gt;
+      &lt;h1&gt;Hello World!&lt;/h1&gt;
+      &lt;p&gt;This is inside the card.&lt;/p&gt;
+    &lt;/Card&gt;
+  )
+}</code></pre>
+
+<h2 id="component-composition">Component Composition</h2>
+<p>You can build complex UIs by combining simple components:</p>
+<pre><code>function Header({ title }) {
+  return &lt;h1&gt;{title}&lt;/h1&gt;
+}
+
+function Content({ text }) {
+  return &lt;p&gt;{text}&lt;/p&gt;
+}
+
+function Footer() {
+  return &lt;footer&gt;© 2026 My App&lt;/footer&gt;
+}
+
+function Page() {
+  return (
+    &lt;div&gt;
+      &lt;Header title="My Blog" /&gt;
+      &lt;Content text="This is the content of my page." /&gt;
+      &lt;Footer /&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+
+<h2 id="rules">Important Rules for Components and Props</h2>
+
+<p><strong>1. Component names must start with a capital letter</strong></p>
+<pre><code>// ✅ Correct
+function Welcome() { }
+
+// ❌ Wrong
+function welcome() { }</code></pre>
+
+<p><strong>2. Components must return a single parent element</strong></p>
+<pre><code>// ✅ Correct
+function App() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;Hello&lt;/h1&gt;
+      &lt;p&gt;World&lt;/p&gt;
+    &lt;/&gt;
+  )
+}
+
+// ❌ Wrong
+function App() {
+  return (
+    &lt;h1&gt;Hello&lt;/h1&gt;
+    &lt;p&gt;World&lt;/p&gt;
+  )
+}</code></pre>
+
+<p><strong>3. Props are read-only (never change them)</strong></p>
+<pre><code>// ❌ Wrong - don't modify props
+function Welcome({ name }) {
+  name = "Changed" // This is not allowed!
+  return &lt;h1&gt;{name}&lt;/h1&gt;
+}</code></pre>
+
+<h2 id="practice">Try It Yourself</h2>
+<p>Create a <strong>Product</strong> component that shows product name, price, and description.</p>
+
+<p><strong>Product.jsx:</strong></p>
+<pre><code>function Product({ name, price, description }) {
+  return (
+    &lt;div style={{ border: '1px solid #ddd', padding: '15px', margin: '10px', borderRadius: '5px' }}&gt;
+      &lt;h3&gt;{name}&lt;/h3&gt;
+      &lt;p&gt;Price: ₹{price}&lt;/p&gt;
+      &lt;p&gt;{description}&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default Product</code></pre>
+
+<p><strong>App.jsx:</strong></p>
+<pre><code>import Product from './Product'
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Product 
+        name="Laptop" 
+        price="50000" 
+        description="16GB RAM, 512GB SSD" 
+      /&gt;
+      &lt;Product 
+        name="Phone" 
+        price="25000" 
+        description="6.5 inch display, 128GB storage" 
+      /&gt;
+      &lt;Product 
+        name="Headphones" 
+        price="2000" 
+        description="Wireless, noise cancelling" 
+      /&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App</code></pre>
+
+<h2 id="summary">Summary</h2>
+<ul>
+  <li>✅ Components are reusable UI pieces</li>
+  <li>✅ Props pass data from parent to child</li>
+  <li>✅ Components start with capital letters</li>
+  <li>✅ Props are read-only</li>
+  <li>✅ Use destructuring for cleaner code</li>
+  <li>✅ children prop lets you pass nested content</li>
+</ul>
+
+<h2 id="whats-next">What's Next?</h2>
+<p>Now you know how to create components and pass data with props. Next, we'll learn about <strong>State</strong> — how to make components remember and change data.</p>
+
+<p>— Kartik</p>`,
+  },
 ];
 
 // ─── HELPER FUNCTIONS ──────────────────────────────────────────
