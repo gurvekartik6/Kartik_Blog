@@ -2386,7 +2386,7 @@ export default App</code></pre>
 <h2 id="whats-next">What's Next?</h2>
 <p>Now you know how to create components and pass data with props. Next, we'll learn about <strong>State</strong> — how to make components remember and change data.</p>
 
-<p>— Kartik</p>`,
+<p>— Kartik Gurve</p>`,
   },
 ];
 
