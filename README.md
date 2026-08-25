@@ -7,18 +7,6 @@ A personal developer blog sharing knowledge about Spring Boot, Java, Hibernate, 
 
 🔗 **Live Demo:** [kartik-blog.vercel.app](https://kartik-blog.vercel.app/)
 
----
-
-## 📚 Topics Covered
-
-- Spring Boot & Java
-- Hibernate ORM
-- System Design (Microservices, Caching, Load Balancing, Sharding, API Gateway)
-- Docker & Kubernetes
-- Git & GitHub
-- Book Takeaways & Personal Experiences
-
----
 
 ## ✨ Features
 
